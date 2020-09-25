@@ -37,7 +37,7 @@ const Header = props => {
             <div className="container">
                 <div className="head-top">
                     <div className="logo">
-                        <Link to="/"><img src="images/logo.jpg" alt="" /></Link>
+                        <Link to="/"><img src="images/logo1.png" alt="" /></Link>
                     </div>
                     <div className=" h_menu4">
                         <ul className="memenu skyblue">
