@@ -10,8 +10,8 @@ export default function Navbar() {
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >
-                <SwiperSlide> <img src="images/bn1.png " width="1100" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="images/bn.png" width="1100" /></SwiperSlide>
+                <SwiperSlide> <img src="images/1.png " width="1100" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="images/2.png" width="1100" /></SwiperSlide>
 
             </Swiper>
 
