@@ -1,0 +1,29 @@
+#Main
+Header : mã màu : rgb(41 41 40 / 1)
+Footer : mã màu : rgb(41 41 40 / 1)
+Logo : Logo.jpg
+Font chữ : 'Roboto', sans-serif;
+	    color : black, #2c3e50	
+Button: background color : black;
+	color : while
+input : background color : while
+	color: black
+
+#Admin
+Topbar : background color : while
+	 color: #e3e6f0
+	 font chữ : 'Roboto', sans-serif;
+Sidebar : background-color: #474849;
+    	  background-image: linear-gradient(180deg, #4d4d4d 10%, #5073d7 100%);
+	  color : white
+	  font chữ : 'Roboto', sans-serif;
+Content : background-color:#f8f9fc 
+	  color : #858796,#4e73df
+	  font chữ :'Roboto', sans-serif;
+	  button : color : white
+		   background color : #e74a3b, #4e73df, #5a5c69
+	  input : background-color : white
+		  color : #858796
+		   
+Footer : background color : while
+	 color: #e3e6f0

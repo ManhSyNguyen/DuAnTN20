@@ -1,0 +1,7 @@
+- Product Backlog
+ + RQ01 - Quản lý tài khoản
+ + RQ02 - Quản lý kho hàng
+ + RQ03 - Quản lý đơn hàng
+-Task :
+ + Phác thảo, thiết kế XD, DB
+

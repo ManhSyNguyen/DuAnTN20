@@ -1,0 +1,58 @@
+Shop Thời Trang DHM Color
+Mặt hàng :
+Quần áo
+Giày
+User Story:
+Tôi muốn quản lý tài khoản
+Tôi muốn quản lý sản phẩm
+Tôi muốn quản lý đơn hàng
+Tôi muốn khách hàng xem sản phẩm qua hình ảnh
+Tôi muốn khách hàng xem được tổng tiền mua hàng
+Tôi muốn người dùng mua được sản phẩm qua mạng
+Tôi muốn khách hàng thanh toán online
+ProducBacklog:
+quản lý tài khoản
+quản lý sản phẩm
+quản lý đơn hàng
+quản lý Trang Web
+Task:
+Phác thảo, thiết kế psd, DB
+- Background:
++ Màn quản lý tài khoản 
++ Màn hình đăng kí
++ Mà hình đăng nhập
++ Quên mk
++ Đổi mk
++ sắp xếp sản phẩm
++ Tìm sản phẩm
++ quản lý đơn hàng
++ CRUD sản Phẩm
++ CRUD lý đơn hàng
++ Chi tiết đơn hàng
++ hóa đơn ( doanh thu ) 
++ Hóa đơn chi tiểt
++ màn hình quản lý Trang Web ( user, admin, manager , guest )
+- quản lý tài khoản
++ CRUD account
++ Tìm kiếm
++ acccount ( sign in , sign out, change pass , forget password)
+- Quản lý sản phẩm: 
++ CRUD  ( Admin ) 
++ lịch sử (user) 
+- Quản lý đơn hàng
++ Crud ( admin, manager ) 
+- Quản lý trang web : 
++ thêm vào giỏ hàng
++ thanh toán 
++ tìm sản phẩm
++ Thông tin sản phẩm 
+
+
+
+
+
+
+
+
+
+

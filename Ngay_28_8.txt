@@ -1,0 +1,25 @@
+       Tên thuong hieu : DHM Color
+* Quản lý tài khoản : 
+- tài khoản admin 
++ Quản lý tài khoản , đơn hàng , kho hàng
+- tài khoản Khach hang  
++ Mua hàng , xem thông đơn hàng của khách hàng 
+- tai khoan Nhan Vien
++ Bán hàng, Quản lý đơn hàng 
+
+* Quản lý Kho hang 
+- Xuất nhập sản phẩm 
++ Thêm , sửa ,xóa sản phẩm 
++ Thêm ,sửa , xóa chi tiết sản phẩm 
++ thêm, sửa, xóa Hãng  
++ thêm ,sửa xóa Size
++ thêm ,sửa ,xóa Màu sản phẩm 
+
+* Quản lý đơn hang 
+- Thêm , Sửa , xóa đơn ( tình trạng hóa đơn ) 
+- thêm sửa ,xóa chi tiết ,
+- mua hàng 
+-phương thức thanh toán 
+- thông kê doanh thu 
++ Tim kiếm sản phẩm 
+
