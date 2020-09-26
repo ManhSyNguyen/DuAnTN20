@@ -34,10 +34,10 @@ const Category = ({ categorys, onRemovect }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {categorys.map(({ id, namedm, mota }, index) => (
+                                    {categorys.map(({ id, ten_danhmuc, mota }, index) => (
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{namedm}</td>
+                                            <td>{ten_danhmuc}</td>
                                             <td>{mota}</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandleCt(id)}>Xóa</button>&nbsp;

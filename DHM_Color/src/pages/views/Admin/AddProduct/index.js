@@ -2,24 +2,22 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link, useHistory } from 'react-router-dom'
 import { useForm } from "react-hook-form";
-import { Editor } from '@tinymce/tinymce-react'
 import firebase from '../../../../firebase'
 const AddProduct = ({ onAdd, categorys }) => {
     const { register, handleSubmit, errors } = useForm();
-    const [desc, setDesc] = useState("");
+
 
     let history = useHistory();
 
     const onHandleAdd = (data) => {
-        let file = data.image[0];
+        let file = data.anh[0];
         let storageRef = firebase.storage().ref(`images/${file.name}`);
         storageRef.put(file).then(function () {
             storageRef.getDownloadURL().then((url) => {
                 const newData = {
                     id: Math.random().toString(36).substr(2, 9),
                     ...data,
-                    desc,
-                    image: url
+                    anh: url
                 }
                 console.log(data);
                 //     e.preventDefault();
@@ -27,9 +25,6 @@ const AddProduct = ({ onAdd, categorys }) => {
                 history.push("/admin/products");
             })
         });
-    }
-    const handleEditorChange = (content, editor) => {
-        setDesc(content);
     }
     return (
         <div>
@@ -39,63 +34,117 @@ const AddProduct = ({ onAdd, categorys }) => {
                 </div>
                 <div className="card-body" >
                     <form onSubmit={handleSubmit(onHandleAdd)}>
+
                         <div className="form-group">
                             <label htmlFor="InputProductName">Tên sản phẩm</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="productName" name="name"
+                                id="productName" name="ten_sp"
                                 ref={register({
                                     required: true,
-                                    minLength: 5, pattern: /^[A-Z a-z0-9]*$/
+                                    minLength: 5, pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.name && errors.name.type === "required"
+                            {errors.ten_sp && errors.ten_sp.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.name && errors.name.type === "minLength"
+                            {errors.ten_sp && errors.ten_sp.type === "minLength"
                                 && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.ten_sp && errors.ten_sp.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
+
                         <div>
                             <label htmlFor="InputProductName">Nội dung ngắn</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="productNdNgan" name="ndngan"
+                                id="productNdNgan" name="nd_ngan"
                                 ref={register({ required: true, minLength: 5, pattern: /[A-Z a-z0-9]/ })} />
-                            {errors.ndngan && errors.ndngan.type === "required"
+                            {errors.nd_ngan && errors.nd_ngan.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.ndngan && errors.ndngan.type === "minLength"
+                            {errors.nd_ngan && errors.nd_ngan.type === "minLength"
                                 && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
-                            {errors.ndngan && errors.ndngan.type === "pattern"
+                            {errors.nd_ngan && errors.nd_ngan.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
+
                         <div className="form-group">
                             <label htmlFor="InputProductStatus">Tình trạng</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select className="form-control form-control"
-                                name="status" ref={register({ required: true })} >
+                                name="tinh_trang" ref={register({ required: true })} >
                                 <option></option>
                                 <option>true</option>
                                 <option>false</option>
                             </select>
-                            {errors.status && errors.status.type === "required"
+                            {errors.tinh_trang && errors.tinh_trang.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
                         </div>
+
+
                         <div className="control">
+                            <label htmlFor="InputProductSize">Size</label>
+                            <span style={{ color: 'red' }}>*</span>
                             <select
-                                name="categoryId"
+                                name="size"
+                                tabIndex={1}
+                                data-placeholder="Select here.."
+                                className="form-control "
+                            >
+                                <option value="">--Lựa chọn size--</option>
+                                <option value="">S</option>
+                                <option value="">M</option>
+                                <option value="">L</option>
+                            </select>
+                        </div>
+
+                        <div className="control">
+                            <label htmlFor="InputProductColor">Màu</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <select
+                                name="Color"
+                                tabIndex={1}
+                                data-placeholder="Select here.."
+                                className="form-control "
+                            >
+                                <option value="">--Lựa chọn màu--</option>
+                                <option value="">Đen</option>
+                                <option value="">Đỏ</option>
+                                <option value="">Trắng</option>
+                            </select>
+                        </div>
+
+                        <div className="control">
+                            <label htmlFor="InputProductColor">Danh mục</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <select
+                                name="Color"
+                                tabIndex={1}
+                                data-placeholder="Select here.."
+                                className="form-control "
+                            >
+                                <option value="">--Lựa chọn danh mục--</option>
+                                <option value="">Quần Áo</option>
+                                <option value="">Giày</option>
+                            </select>
+                        </div>
+
+                        {/* <div className="control">
+                            <label htmlFor="InputProductStatus">Danh mục</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <select
+                                name="danhmuc_Id"
                                 ref={register()}
                                 tabIndex={1}
                                 data-placeholder="Select here.."
                                 className="form-control "
                             >
-                                <option value="">--Không thuộc danh mục nào--</option>
+                                <option value="">--Lựa chọn danh mục--</option>
                                 {categorys.map((category, index) => (
                                     <option key={index} value={category.id}>
-                                        {category.namedm}
+                                        {category.ten_danhmuc}
                                     </option>
                                 ))}
                             </select>
-                        </div>
+                        </div> */}
 
                         <div className="form-group">
                             <label htmlFor="productPrice">Ảnh sản phẩm</label>
@@ -104,7 +153,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                                     <input type="file"
                                         className="custom-file-input"
                                         id="inputGroupFile02"
-                                        name="image"
+                                        name="anh"
                                         ref={register}
                                     />
                                     <label className="custom-file-label" htmlFor="inputGroupFile02" aria-describedby="imageHelp">Choose image</label>
@@ -115,52 +164,45 @@ const AddProduct = ({ onAdd, categorys }) => {
                             <label htmlFor="InputProductPrice">Giá nhập</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="number" className="form-control"
-                                id="productRegularPrice" name="regularprice"
+                                id="productRegularPrice" name="gia_nhap"
                                 ref={register({
                                     required: true, min: 0
                                     , pattern: /[-+]?[0-9]*[.,]?[0-9]+/
                                 })} />
-                            {errors.regularprice && errors.regularprice.type === "required"
+                            {errors.gia_nhap && errors.gia_nhap.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.regularprice && errors.regularprice.type === "min"
+                            {errors.gia_nhap && errors.gia_nhap.type === "min"
                                 && <span style={{ color: "red" }} >Sai định dạng</span>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="InputProductPrice">Giá bán</label>
                             <span style={{ color: 'red' }}>*</span>
-                            <input type="number" className="form-control" id="productSalePrice" name="saleprice"
+                            <input type="number" className="form-control" id="productSalePrice" name="gia_ban"
                                 ref={register({
                                     required: true, min: 0
                                     , pattern: /[-+]?[0-9]*[.,]?[0-9]+/
                                 })} />
-                            {errors.saleprice && errors.saleprice.type === "required"
+                            {errors.gia_ban && errors.gia_ban.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.saleprice && errors.saleprice.type === "min"
+                            {errors.gia_ban && errors.gia_ban.type === "min"
                                 && <span style={{ color: "red" }} >Sai định dạng</span>}
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="productDescription">Mô tả chi tiết sản phẩm</label>
-                            <Editor
-                                init={{
-                                    height: 500,
-                                    images_upload_url: 'postAcceptor.php',
-                                    plugins: [
-                                        'advlist autolink lists link image charmap print preview anchor',
-                                        'searchreplace visualblocks code fullscreen',
-                                        'insertdatetime media table paste code help wordcount'
-                                    ],
-                                    toolbar:
-                                        'undo redo | formatselect | bold italic backcolor |  image link\
-                                alignleft aligncenter alignright alignjustify | \
-                                bullist numlist outdent indent | removeformat | help',
-
-                                }}
-                                onEditorChange={handleEditorChange}
-                                name="desc"
-
-                            />
-
+                            <label htmlFor="InputProductName">Nội dung chi tiết</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <textarea type="text" className="form-control"
+                                id="productName" name="nd_chitiet"
+                                ref={register({
+                                    required: true,
+                                    minLength: 5, pattern: /[A-Z a-z0-9]/
+                                })} ></textarea>
+                            {errors.nd_chitiet && errors.nd_chitiet.type === "required"
+                                && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
+                            {errors.nd_chitiet && errors.nd_chitiet.type === "minLength"
+                                && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
+                            {errors.nd_chitiet && errors.nd_chitiet.type === "pattern"
+                                && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 
                         <button type="submit" className="btn btn-success">Lưu</button>
@@ -168,7 +210,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                 </div>
             </div>
 
-        </div>
+        </div >
     )
 }
 

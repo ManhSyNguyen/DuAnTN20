@@ -19,15 +19,17 @@ const DetailProduct = ({ products }) => {
                         <div className="card-body">
 
                             <div className="col-sm-4 col-md-4 col-lg-4 text-center">
-                                <img src={product.image} alt="..." width="300px" />
+                                <img src={product.anh} alt="..." width="300px" />
                             </div>
-                            <h2 className="card-title"> Name : {product.name} </h2>
-                            <h2 className="card-title"> Nội dung ngắn : {product.ndngan} </h2>
-                            <h2 className="card-title"> Trạng thái : {product.status ? 'Còn hàng' : 'Hết hàng'} </h2>
-                            <h2 className="card-title"> Danh mục : {product.danhmuc} </h2>
-                            <h2 className="card-text"> Regular Price: {product.regularprice} vnđ </h2>
-                            <h2 className="card-text"> Sale Price: {product.saleprice} vnđ </h2>
-                            <h2 className="card-text"> Nội dung chi tiết: {product.desc} </h2>
+                            <h2 className="card-title"> Name : {product.ten_sp} </h2>
+                            <h2 className="card-title"> Nội dung ngắn : {product.nd_ngan} </h2>
+                            <h2 className="card-title"> Trạng thái : {product.tinh_trang ? 'Còn hàng' : 'Hết hàng'} </h2>
+                            <h2 className="card-title"> Màu : {product.mau} </h2>
+                            <h2 className="card-title"> Size : {product.size} </h2>
+                            {/* <h2 className="card-title"> Danh mục : {product.danhmuc} </h2> */}
+                            <h2 className="card-text"> Regular Price: {product.gia_nhap} vnđ </h2>
+                            <h2 className="card-text"> Sale Price: {product.gia_ban} vnđ </h2>
+                            <h2 className="card-text"> Nội dung chi tiết: {product.nd_chitiet} </h2>
 
                         </div>
                     </div>

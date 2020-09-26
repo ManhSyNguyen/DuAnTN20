@@ -14,10 +14,10 @@ const Home = ({ products }) => {
 
                                 <div className="col-md-4 grid-top">
                                     <Link to={`/product/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
-                                        <img className="img-responsive" src={item.image} />
+                                        <img className="img-responsive" src={item.anh} />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-left    b-delay03 ">
-                                                <span>{item.name}</span>
+                                                <span>{item.ten_sp}</span>
                                             </h3>
                                         </div>
                                     </Link>
@@ -30,7 +30,7 @@ const Home = ({ products }) => {
                     <div className="content-top-bottom">
                         <br />
                         <div className="col-md-6 men">
-                            <a href="#" className="b-link-stripe b-animate-go  thickbox"><img className="img-responsive" src="images/b1.jpg" alt="" />
+                            <a href="#" className="b-link-stripe b-animate-go  thickbox"><img className="img-responsive" src="images/b1.png" alt="" />
                                 <div className="b-wrapper">
                                     <h3 className="b-animate b-from-top top-in   b-delay03 ">
                                         <span>NĂNG ĐỘNG</span>
@@ -40,7 +40,7 @@ const Home = ({ products }) => {
                         </div>
                         <div className="col-md-6">
                             <div className="col-md1 ">
-                                <a href="#" className="b-link-stripe b-animate-go  thickbox"><img className="img-responsive" src="images/b2.jpg" alt="" />
+                                <a href="#" className="b-link-stripe b-animate-go  thickbox"><img className="img-responsive" src="images/b2.png" alt="" />
                                     <div className="b-wrapper">
                                         <h3 className="b-animate b-from-top top-in1   b-delay03 ">
                                             <span>MẠNH MẼ</span>
@@ -59,7 +59,7 @@ const Home = ({ products }) => {
                                     </a>
                                 </div>
                                 <div className="col-md-6 men2">
-                                    <a href="#" className="b-link-stripe b-animate-go  thickbox"><img className="img-responsive" src="images/b4.jpg" alt="" />
+                                    <a href="#" className="b-link-stripe b-animate-go  thickbox"><img className="img-responsive" src="images/b4.png" alt="" />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-top top-in2   b-delay03 ">
                                                 <span>TRẺ TRUNG</span>
@@ -76,12 +76,12 @@ const Home = ({ products }) => {
 
                 <div className="content-bottom">
                     <ul>
-                        <li><a href="#"><img className="img-responsive" src="images/lo.png" alt="" /></a></li>
-                        <li><a href="#"><img className="img-responsive" src="images/lo1.png" alt="" /></a></li>
-                        <li><a href="#"><img className="img-responsive" src="images/lo2.png" alt="" /></a></li>
-                        <li><a href="#"><img className="img-responsive" src="images/lo3.png" alt="" /></a></li>
-                        <li><a href="#"><img className="img-responsive" src="images/lo4.png" alt="" /></a></li>
-                        <li><a href="#"><img className="img-responsive" src="images/lo5.png" alt="" /></a></li>
+                        <li><a href="#"><img className="img-responsive" src="images/lo7.png" alt="" /></a></li>
+                        <li><a href="#"><img className="img-responsive" src="images/lo8.png" alt="" /></a></li>
+                        <li><a href="#"><img className="img-responsive" src="images/lo9.png" alt="" /></a></li>
+                        <li><a href="#"><img className="img-responsive" src="images/lo10.png" alt="" /></a></li>
+                        <li><a href="#"><img className="img-responsive" src="images/lo12.png" alt="" /></a></li>
+                        <li><a href="#"><img className="img-responsive" src="images/lo11.png" alt="" /></a></li>
                         <div className="clearfix"> </div>
                     </ul>
                 </div>

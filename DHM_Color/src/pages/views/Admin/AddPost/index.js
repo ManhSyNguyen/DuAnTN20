@@ -36,16 +36,16 @@ const AddPost = ({ onAddP }) => {
                             <label htmlFor="InputCategoryName">Tiêu đề</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="categoryName" name="name"
+                                id="categoryName" name="ten_baiviet"
                                 ref={register({
                                     required: true, minLength: 3,
                                     pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.name && errors.name.type === "required"
+                            {errors.ten_baiviet && errors.ten_baiviet.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.name && errors.name.type === "minLength"
+                            {errors.ten_baiviet && errors.ten_baiviet.type === "minLength"
                                 && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.ten_baiviet && errors.ten_baiviet.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
                         <div className="form-group">

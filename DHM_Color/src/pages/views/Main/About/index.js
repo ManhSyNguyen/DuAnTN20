@@ -17,10 +17,10 @@ const About = ({ products, categorys }) => {
                                     <h5 className="card-title">
                                         <Link to={"/about"}>All</Link>
                                     </h5>
-                                    {categorys.map(({ id, namedm }) => (
+                                    {categorys.map(({ id, ten_danhmuc }) => (
                                         <div className="size__list color__list">
                                             <h5 className="card-title">
-                                                <Link to={"/cate/" + id}>{namedm}</Link>
+                                                <Link to={"/cate/" + id}>{ten_danhmuc}</Link>
                                             </h5>
 
                                         </div>
@@ -102,18 +102,18 @@ const About = ({ products, categorys }) => {
                         <div className=" bottom-product">
 
 
-                            {products.map((sh, index) => (
+                            {products.map((item, index) => (
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem">
                                     <div className="product-at ">
-                                        <Link to={`/product/${sh.id}`}><img className="img-responsive" src={sh.image} alt="" />
+                                        <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.anh} alt="" />
                                             <div className="pro-grid">
                                                 <span className="buy-in">Buy Now</span>
                                             </div>
                                         </Link>
                                     </div>
-                                    <p className="tun">{sh.name}</p>
+                                    <p className="tun">{item.ten_sp}</p>
                                     <a href="#" className="item_add">
-                                        <p className="number item_price"><i> </i>{sh.regularprice} vnđ</p>
+                                        <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
                                     </a>
                                 </div>
 

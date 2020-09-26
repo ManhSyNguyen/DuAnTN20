@@ -30,13 +30,11 @@ const ProductDetail = ({ products }) => {
                                 <h3 className="cate">Categories</h3>
                             </div>
                             <ul className="menu">
-                                <li className="item1"><a href="#">Dance </a>
+                                <li className="item1"><a href="#">All </a>
                                 </li>
-                                <li className="item2"><a href="#">Basketball </a>
+                                <li className="item2"><a href="#">Quần Áo </a>
                                 </li>
-                                <li className="item4"><a href="#">Running</a>
-                                </li>
-                                <li className="item4"><a href="#">Football</a>
+                                <li className="item4"><a href="#">Giày</a>
                                 </li>
                             </ul>
                         </div>
@@ -78,11 +76,11 @@ const ProductDetail = ({ products }) => {
                     </div>
                     <div className="col-md-9 product-price1">
                         <div className="col-md-5 single-top">
-                            <img src={product.image} width="300" />
+                            <img src={product.anh} width="300" />
                         </div>
                         <div className="col-md-7 single-top-in simpleCart_shelfItem">
                             <div className="single-para ">
-                                <h4><strong>{product.name}</strong></h4>
+                                <h4><strong>{product.ten_sp}</strong></h4>
                                 <div className="star-on">
                                     <ul className="star-footer">
                                         <li><a href="#"><i> </i></a></li>
@@ -94,14 +92,14 @@ const ProductDetail = ({ products }) => {
 
                                     <div className="clearfix"> </div>
                                 </div>
-                                <del className="dels">{product.saleprice} vnđ </del><h5 className="item_price">{product.regularprice} vnđ</h5>
-                                <p>{product.desc} </p>
+                                <del className="dels">{product.gia_nhap} vnđ </del><h5 className="item_price">{product.gia_ban} vnđ</h5>
+                                <p>{product.nd_chitiet} </p>
 
                                 <ul className="tag-men">
                                     <li><span>TAG</span>
                                         <span className="women1">: Men</span></li>
 
-                                    <span className="women1">{product.status == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng</p> : <p className="women1" style={{ color: 'red' }}>Hết hàng</p>}</span>
+                                    <span className="women1">{product.tinh_trang == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng</p> : <p className="women1" style={{ color: 'red' }}>Hết hàng</p>}</span>
                                 </ul>
                                 <a href="#" className="add-cart item_add">ADD TO CART</a>
                             </div>

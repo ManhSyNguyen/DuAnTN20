@@ -10,7 +10,8 @@ const Sidebar = props => {
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink" />
                 </div>
-                <div className="sidebar-brand-text mx-3">B O S S B E E <sup>127</sup></div>
+
+                <div className="sidebar-brand-text mx-3">D H M COLOR</div>
             </Link>
             {/* Divider */}
             <hr className="sidebar-divider my-0" />
@@ -18,27 +19,53 @@ const Sidebar = props => {
             <li className="nav-item">
                 <Link className="nav-link" to="/admin">
                     <i className="fas fa-fw fa-tachometer-alt" />
-                    <span>Dashboard</span></Link>
+                    <span>Bảng điều khiển</span></Link>
             </li>
-            {/* Danh muc*/}
+            {/* Quan ly nhan vien*/}
             <li className="nav-item">
-                <Link className="nav-link" to="/admin/categorys">
+                <Link className="nav-link" to="#">
+                    <i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Quản lý nhân viên</span></Link>
+            </li>
+            {/* Quan ly danh muc*/}
+            <li className="nav-item">
+                {/* <Link className="nav-link" to="/admin/categorys"> */}
+                <Link className="nav-link" to="#">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý danh mục</span></Link>
             </li>
-            {/* Nav Item - Charts */}
+            {/* Quan ly size*/}
             <li className="nav-item">
-                <Link className="nav-link" to="/admin/posts">
+                <Link className="nav-link" to="#">
+                    <i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Quản lý size</span></Link>
+            </li>
+            {/* Quan ly mau*/}
+            <li className="nav-item">
+                <Link className="nav-link" to="#">
+                    <i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Quản lý màu</span></Link>
+            </li>
+            {/* Quan ly bai viet */}
+            <li className="nav-item">
+                {/* <Link className="nav-link" to="/admin/posts"> */}
+                <Link className="nav-link" to="#">
                     <i className="fas fa-fw fa-chart-area" />
                     <span>Quản lý bài viết</span></Link>
             </li>
-            {/* Nav Item - Tables */}
+            {/* Quan ly san pham */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/admin/products">
                     <i className="fas fa-fw fa-tachometer-alt" />
-                    <span>Sản Phẩm</span></Link>
+                    <span>Quản lý sản phẩm</span></Link>
             </li>
-
+            {/* Quan ly don hang */}
+            <li className="nav-item active">
+                <Link className="nav-link" to="#">
+                    <i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Quản lý đơn hàng</span></Link>
+            </li>
+            {/* Trang chu */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/">
                     <i className="fas fa-fw fa-tachometer-alt" />

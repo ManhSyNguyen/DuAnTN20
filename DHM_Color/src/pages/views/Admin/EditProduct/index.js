@@ -22,7 +22,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
         getProduct()
     }, [])
     const onHandleSubmit = (data) => {
-        let file = data.image[0];
+        let file = data.anh[0];
         // tạo reference chứa ảnh trên firesbase
         let storageRef = firebase.storage().ref(`images/${file.name}`);
         // đẩy ảnh lên đường dẫn trên
@@ -33,7 +33,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                 const newData = {
                     id,
                     ...data,
-                    image: url
+                    anh: url
                 }
                 //     e.preventDefault();
                 onUpdate(newData);
@@ -58,55 +58,83 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             <input type="text"
                                 className="form-control"
                                 id="InputProductName"
-                                defaultValue={editProduct.name}
-                                name="name"
-                                ref={register({ required: true, pattern: /^[A-Z a-z0-9]*$/ })} />
-                            {errors.name && errors.name.type === "required"
+                                defaultValue={editProduct.ten_sp}
+                                name="ten_sp"
+                                ref={register({ required: true, pattern: /[A-Z a-z0-9]/ })} />
+                            {errors.ten_sp && errors.ten_sp.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.name && errors.name.type === "minLength"
+                            {errors.ten_sp && errors.ten_sp.type === "minLength"
                                 && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.ten_sp && errors.ten_sp.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
                         <div>
                             <label htmlFor="InputProductName">Nội dung ngắn</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                defaultValue={editProduct.ndngan} id="InputProductName" name="ndngan"
+                                defaultValue={editProduct.nd_ngan} id="InputProductName" name="nd_ngan"
                                 ref={register({ required: true, minLength: 5, pattern: /[A-Z a-z0-9]/ })} />
-                            {errors.ndngan && errors.ndngan.type === "required"
+                            {errors.nd_ngan && errors.nd_ngan.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.ndngan && errors.ndngan.type === "minLength"
+                            {errors.nd_ngan && errors.nd_ngan.type === "minLength"
                                 && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
-                            {errors.ndngan && errors.ndngan.type === "pattern"
+                            {errors.nd_ngan && errors.nd_ngan.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="InputProductStatus">Tình trạng</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select className="form-control form-control"
-                                name="status" ref={register({ required: true })}
-                                defaultValue={editProduct.status} >
+                                name="tinh_trang" ref={register({ required: true })}
+                                defaultValue={editProduct.tinh_trang} >
                                 <option value="">----Không thuộc mục nào----</option>
                                 <option>true</option>
                                 <option>false</option>
                             </select>
-                            {errors.status && errors.status.type === "required"
+                            {errors.tinh_trang && errors.tinh_trang.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
                         </div>
+
                         <div className="control">
+                            <label htmlFor="InputProductSize">Size</label>
+                            <span style={{ color: 'red' }}>*</span>
                             <select
-                                name="categoryId"
+                                name="size"
+                                tabIndex={1}
+                                data-placeholder="Select here.."
+                                className="form-control "
+                            >
+                                <option value="">--Lựa chọn size--</option>
+                            </select>
+                        </div>
+
+                        <div className="control">
+                            <label htmlFor="InputProductColor">Màu</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <select
+                                name="Color"
+                                tabIndex={1}
+                                data-placeholder="Select here.."
+                                className="form-control "
+                            >
+                                <option value="">--Lựa chọn màu--</option>
+                            </select>
+                        </div>
+
+                        <div className="control">
+                            <label htmlFor="InputProductCategory" >Danh mục</label>
+                            <select
+                                name="danhmuc_Id"
                                 ref={register()}
                                 tabIndex={1}
                                 data-placeholder="Select here.."
                                 className="form-control "
-                                defaultValue={editProduct.categoryId}
+                                defaultValue={editProduct.danhmuc_Id}
                             >
                                 <option value="">--Không thuộc danh mục nào--</option>
                                 {categorys.map((category, index) => (
                                     <option key={index} value={category.id}>
-                                        {category.namedm}
+                                        {category.ten_danhmuc}
                                     </option>
                                 ))}
                             </select>
@@ -119,7 +147,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                                     <input type="file"
                                         className="custom-file-input"
                                         id="inputGroupFile02"
-                                        name="image"
+                                        name="anh"
                                         ref={register}
                                     />
                                     <label className="custom-file-label" htmlFor="inputGroupFile02" aria-describedby="imageHelp">Choose image</label>
@@ -132,12 +160,12 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             <input type="number"
                                 className="form-control"
                                 id="InputProductName"
-                                name="regularprice"
+                                name="gia_nhap"
                                 ref={register({ required: true, min: 0, pattern: /[-+]?[0-9]*[.,]?[0-9]+/ })}
-                                defaultValue={editProduct.regularprice} />
-                            {errors.regularprice && errors.regularprice.type === "required"
+                                defaultValue={editProduct.gia_nhap} />
+                            {errors.gia_nhap && errors.gia_nhap.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.regularprice && errors.regularprice.type === "min"
+                            {errors.gia_nhap && errors.gia_nhap.type === "min"
                                 && <span style={{ color: "red" }} >Sai định dạng</span>}
                         </div>
                         <div className="form-group">
@@ -146,15 +174,32 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             <input type="number"
                                 className="form-control"
                                 id="InputProductName"
-                                name="saleprice"
+                                name="gia_ban"
                                 ref={register({ required: true, min: 0, pattern: /[-+]?[0-9]*[.,]?[0-9]+/ })}
-                                defaultValue={editProduct.saleprice} />
-                            {errors.saleprice && errors.saleprice.type === "required"
+                                defaultValue={editProduct.gia_ban} />
+                            {errors.gia_ban && errors.gia_ban.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.saleprice && errors.saleprice.type === "min"
+                            {errors.gia_ban && errors.gia_ban.type === "min"
                                 && <span style={{ color: "red" }} >Sai định dạng</span>}
                         </div>
 
+                        <div className="form-group">
+                            <label htmlFor="InputProductName">Nội dung chi tiết</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <textarea type="text" className="form-control"
+                                id="productName" name="nd_chitiet"
+                                ref={register({
+                                    required: true,
+                                    minLength: 5, pattern: /[A-Z a-z0-9]/
+                                })}
+                                defaultValue={editProduct.nd_chitiet}></textarea>
+                            {errors.nd_chitiet && errors.nd_chitiet.type === "required"
+                                && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
+                            {errors.nd_chitiet && errors.nd_chitiet.type === "minLength"
+                                && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
+                            {errors.nd_chitiet && errors.nd_chitiet.type === "pattern"
+                                && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
+                        </div>
                         <button className="btn btn-primary">Cập nhật</button>
                     </form>
                 </div>

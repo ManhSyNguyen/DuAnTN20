@@ -30,28 +30,33 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Tên sản phẩm</th>
-                                        <th scope="col">Danh mục</th>
-                                        <th scope="col">Tình trạng hàng</th>
                                         <th scope="col">Ảnh </th>
+                                        <th scope="col">Danh mục</th>
+                                        <th scope="col">Màu</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Tình trạng hàng</th>
                                         <th scope="col">Giá </th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.map(({ id, name, categoryId, status, image, saleprice }, index) => (
+                                    {products.map(({ id, ten_sp, danhmuc_Id, mau, size, tinh_trang, anh, gia_ban }, index) => (
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{name}</td>
+                                            <td>{ten_sp}</td>
+                                            <td><img src={anh} alt="" width="50" /></td>
                                             <td>
                                                 {categorys.map((id) => {
-                                                    if (categoryId == id.id) {
-                                                        return id.namedm;
+                                                    if (danhmuc_Id == id.id) {
+                                                        return id.ten_danhmuc;
                                                     }
                                                 })}
                                             </td>
-                                            <td>{status == "true" ? <span className="label label-warning">Còn hàng</span> : <span className="label label-default">Hết hàng</span>}</td>
-                                            <td><img src={image} alt="" width="50" /></td>
-                                            <td>{saleprice} vnđ</td>
+                                            <td>{mau}</td>
+                                            <td>{size}</td>
+
+                                            <td>{tinh_trang == "true" ? <span className="label label-warning">Còn hàng</span> : <span className="label label-default">Hết hàng</span>}</td>
+                                            <td>{gia_ban} vnđ</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandle(id)}>Xóa</button>&nbsp;
                                                 <Link className="btn btn-primary" to={`/admin/edit/${id}`}>Sửa</Link>&nbsp;
