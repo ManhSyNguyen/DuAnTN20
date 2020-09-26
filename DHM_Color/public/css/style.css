@@ -1032,6 +1032,7 @@ a.item_add p.number{
   text-align: center;
   background: #000000;
   padding: 0.5em 1em;
+  text-decoration: none;
 }
 a.item_add p.number:hover{
 		background: rgb(105, 105, 105);
