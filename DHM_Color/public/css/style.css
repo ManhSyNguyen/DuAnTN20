@@ -1058,6 +1058,16 @@ p.tun{
 
 .product-at{
 	position: relative;
+	overflow: hidden;
+}
+.product-at a img{
+	width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+.product-at:hover img{
+	transform: scale(1.5);
+    transition: 1s;
 }
 .product-at:hover .pro-grid{
 	display:block;
