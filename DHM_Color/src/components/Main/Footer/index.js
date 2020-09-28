@@ -43,7 +43,7 @@ const Footer = props => {
                 </div>
             </div>
             <div className="footer-class">
-                <p>BOSSBEE © NGUYEN SY MANH - PH07598  </p>
+                <p>DHM COLOR © MODERN & YOUTHFUL FASHION </p>
             </div>
         </div>
     )

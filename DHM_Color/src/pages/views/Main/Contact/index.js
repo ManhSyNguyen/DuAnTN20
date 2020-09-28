@@ -21,22 +21,22 @@ const Contact = props => {
                         <div className="col-md-4 contact-in">
                             <div className="address-more">
                                 <h4>Địa chỉ </h4>
-                                <p>Ngõ 59, Lê Đức Thọ,</p>
-                                <p>Phường Mai Dịch,</p>
+                                <p>Số 179, Phố Trịnh Văn Bô</p>
+                                <p>Phường Xuân Phương,</p>
                                 <p>Q.Nam từ Liêm - Hà Nội. </p>
                             </div>
                             <div className="address-more">
                                 <h4>Address1</h4>
                                 <p>Tel:1115550001</p>
                                 <p>Fax:12 34 995 0792</p>
-                                <p>Email:<a href="#"> bossbee127@gmail.com</a></p>
+                                <p>Email:<a href="#"> dhmcolor@gmail.com</a></p>
                             </div>
                         </div>
                         <div className="clearfix"> </div>
                     </div>
                     <div className="map">
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.053935934952!2d105.76795211493271!3d21.030527785997442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454ba7a0fb9f3%3A0xc58f92ccd2fbb20a!2zTmfDtSA1OSDEkMaw4budbmcgTMOqIMSQ4bupYyBUaOG7jSwgTeG7uSDEkMOsbmggMiwgTmFtIFThu6sgTGnDqm0sIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1596425473573!5m2!1svi!2s" width="640" height="480" />
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.980498470628!2d105.75149381429789!3d21.033466292994905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345496a445f4b3%3A0x8fbf1ae2f9ccb25f!2zMTc5IFBo4buRIFRy4buLbmggVsSDbiBCw7QsIFh1w6JuIFBoxrDGoW5nLCBOYW0gVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2sus!4v1601288097205!5m2!1svi!2sus" width="640" height="480" ></iframe>
                     </div>
                 </div>
             </div>

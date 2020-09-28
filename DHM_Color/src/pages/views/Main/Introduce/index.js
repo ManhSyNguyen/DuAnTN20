@@ -20,8 +20,7 @@ const Introduce = props => {
                                 bao gồm Cole Haan, Converse Inc., Hurley International LLC, NIKE Golf và Umbro Ltd.
                                 Hiện nay, Nike hoạt động tại hơn 160 quốc gia trên toàn cầuvới hơn 30.000 nhân viên của
                                 Nike trên khắp sáu châu lục, mỗi người trong số họ đóng góp sức lực của mình để hoàn thành
-                                sứ mệnh của nhãn hiệu:mang lại cảm hứng và sự đổi mới cho mọi vận động viên trên
-            thế giới</p>
+                                sứ mệnh của nhãn hiệu:mang lại cảm hứng và sự đổi mới cho mọi vận động viên trên thế giới</p>
 
                             </div>
 

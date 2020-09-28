@@ -15,7 +15,7 @@ const About = ({ products, categorys }) => {
                             <ul className="menu">
                                 <li className="item1">
                                     <h5 className="card-title">
-                                        <Link to={"/about"}>All</Link>
+                                        <Link to={"/about"}>Tất cả</Link>
                                     </h5>
                                     {categorys.map(({ id, ten_danhmuc }) => (
                                         <div className="size__list color__list">

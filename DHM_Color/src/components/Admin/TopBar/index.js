@@ -148,15 +148,15 @@ const Topbar = props => {
                     </li> */}
                     <li className="nav-item dropdown no-arrow">
                         <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span className="mr-2 d-none d-lg-inline text-gray-600 small">MSSV : PH07598</span>
+                            <span className="mr-2 d-none d-lg-inline text-gray-600 small">DHM COLOR</span>
                         </a>
                     </li>
                     <div className="topbar-divider d-none d-sm-block" />
                     {/* Nav Item - User Information */}
                     <li className="nav-item dropdown no-arrow">
                         <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span className="mr-2 d-none d-lg-inline text-gray-600 small">Nguyen Sy Manh</span>
-                            <img className="img-profile rounded-circle" src="https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-0/c0.46.370.370a/p370x247/104484017_3202862243372990_2751462706493248818_o.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=mC8mp4pR5dUAX9iwq-T&_nc_ht=scontent.fhan2-6.fna&oh=e8521228273676458dde42e7f58d86c6&oe=5F43F05E" />
+                            <span className="mr-2 d-none d-lg-inline text-gray-600 small">Tên người dùng </span>
+                            <img className="img-profile rounded-circle" src="https://yinnepal.files.wordpress.com/2017/11/admin.png?w=640" />
                         </a>
                         {/* Dropdown - User Information */}
                         {/* <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

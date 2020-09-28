@@ -30,12 +30,21 @@ const ProductDetail = ({ products }) => {
                                 <h3 className="cate">Categories</h3>
                             </div>
                             <ul className="menu">
-                                <li className="item1"><a href="#">All </a>
+                                <li className="item1"><a href="#">Tất cả </a>
                                 </li>
-                                <li className="item2"><a href="#">Quần Áo </a>
+                                <li className="item2"><a href="#">Dior </a>
                                 </li>
-                                <li className="item4"><a href="#">Giày</a>
+                                <li className="item4"><a href="#">Louis Vuitton</a>
                                 </li>
+                                <li className="item4"><a href="#">Chanel</a>
+                                </li>
+                                <li className="item4"><a href="#">Gucci</a>
+                                </li>
+                                <li className="item4"><a href="#">Versace</a>
+                                </li>
+                                <li className="item4"><a href="#">Dolce & Gabbana</a>
+                                </li>
+
                             </ul>
                         </div>
                         {/*initiate accordion*/}
