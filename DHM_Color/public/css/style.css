@@ -2400,4 +2400,6 @@ a.item_add p.number {
 .dels {
 	font-size: 1.5em;
 }
-
+.contten_gt ul li{
+	display: block;
+}

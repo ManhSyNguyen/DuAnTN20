@@ -13,14 +13,41 @@ const Introduce = props => {
                             <div className="cap">
                                 <div className="contact">
                                     <h1 >Giới thiệu</h1><hr /></div>
-                                <p className=" text-justify">Nike là nhà cung cấp toàn cầu về giày, quần áo và dụng cụ thể thao số một thế giới.
-                                Được thành lập vào ngày 25 tháng 1 năm 1964 với tên Blue Ribbon Sports bởi Bill Bowerman
-                                và Phil Knight, sau đó chính thức có tên gọi là Nike vào ngày 30 tháng 5 năm 1971.
-                                Bên cạnh đó, Nike đã thiết lập một danh mục thương hiệu mạnh mẽ với một số công ty con
-                                bao gồm Cole Haan, Converse Inc., Hurley International LLC, NIKE Golf và Umbro Ltd.
-                                Hiện nay, Nike hoạt động tại hơn 160 quốc gia trên toàn cầuvới hơn 30.000 nhân viên của
-                                Nike trên khắp sáu châu lục, mỗi người trong số họ đóng góp sức lực của mình để hoàn thành
-                                sứ mệnh của nhãn hiệu:mang lại cảm hứng và sự đổi mới cho mọi vận động viên trên thế giới</p>
+
+                                <div className="contten_gt">
+                                    <ul>
+                                        <li>
+                                            <p className="text-justify">“ DHM Color hiểu rằng , thời trang không phải chỉ là mặc một chiếc áo đẹp mà
+                                là mặc một chiếc áo thật sự phù hợp với mình . ”</p>
+                                        </li>
+                                        <li>
+                                            <p className="text-justify">
+                                                Góp mặt trên thị trường thời trang Việt Nam từ năm 2009 ,
+                                                với 10 năm không ngừng phát triển , đổi mới và tạo dấu ấn , Toto shop tự hào trở thành một trong những thương
+                                                hiệu thời trang của người Việt được yêu thích nhất của giới trẻ . Với điểm mạnh về sự đa dạng mẫu mã , chất
+                                                lượng trong từng sản phẩm và luôn cập nhật những xu hướng mới nhất , đến với DHM Color , bạn không chỉ tìm
+                                                kiếm được những thứ mình “ cần ” . mà còn tìm thấy được những thứ mình nên có ” .
+                                        </p>
+                                        </li>
+                                        <li>
+                                            <p className="text-justify">
+                                                DHM Color luôn đặt câu hỏi
+                                                “ khách hàng cần gì và có được gì khi đến với DHM Color ? ” từ đó những sản phẩm đến tay khách hàng cũng chính
+                                                là những gì DHM Color muốn gửi gắm . Nếu bạn đang tìm kiếm điểm dừng chân lý tưởng để thỏa sức trải nghiệm mua
+                                                sắm , hãy nhớ đến DHM Color !
+                                        </p>
+                                        </li>
+                                        <li>
+                                            <p className="text-justify">
+                                                Bằng chứng cho sự nỗ lực của DHM Color suốt 10 năm qua chính là sự phủ sóng rộng
+                                                khắp các tỉnh phía Nam với 20 cửa hàng bán lẻ . DHM Color đã và đang không ngừng nỗ lực trong thời gian sớm
+                                                nhất sẽ có mặt tại các tỉnh miền Trung và phù sóng rộng khắp các tỉnh miền Đông / Tây / Nam Bộ để có cơ hội
+                                                đến gần hơn với khách hàng .
+                                        </p>
+                                        </li>
+                                    </ul>
+
+                                </div>
 
                             </div>
 
