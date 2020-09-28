@@ -20,7 +20,7 @@ const Footer = props => {
                     <div className="col-md-4 amet-sed ">
                         <h4>LIÊN HỆ VỚI CHÚNG TÔI</h4>
                         <p>
-                            Ngõ 59, Lê Đức Thọ - P.Mai Dịch</p>
+                            Số 179, Phố Trịnh Văn Bô, Xuân Phương</p>
                         <p>Q.Nam từ Liêm - Hà Nội</p>
                         <p>Số điện thoại:  +12 34 995 0792</p>
                         <ul className="social">
@@ -31,8 +31,9 @@ const Footer = props => {
                         </ul>
                     </div>
                     <div className="col-md-4 amet-sed">
-                        <h4>B O S S B E E - 1 2 7</h4>
+                        <h4>DHM COLOR</h4>
                         <p>Mua hàng để nhận được tất cả các ưu đãi và khuyến mại</p>
+
                         <form>
                             <input type="text" />
                             <input type="submit" value="Tìm kiếm" />
