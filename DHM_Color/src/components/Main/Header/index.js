@@ -43,7 +43,7 @@ const Header = props => {
                         <ul className="memenu skyblue">
                             <li className="active grid"><Link className="color8" to="/">TRANG CHỦ</Link></li>
 
-                            <li><Link className="color4" to="/about">SẢN PHẨM</Link></li>
+                            <li><Link className="color4" to="/sanpham">SẢN PHẨM</Link></li>
                             <li><Link className="color1" to="/gioithieu">GIỚI THIỆU</Link></li>
                             <li><Link className="color6" to="/lienhe">LIÊN HỆ</Link></li>
                             <li><Link className="color6" to="/baiviet">BÀI VIẾT</Link></li>

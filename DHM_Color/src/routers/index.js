@@ -82,7 +82,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                                 <Home products={products} />
                             </Route>
 
-                            <Route path="/about">
+                            <Route path="/sanpham">
                                 <About products={products} categorys={categorys} />
                             </Route>
                             <Route path="/product/:id" exact>

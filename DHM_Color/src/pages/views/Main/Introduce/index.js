@@ -23,7 +23,7 @@ const Introduce = props => {
                                         <li>
                                             <p className="text-justify">
                                                 Góp mặt trên thị trường thời trang Việt Nam từ năm 2009 ,
-                                                với 10 năm không ngừng phát triển , đổi mới và tạo dấu ấn , Toto shop tự hào trở thành một trong những thương
+                                                với 10 năm không ngừng phát triển , đổi mới và tạo dấu ấn , DHM Color shop tự hào trở thành một trong những thương
                                                 hiệu thời trang của người Việt được yêu thích nhất của giới trẻ . Với điểm mạnh về sự đa dạng mẫu mã , chất
                                                 lượng trong từng sản phẩm và luôn cập nhật những xu hướng mới nhất , đến với DHM Color , bạn không chỉ tìm
                                                 kiếm được những thứ mình “ cần ” . mà còn tìm thấy được những thứ mình nên có ” .

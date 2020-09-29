@@ -2403,3 +2403,6 @@ a.item_add p.number {
 .contten_gt ul li{
 	display: block;
 }
+.each-fade img{
+	width: 1100px;
+}
