@@ -63,44 +63,33 @@ const Introduce = props => {
                         <div className="card-body">
                             <div className="contact">
                                 <h1 className="big-tt animated fadeInDown">Tinh thần thương hiệu</h1></div><hr />
-                            <ul >
-                                <li>
+                            <div className="img_gt">
+                                <div className="gird">
                                     <div className="img">
                                         <img src="images/Taobao.jpg" width='500' />
+                                        <h3>Táo bạo </h3>
                                     </div>
-                                    <div className="copy">
-                                        <h3><strong>Táo bạo</strong> </h3>
 
-                                    </div>
-                                </li><br />
-                                <li>
-                                    <div className="img" >
-                                        <img src="images/docdao.jpg" width='500' />
-                                    </div>
-                                    <div className="copy">
-                                        <h3><strong>Độc đáo</strong></h3>
-
-                                    </div>
-                                </li><br />
-                                <li>
                                     <div className="img">
-                                        <img src="images/sangtao.jpg" width='500' />
+                                        <img src="images/sangtao.png" width='500' />
+                                        <h3>Sáng tạo</h3>
                                     </div>
-                                    <div className="copy">
-                                        <h3><strong>Sáng tạo</strong></h3>
 
-                                    </div>
-                                </li><br />
-                                <li>
+                                </div>
+
+                                <div className="gird">
+
                                     <div className="img" >
-                                        <img src="images/dandau.jpg" width='500' />
+                                        <img src="images/docdao.png" width='500' />
+                                        <h3>Độc đáo</h3>
                                     </div>
-                                    <div className="copy">
-                                        <h3><strong>Dẫn đầu</strong></h3>
+                                    <div className="img" >
+                                        <img src="images/dandau.png" width='500' />
+                                        <h3>Dẫn đầu</h3>
+                                    </div>
+                                </div>
 
-                                    </div>
-                                </li>
-                            </ul>
+                            </div>
                         </div>
 
                     </div>

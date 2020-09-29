@@ -2406,3 +2406,11 @@ a.item_add p.number {
 .each-fade img{
 	width: 1100px;
 }
+.img_gt .gird{
+	display: inline-flex;
+	padding: 20px;
+}
+.img_gt .gird img{
+	padding: 20px;
+}
+

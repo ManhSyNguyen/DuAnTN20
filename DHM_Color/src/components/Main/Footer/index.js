@@ -24,7 +24,7 @@ const Footer = props => {
                         <p>Q.Nam từ Liêm - Hà Nội</p>
                         <p>Số điện thoại:  +12 34 995 0792</p>
                         <ul className="social">
-                            <li><a href="https://www.facebook.com/profile.php?id=100009477368122"><i> </i></a></li>
+                            <li><a href="https://www.facebook.com/DMH-Color-104956168041507"><i> </i></a></li>
                             <li><a href="#"><i className="twitter"> </i></a></li>
                             <li><a href="#"><i className="rss"> </i></a></li>
                             <li><a href="#"><i className="gmail"> </i></a></li>
