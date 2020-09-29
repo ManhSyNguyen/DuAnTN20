@@ -6,7 +6,7 @@ const Footer = props => {
         <footer className="sticky-footer bg-white">
             <div className="container my-auto">
                 <div className="copyright text-center my-auto">
-                    <span>BOSSBEE © NGUYEN SY MANH PH07598</span>
+                    <span>DHM COLOR © MODERN & YOUTHFUL FASHION</span>
                 </div>
             </div>
         </footer>

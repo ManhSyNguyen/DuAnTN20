@@ -10,7 +10,7 @@ const About = ({ products, categorys }) => {
                     <div className="col-md-3 product-price">
                         <div className=" rsidebar span_1_of_left">
                             <div className="of-left">
-                                <h3 className="cate">Categories</h3>
+                                <h3 className="cate">Danh mục</h3>
                             </div>
                             <ul className="menu">
                                 <li className="item1">
@@ -64,7 +64,7 @@ const About = ({ products, categorys }) => {
                         {/**/}
                         <div className="product-bottom">
                             <div className="of-left-in">
-                                <h3 className="best">Best Sellers</h3>
+                                <h3 className="best">Bán chạy</h3>
                             </div>
                             <div className="product-go">
                                 <div className=" fashion-grid">

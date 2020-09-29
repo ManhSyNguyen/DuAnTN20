@@ -9,15 +9,15 @@ const Header = props => {
             <div className="header-top">
                 <div className="container">
                     <div className="search">
-                        <input type="text" placeholder="Search ... " />&nbsp;
+                        <input type="text" placeholder="Tìm kiếm sản phẩm ... " />&nbsp;
                         <button>
-                            <span>Search</span>
+                            <span>Tìm kiếm</span>
                         </button>
                     </div>
                     <div className="header-left">
                         <ul>
-                            <li><a className="lock" href="#">Login</a></li>
-                            <li><a className="lock" href="#">Register</a></li>
+                            <li><a className="lock" href="#">Đăng nhập</a></li>
+                            <li><a className="lock" href="#">Đăng ký</a></li>
                             <li>
                             </li>
                         </ul>
@@ -27,7 +27,7 @@ const Header = props => {
                                     <span className="simpleCart_total" /> (<span id="simpleCart_quantity" className="simpleCart_quantity" /> items)</div>
                                     <img src="images/cart.png" alt="" /></h3>
                             </a>
-                            <p><a href="#" className="simpleCart_empty">Empty Cart</a></p>
+                            <p><a href="#" className="simpleCart_empty">Giỏ hàng rỗng</a></p>
                         </div>
                         <div className="clearfix"> </div>
                     </div>

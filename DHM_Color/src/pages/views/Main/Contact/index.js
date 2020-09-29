@@ -15,7 +15,7 @@ const Contact = props => {
                                 <input type="text" />
                                 <input type="text" />
                                 <textarea cols={77} rows={6} value=" " />
-                                <button className="btn btn-secondary">Send</button>
+                                <button className="btn btn-secondary">Gửi</button>
                             </form>
                         </div>
                         <div className="col-md-4 contact-in">
@@ -26,7 +26,7 @@ const Contact = props => {
                                 <p>Q.Nam từ Liêm - Hà Nội. </p>
                             </div>
                             <div className="address-more">
-                                <h4>Address1</h4>
+                                <h4>Liên lạc</h4>
                                 <p>Tel:1115550001</p>
                                 <p>Fax:12 34 995 0792</p>
                                 <p>Email:<a href="#"> dhmcolor@gmail.com</a></p>

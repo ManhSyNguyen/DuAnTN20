@@ -149,6 +149,7 @@ const Topbar = props => {
                     <li className="nav-item dropdown no-arrow">
                         <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span className="mr-2 d-none d-lg-inline text-gray-600 small">DHM COLOR</span>
+                            <img className="img-profile rounded-circle" src="https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-9/120321837_104956478041476_7176881432022885481_n.png?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=fPyZFnFXMKcAX_Otpvc&_nc_ht=scontent.fhan2-6.fna&oh=e01556c2163237edad7ca891359541e0&oe=5F971A09" />
                         </a>
                     </li>
                     <div className="topbar-divider d-none d-sm-block" />
