@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const Header = props => {
+    const [KeyWord, setKeyWord] = useState('');
+    const handleChangeKeyWord = (e) => {
+        const { ten_sp, value } = e.target;
+        setKeyWord(value)
+    }
     return (
 
         <div className="header">
             <div className="header-top">
                 <div className="container">
                     <div className="search">
-                        <input type="text" placeholder="Tìm kiếm sản phẩm ... " />
-                        <button>
-                            <img src="images/search.png" />
-                        </button>
+                        <form>
+                            <input type="text" onChange={handleChangeKeyWord} placeholder="Tìm kiếm sản phẩm ... " />
+                            <Link to={`/search/${KeyWord}`} className="button"><img src="images/search.png" /></Link>
+                        </form>
+
                     </div>
                     <div className="header-left">
                         <ul>

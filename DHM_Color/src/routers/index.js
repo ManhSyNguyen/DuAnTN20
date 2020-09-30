@@ -21,6 +21,7 @@ import EditProduct from '../pages/views/Admin/EditProduct';
 
 import ProductDetail from '../pages/views/Main/ProductDetail';
 import Postt from '../pages/views/Main/Post';
+import Search from '../pages/views/Main/Search';
 
 const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onRemovect, onAddCt }) => {
     const onHandleRemove = (id) => {
@@ -99,6 +100,9 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             </Route>
                             <Route path="/baiviet">
                                 <Postt posts={posts} />
+                            </Route>
+                            <Route path="/search/:ten_sp" exact>
+                                <Search products={products} />
                             </Route>
                         </Switch>
                     </LayoutMain>
