@@ -9,9 +9,9 @@ const Header = props => {
             <div className="header-top">
                 <div className="container">
                     <div className="search">
-                        <input type="text" placeholder="Tìm kiếm sản phẩm ... " />&nbsp;
+                        <input type="text" placeholder="Tìm kiếm sản phẩm ... " />
                         <button>
-                            <span>Tìm kiếm</span>
+                            <img src="images/search.png" />
                         </button>
                     </div>
                     <div className="header-left">

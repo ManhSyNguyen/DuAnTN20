@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
 
 const About = ({ products, categorys }) => {
+
+    //Phân trang
+    const [Sotrang, setSotrang] = useState(0)
+
+    const tongSp = products.length;
+    console.log(222, products)
+
+    const tinhTrang = Math.ceil(tongSp / 9);
+
+    const mang = [];
+    for (var i = 1; i <= tinhTrang; i++) {
+        mang.push(i)
+    }
     return (
         <div>
             <div className="product">
@@ -30,7 +43,7 @@ const About = ({ products, categorys }) => {
 
                             </ul>
                         </div>
-                        {/*initiate accordion*/}
+
                         {/**/}
                         <div className="product-middle">
                             <div className="fit-top">
@@ -98,11 +111,11 @@ const About = ({ products, categorys }) => {
                         </div>
                     </div>
 
+                    {/**/}
                     <div className="col-md-9 product1">
                         <div className=" bottom-product">
-
-
-                            {products.map((item, index) => (
+                            {products && products.map((item, index) => (
+                                index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem">
                                     <div className="product-at ">
                                         <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.anh} alt="" />
@@ -116,14 +129,30 @@ const About = ({ products, categorys }) => {
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
                                     </a>
                                 </div>
-
                             ))}
-
                         </div>
                     </div>
                 </div>
+
+                {/**/}
+                <div className="page container">
+                    <nav className="in">
+                        <ul className="pagination">
+                            {Sotrang > 0 &&
+                                <li
+                                    onClick={() => setSotrang(Sotrang - 1)}><a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">«</span></a></li>}
+                            {mang && mang.map((sotrang, index) =>
+                                <li onClick={() => setSotrang(sotrang - 1)} className={Sotrang == (index) && "active"}>
+                                    <a href="#">{sotrang}<span className="sr-only" /></a></li>)}
+                            {Sotrang < (mang.length - 1) &&
+                                <li onClick={() => setSotrang(Sotrang + 1)}><a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
+
 
     )
 }

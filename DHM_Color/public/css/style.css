@@ -92,30 +92,38 @@ a.item_add {
 .search{
 	
 	display: inline-flex;
-    margin-top: 11px;
+	margin-top: 11px;
+	
 }
 .search input {
   width: 245px;
   height: 35px;
   border: none;
-  border-radius: 7px 7px 7px 7px;
+  border-radius: 30px 0px 0 30px;
   background-color: #e9e9e9;
   padding: 0 20px;
 }
 .search button {
-  width: 70px;
+  width: 40px;
   height: 35px;
   border: none;
-  border-radius: 7px 7px 7px 7px;
-  background-color: #222222;
+  border-radius: 0 30px 30px 0;
+  background-color: #e9e9e9;
   font-size: 12px;
   color: white;
   cursor: pointer;
   letter-spacing: .10rem;
 }
+.search button img{
+	width: 25px;
+	height: 25px;
+	transition-duration: 1s;
+}
+.search button:hover img{
+	transform: scale(1.4);
+}
 .search button:hover {
-  background-color: white;
-  color: #000000;
+  /* background-color: #222222; */
 }
 .header-left{
 	float: right;
@@ -846,13 +854,20 @@ h3.cate {
 .bottom-product {
   margin-bottom: 2em;
 }
+.page{
+	margin: auto;
+	margin-left: 10px;
+}
 nav.in{
   text-align: center;
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
   color: #fff;
-  background-color:#EF5F21;
-  border-color: #EF5F21;
+  background-color:#000000;
+  border-color: #ffffff;
+}
+.pagination{
+	    justify-content: center;
 }
 .pagination > li > a, .pagination > li > span {
 
@@ -913,8 +928,8 @@ h3.best {
     font-family: 'Lato', sans-serif;
 }
 .pagination > .active > a, .pagination > .active > a:hover {
-  background: #EF5F21;
-  border-color: #EF5F21;
+  background: #000000;
+  border-color: #000000;
 }
 /*----*/
 .product-middle{
@@ -1091,6 +1106,7 @@ p.tun{
 	background:#000000;
 	padding: 0.5em 1.5em;
 	text-transform: uppercase;
+	transition-duration: 0.5s;
 }
 .pro-grid span:hover{
 	background:rgb(255, 255, 255);
@@ -2291,6 +2307,7 @@ a.item_add p.number {
 }
 .pagination {
   margin: 10px 0 0;
+  
 }
 .footer-top-at {
   padding: 2em 0px 2em;
