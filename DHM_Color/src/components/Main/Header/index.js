@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Header = props => {
     const [KeyWord, setKeyWord] = useState('');
     const handleChangeKeyWord = (e) => {
-        const { ten_sp, value } = e.target;
+        const { value } = e.target;
         setKeyWord(value)
     }
     return (
