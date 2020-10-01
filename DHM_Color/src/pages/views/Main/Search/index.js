@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import apiRequest from '../../../../api/productApi';
 
 
-const Search = ({ categorys }) => {
+const Search = props => {
     const { ten_sp } = useParams();
     console.log(ten_sp)
     const [products, setProduct] = useState('')
