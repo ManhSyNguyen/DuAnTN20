@@ -24,7 +24,6 @@ const Search = props => {
 
     const [KeyWord, setKeyWord] = useState(ten_sp)
     console.log(KeyWord)
-
     const [ProductSearch, setProductSearch] = useState()
     if (KeyWord !== ten_sp) {
         setKeyWord(ten_sp)
