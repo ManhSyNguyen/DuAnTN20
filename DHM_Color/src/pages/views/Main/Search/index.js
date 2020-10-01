@@ -125,7 +125,7 @@ const Search = props => {
                         <div className=" bottom-product">
                             {ProductSearch && ProductSearch.map((item, index) => (
                                 index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
-                                <div className="col-md-4 bottom-cd simpleCart_shelfItem">
+                                <div key={index} className="col-md-4 bottom-cd simpleCart_shelfItem">
                                     <div className="product-at ">
                                         <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.anh} alt="" />
                                             <div className="pro-grid">

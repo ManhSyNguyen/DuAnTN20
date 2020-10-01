@@ -10,7 +10,7 @@ const Postt = ({ posts }) => {
                     <div className="blog-top">
 
                         {posts.map((item, index) => (
-                            <div className="col-md-6 grid_3">
+                            <div key={index} className="col-md-6 grid_3">
                                 <h3><strong>{item.name}</strong></h3>
                                 <a href="blog_single.html"><img src={item.image} width="500" alt="" /></a>
                                 <div className="blog-poast-info">

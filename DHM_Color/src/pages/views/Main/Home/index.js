@@ -11,8 +11,7 @@ const Home = ({ products }) => {
                         <h1><img src="images/giohang.png" width="40px" /> NEW PRODUCTS</h1>
                         <div className="grid-in">
                             {products.map((item, index) => (
-
-                                <div className="col-md-4 grid-top">
+                                <div key={index} className="col-md-4 grid-top">
                                     <Link to={`/product/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
                                         <img className="img-responsive" src={item.anh} />
                                         <div className="b-wrapper">

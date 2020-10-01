@@ -101,7 +101,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             <Route path="/baiviet">
                                 <Postt posts={posts} />
                             </Route>
-                            <Route path="/search/:ten_sp" exact>
+                            <Route path="/search/:ten_sp">
                                 <Search products={products} />
                             </Route>
                         </Switch>

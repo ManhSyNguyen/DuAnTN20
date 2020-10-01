@@ -7,6 +7,7 @@ const Header = props => {
     const handleChangeKeyWord = (e) => {
         const { value } = e.target;
         setKeyWord(value)
+
     }
     return (
 
@@ -14,7 +15,7 @@ const Header = props => {
             <div className="header-top">
                 <div className="container">
                     <div className="search">
-                        <form>
+                        <form onKeyPress={handleChangeKeyWord} >
                             <input type="text" onChange={handleChangeKeyWord} placeholder="Tìm kiếm sản phẩm ... " />
                             <Link to={`/search/${KeyWord}`} className="button"><img src="images/search.png" /></Link>
                         </form>
