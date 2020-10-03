@@ -1,0 +1,2 @@
+- Khi search chưa dùng được Enter
+- Sau khi search sản phẩm đầu tiên chưa search sản phẩm thứ 2
