@@ -1,16 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { DataContext } from '../../../pages/views/Main/CartControl';
 
 const Header = props => {
+    const value = useContext(DataContext)
+    const [carts] = value.carts
+
     const [KeyWord, setKeyWord] = useState('');
     const handleChangeKeyWord = (e) => {
         const { value } = e.target;
         setKeyWord(value)
 
     }
-    return (
 
+    return (
         <div className="header">
             <div className="header-top">
                 <div className="container">
@@ -29,12 +33,12 @@ const Header = props => {
                             </li>
                         </ul>
                         <div className="cart box_1">
-                            <a href="#">
+                            <Link to="/giohang">
                                 <h3> <div className="total">
-                                    <span className="simpleCart_total" /> (<span id="simpleCart_quantity" className="simpleCart_quantity" /> items)</div>
+                                    <span className="simpleCart_total" /> (<span id="simpleCart_quantity" className="simpleCart_quantity" /> {carts.length})</div>
                                     <img src="images/cart.png" alt="" /></h3>
-                            </a>
-                            <p><a href="#" className="simpleCart_empty">Giỏ hàng rỗng</a></p>
+                            </Link>
+                            {/* <p><a href="#" className="simpleCart_empty">Giỏ hàng rỗng</a></p> */}
                         </div>
                         <div className="clearfix"> </div>
                     </div>

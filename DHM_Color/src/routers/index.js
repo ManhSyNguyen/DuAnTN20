@@ -22,8 +22,9 @@ import EditProduct from '../pages/views/Admin/EditProduct';
 import ProductDetail from '../pages/views/Main/ProductDetail';
 import Postt from '../pages/views/Main/Post';
 import Search from '../pages/views/Main/Search';
+import Cart from '../pages/views/Main/Cart';
 
-const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onRemovect, onAddCt }) => {
+const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onRemovect, onAddCt, carts }) => {
     const onHandleRemove = (id) => {
         onRemove(id)
     }
@@ -103,6 +104,9 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             </Route>
                             <Route path="/search/:ten_sp">
                                 <Search products={products} />
+                            </Route>
+                            <Route path="/giohang">
+                                <Cart products={products} />
                             </Route>
                         </Switch>
                     </LayoutMain>

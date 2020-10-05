@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import apiRequest from './api/productApi';
 import apiRequestPost from './api/postApi';
 import apiRequestCt from './api/categoryApi';
+import apiRequestCart from './api/cartApi';
 import Routers from './routers'
 
 
@@ -11,6 +12,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [categorys, setCategorys] = useState([]);
+  const [carts, setCart] = useState([]);
 
   //Hien thi danh sach san pham
   //product
@@ -52,6 +54,19 @@ function App() {
     }
     getCategorys()
   }, [])
+  //cart
+  useEffect(() => {
+    const getCart = async () => {
+      try {
+        const { data } = await apiRequestCart.getAll();
+        setCart(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getCart()
+  }, [])
+
 
   //productRemove
   const onHandleRemove = async (id) => {
@@ -172,6 +187,8 @@ function App() {
         categorys={categorys}
         onRemovect={onHandleRemoveCt}
         onAddCt={onHandleAddCt}
+        //cart
+        carts={carts}
 
       />
 
