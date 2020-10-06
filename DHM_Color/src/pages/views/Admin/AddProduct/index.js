@@ -52,7 +52,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 
-                        <div>
+                        <div className="form-group">
                             <label htmlFor="InputProductName">Nội dung ngắn</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
@@ -67,6 +67,20 @@ const AddProduct = ({ onAdd, categorys }) => {
                         </div>
 
                         <div className="form-group">
+                            <label htmlFor="InputProductPrice">Số lượng</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <input type="number"
+                                className="form-control"
+                                id="InputProductName"
+                                name="so_luong"
+                                ref={register({ required: true, min: 0, pattern: /[-+]?[0-9]*[.,]?[0-9]+/ })}
+                            />
+                            {errors.so_luong && errors.so_luong.type === "required"
+                                && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
+                            {errors.so_luong && errors.so_luong.type === "min"
+                                && <span style={{ color: "red" }} >Sai định dạng</span>}
+                        </div>
+                        <div className="form-group">
                             <label htmlFor="InputProductStatus">Tình trạng</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select className="form-control form-control"
@@ -80,7 +94,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                         </div>
 
 
-                        <div className="control">
+                        <div className="form-group">
                             <label htmlFor="InputProductSize">Size</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select
@@ -96,7 +110,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                             </select>
                         </div>
 
-                        <div className="control">
+                        <div className="form-group">
                             <label htmlFor="InputProductColor">Màu</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select
@@ -112,7 +126,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                             </select>
                         </div>
 
-                        <div className="control">
+                        <div className="form-group">
                             <label htmlFor="InputProductColor">Danh mục</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select

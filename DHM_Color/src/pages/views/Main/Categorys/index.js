@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 
 const Categorys = ({ categorys, products }) => {
     const { id } = useParams()
-    const product = products.filter(product => product.categoryId === id)
+    const product = products.filter(product => product.danhmuc_Id === id)
     return (
 
         <div>
@@ -16,15 +16,11 @@ const Categorys = ({ categorys, products }) => {
                                 <h3 className="cate">Categories</h3>
                             </div>
                             <ul className="menu">
-                                <li className="item1">
-                                    <h5 className="card-title">
-                                        <Link to={"/about"}>All</Link>
-                                    </h5>
-                                    {categorys.map(({ id, namedm }) => (
+                                <li className="item4">
+                                    <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
+                                    {categorys.map(({ id, ten_danhmuc }) => (
                                         <div className="size__list color__list">
-                                            <h5 className="card-title">
-                                                <Link to={"/cate/" + id}>{namedm}</Link>
-                                            </h5>
+                                            <Link className="link_cate" to={"/cate/" + id}>{ten_danhmuc}</Link>
                                         </div>
                                     ))}
                                 </li>
@@ -73,15 +69,15 @@ const Categorys = ({ categorys, products }) => {
                             {product.map((sh, index) => (
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem">
                                     <div className="product-at ">
-                                        <Link to={`/product/${sh.id}`}><img className="img-responsive" src={sh.image} alt="" />
+                                        <Link to={`/product/${sh.id}`}><img className="img-responsive" src={sh.anh} alt="" />
                                             <div className="pro-grid">
                                                 <span className="buy-in">Buy Now</span>
                                             </div>
                                         </Link>
                                     </div>
-                                    <p className="tun">{sh.name}</p>
+                                    <p className="tun">{sh.ten_sp}</p>
                                     <a href="#" className="item_add">
-                                        <p className="number item_price"><i> </i>{sh.saleprice} vnđ</p>
+                                        <p className="number item_price"><i> </i>{sh.gia_ban} vnđ</p>
                                     </a>
                                 </div>
 

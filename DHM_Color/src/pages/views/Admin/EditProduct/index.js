@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import apiRequest from '../../../../api/productApi'
-import firebase from '../../../../firebase'
+import apiRequest from '../../../../api/productApi';
+import firebase from '../../../../firebase';
+
 const EditProduct = ({ onUpdate, categorys }) => {
     let { id } = useParams();
     let history = useHistory();
     const [editProduct, setEditProduct] = useState({});
+    const [Url, setUrl] = useState();
 
     const { register, handleSubmit, errors } = useForm();
     useEffect(() => {
@@ -39,6 +41,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                 onUpdate(newData);
                 console.log(newData)
                 history.push("/admin/products");
+
             })
         });
     }
@@ -81,6 +84,22 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             {errors.nd_ngan && errors.nd_ngan.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
+
+                        <div className="form-group">
+                            <label htmlFor="InputProductPrice">Số lượng</label>
+                            <span style={{ color: 'red' }}>*</span>
+                            <input type="number"
+                                className="form-control"
+                                id="InputProductName"
+                                name="so_luong"
+                                ref={register({ required: true, min: 0, pattern: /[-+]?[0-9]*[.,]?[0-9]+/ })}
+                                defaultValue={editProduct.so_luong} />
+                            {errors.so_luong && errors.so_luong.type === "required"
+                                && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
+                            {errors.so_luong && errors.so_luong.type === "min"
+                                && <span style={{ color: "red" }} >Sai định dạng</span>}
+                        </div>
+
                         <div className="form-group">
                             <label htmlFor="InputProductStatus">Tình trạng</label>
                             <span style={{ color: 'red' }}>*</span>

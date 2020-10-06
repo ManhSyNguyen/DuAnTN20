@@ -12,7 +12,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [categorys, setCategorys] = useState([]);
-  const [carts, setCart] = useState([]);
+
 
   //Hien thi danh sach san pham
   //product
@@ -54,18 +54,18 @@ function App() {
     }
     getCategorys()
   }, [])
-  //cart
-  useEffect(() => {
-    const getCart = async () => {
-      try {
-        const { data } = await apiRequestCart.getAll();
-        setCart(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getCart()
-  }, [])
+  // cart
+  // useEffect(() => {
+  //   const getCart = async () => {
+  //     try {
+  //       const { data } = await apiRequestCt.getAll();
+  //       setCart(data)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getCart()
+  // }, [])
 
 
   //productRemove
@@ -154,14 +154,13 @@ function App() {
     }
   }
 
-
+  //update products
   const onHandleUpdate = async (updateProduct) => {
     try {
       apiRequest.update(updateProduct.id, updateProduct);
       const newProducts = products.map(product => (
         product.id === updateProduct.id ? updateProduct : product
       ));
-
       setProducts(newProducts);
     } catch (error) {
       console.log(error)
@@ -187,8 +186,6 @@ function App() {
         categorys={categorys}
         onRemovect={onHandleRemoveCt}
         onAddCt={onHandleAddCt}
-        //cart
-        carts={carts}
 
       />
 

@@ -17,6 +17,7 @@
     "react-scripts": "3.4.1",
     "react-slideshow-image": "^3.3.0",
     "react-validation": "^3.0.7",
+    "sweetalert": "^2.1.2",
     "swiper": "^6.0.4",
     "validator": "^13.1.1"
   },

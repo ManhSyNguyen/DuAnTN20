@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 
 const ProductsManager = ({ products, onRemove, categorys }) => {
@@ -6,6 +6,18 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
     const removeHandle = (id) => {
         onRemove(id)
 
+    }
+    //Phân trang
+    const [Sotrang, setSotrang] = useState(0)
+
+    const tongSp = products.length;
+    console.log(222, products)
+
+    const tinhTrang = Math.ceil(tongSp / 6);
+
+    const mang = [];
+    for (var i = 1; i <= tinhTrang; i++) {
+        mang.push(i)
     }
     return (
         <div>
@@ -20,7 +32,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
             <div>
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
-                        <h6 className="m-0 font-weight-bold text-primary">Quản lý sản phẩm</h6>
+                        <h6 className="m-0 font-weight-bold text-primary">Quản lý kho hàng</h6>
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">
@@ -30,6 +42,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                         <th scope="col">#</th>
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Ảnh </th>
+                                        <th scope="col">Số lượng </th>
                                         <th scope="col">Danh mục</th>
                                         <th scope="col">Màu</th>
                                         <th scope="col">Size</th>
@@ -39,11 +52,13 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.map(({ id, ten_sp, danhmuc_Id, mau, size, tinh_trang, anh, gia_ban }, index) => (
+                                    {products.map(({ id, ten_sp, danhmuc_Id, so_luong, mau, size, tinh_trang, anh, gia_ban }, index) => (
+                                        index < (((Sotrang + 1) * 6)) && index > ((Sotrang * 6) - 1) &&
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
                                             <td>{ten_sp}</td>
                                             <td><img src={anh} alt="" width="50" /></td>
+                                            <td>{so_luong}</td>
                                             <td>
                                                 {categorys.map((id) => {
                                                     if (danhmuc_Id == id.id) {
@@ -66,6 +81,27 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
 
                                 </tbody>
                             </table>
+
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    {Sotrang > 0 &&
+                                        <li class="page-item" onClick={() => setSotrang(Sotrang - 1)}>
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>}
+                                    {mang && mang.map((sotrang, index) =>
+                                        <li onClick={() => setSotrang(sotrang - 1)} class={Sotrang == (index) && "page-item"}><a class="page-link" href="#">{sotrang}</a></li>)}
+                                    {Sotrang < (mang.length - 1) &&
+                                        <li class="page-item" onClick={() => setSotrang(Sotrang + 1)}>
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>}
+                                </ul>
+                            </nav>
 
                         </div>
                     </div>

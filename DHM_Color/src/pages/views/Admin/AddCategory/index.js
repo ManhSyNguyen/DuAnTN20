@@ -30,7 +30,7 @@ const AddCategory = ({ onAddCt }) => {
                                 id="categoryName" name="ten_danhmuc"
                                 ref={register({
                                     required: true, minLength: 3,
-                                    pattern: /^[A-Z a-z0-9]*$/
+                                    pattern: /[A-Z a-z0-9]/
                                 })} />
                             {errors.ten_danhmuc && errors.ten_danhmuc.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}

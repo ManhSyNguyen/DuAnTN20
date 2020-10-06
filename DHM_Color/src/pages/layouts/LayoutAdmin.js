@@ -4,7 +4,7 @@ import Topbar from '../../components/Admin/TopBar'
 import Footer from '../../components/Admin/Footer'
 import '../../assets/css/admin/sb-admin-2.min.css'
 import '../../assets/css/admin/main.scss'
-
+import '../../assets/css/admin/main.css'
 export default ({ children }) => {
     return (
         <div className="admin-page">

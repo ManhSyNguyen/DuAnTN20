@@ -2429,4 +2429,17 @@ a.item_add p.number {
 .img_gt .gird img{
 	padding: 20px;
 }
+.link_cate{
+	width: 100%;
+    margin: 0.3em 0;
+    display: inline-block;
+    position: relative;
+    color: #000;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.link_cate:hover{
+	text-decoration: none;	
+	color: #C4C3C3;
+}
 

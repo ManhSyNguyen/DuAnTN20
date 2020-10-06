@@ -213,6 +213,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: .5rem;
+  font-weight: 600;
 }
 
 button {
@@ -616,6 +617,7 @@ pre code {
 .row-cols-4 > * {
   flex: 0 0 25%;
   max-width: 25%;
+  padding: 20px;
 }
 
 .row-cols-5 > * {
@@ -1932,16 +1934,16 @@ pre code {
 .form-control {
   display: block;
   width: 100%;
-  height: calc(1.5em + .75rem + 2px);
-  padding: .375rem .75rem;
-  font-size: 1rem;
+  height: calc(1.95em + 1.25rem + 2px);
+  padding: 1rem 1.125rem;
+  font-size: 1.45rem;
   font-weight: 400;
   line-height: 1.5;
   color: #6e707e;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #d1d3e2;
-  border-radius: .35rem;
+  border-radius: .75rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -2075,11 +2077,11 @@ select.form-control[multiple], select.form-control[size] {
 }
 
 textarea.form-control {
-  height: auto;
+  height: 300px;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-text {
@@ -2400,10 +2402,10 @@ textarea.form-control {
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
+  padding: 1rem 1rem;
+  font-size: 1.3rem;
   line-height: 1.5;
-  border-radius: .35rem;
+  border-radius: 6px;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -9620,7 +9622,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .font-weight-bold {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
 }
 
 .font-weight-bolder {
@@ -9940,8 +9942,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #474849;
-  background-image: linear-gradient(180deg, #4d4d4d 10%, #5073d7 100%);
+  background-color: #56f4c8;
+  background-image: linear-gradient(180deg, #643be7 1%, #c750b3 ,#e74a3b 100%);
   background-size: cover;
 }
 
@@ -10494,6 +10496,7 @@ a:focus {
 .sidebar .sidebar-brand .sidebar-brand-text {
   font-size: 15px;
   display: none;
+  font-weight: 400;
 }
 
 .sidebar hr.sidebar-divider {
@@ -10505,6 +10508,10 @@ a:focus {
   padding: 0 1rem;
   font-weight: 800;
   font-size: .65rem;
+}
+.img_sidebar{
+width: 30px;
+border-radius: 16px;
 }
 
 @media (min-width: 768px) {
@@ -11284,7 +11291,8 @@ footer.sticky-footer {
 
 footer.sticky-footer .copyright {
   line-height: 1;
-  font-size: .8rem;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 body.sidebar-toggled footer.sticky-footer {

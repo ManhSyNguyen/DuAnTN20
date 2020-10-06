@@ -27,14 +27,10 @@ const About = ({ products, categorys }) => {
                             </div>
                             <ul className="menu">
                                 <li className="item1">
-                                    <h5 className="card-title">
-                                        <Link to={"/about"}>Tất cả</Link>
-                                    </h5>
+                                    <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
                                     {categorys.map(({ id, ten_danhmuc }) => (
                                         <div className="size__list color__list">
-                                            <h5 className="card-title">
-                                                <Link to={"/cate/" + id}>{ten_danhmuc}</Link>
-                                            </h5>
+                                            <Link className="link_cate" to={"/cate/" + id}>{ten_danhmuc}</Link>
 
                                         </div>
                                     ))}

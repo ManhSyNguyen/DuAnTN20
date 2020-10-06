@@ -19,10 +19,11 @@ const DetailProduct = ({ products }) => {
                         <div className="card-body">
 
                             <div className="col-sm-4 col-md-4 col-lg-4 text-center">
-                                <img src={product.anh} alt="..." width="300px" />
+                                <img src={product.anh} width="300px" />
                             </div>
                             <h2 className="card-title"> Name : {product.ten_sp} </h2>
                             <h2 className="card-title"> Nội dung ngắn : {product.nd_ngan} </h2>
+                            <h2 className="card-title"> Nội dung ngắn : {product.so_luong} </h2>
                             <h2 className="card-title"> Trạng thái : {product.tinh_trang ? 'Còn hàng' : 'Hết hàng'} </h2>
                             <h2 className="card-title"> Màu : {product.mau} </h2>
                             <h2 className="card-title"> Size : {product.size} </h2>
