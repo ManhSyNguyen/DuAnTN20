@@ -1,2 +1,11 @@
-Thứ nhất là chủ đề : sẽ bán mình áo ( bỏ giày và quần )
-Thứ hai : Phần danh mục sẽ để theo hãng ( vì trong sp đang có 4 hãng ), kiểu áo (Thun, Polo), Nam-nữ 
+//Chủ đề : sẽ bán mình áo ( bỏ giày và quần )
+//Phần danh mục sẽ để theo hãng ( vì trong sp đang có 4 hãng ), kiểu áo (Thun, Polo), Nam-nữ 
+- Màn nhân viên ở trong admin, nhân viên chỉ có quyền xuất hóa đơn
+- CSS lại Form Admin(đang Update)
+- Hiển thì dữ liệu(ảnh, trạng thái, danh mục) khi click "Sửa"
+//Bỏ tên giỏ hàng rỗng, icon.
+- Thêm size và hãng lên sản phẩm và thêm màu sản phẩm bên product
+- Thêm nhà phân khối.
+- Làm danh mục lọc theo giá --> --> kích thước --> Tay ngắn tay dài
+- Thêm hóa đơn cần phê duyệt (admin/dashboard)
+ 
