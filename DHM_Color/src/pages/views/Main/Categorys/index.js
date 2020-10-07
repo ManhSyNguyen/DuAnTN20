@@ -18,8 +18,8 @@ const Categorys = ({ categorys, products }) => {
                             <ul className="menu">
                                 <li className="item4">
                                     <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
-                                    {categorys.map(({ id, ten_danhmuc }) => (
-                                        <div className="size__list color__list">
+                                    {categorys.map(({ id, ten_danhmuc, index }) => (
+                                        <div className="size__list color__list" key={index}>
                                             <Link className="link_cate" to={"/cate/" + id}>{ten_danhmuc}</Link>
                                         </div>
                                     ))}
@@ -67,7 +67,7 @@ const Categorys = ({ categorys, products }) => {
 
 
                             {product.map((sh, index) => (
-                                <div className="col-md-4 bottom-cd simpleCart_shelfItem">
+                                <div className="col-md-4 bottom-cd simpleCart_shelfItem" key={index}>
                                     <div className="product-at ">
                                         <Link to={`/product/${sh.id}`}><img className="img-responsive" src={sh.anh} alt="" />
                                             <div className="pro-grid">

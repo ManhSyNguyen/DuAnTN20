@@ -10171,7 +10171,6 @@ a:focus {
 .dropdown.no-arrow .dropdown-toggle::after {
   display: none;
 }
-
 .sidebar .nav-item.dropdown .dropdown-toggle::after, .topbar .nav-item.dropdown .dropdown-toggle::after {
   width: 1rem;
   text-align: center;

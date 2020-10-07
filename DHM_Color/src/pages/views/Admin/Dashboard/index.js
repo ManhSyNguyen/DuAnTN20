@@ -41,7 +41,7 @@ const Dashboard = ({ products, categorys, posts }) => {
                                 </div>
                             </div>
 
-                            <div className="col-lg-3 col-md-6 col-sm-6 p-3">
+                            {/* <div className="col-lg-3 col-md-6 col-sm-6 p-3">
                                 <div className="card card-stats">
                                     <div className="card-header card-header-success card-header-icon">
                                         <p className="card-category">SIZE</p>
@@ -51,9 +51,9 @@ const Dashboard = ({ products, categorys, posts }) => {
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="col-lg-3 col-md-6 col-sm-6 p-3">
+                            {/* <div className="col-lg-3 col-md-6 col-sm-6 p-3">
                                 <div className="card card-stats">
                                     <div className="card-header card-header-success card-header-icon">
                                         <p className="card-category">COLOR</p>
@@ -63,7 +63,7 @@ const Dashboard = ({ products, categorys, posts }) => {
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="col-lg-3 col-md-6 col-sm-6 p-3">
                                 <div className="card card-stats">

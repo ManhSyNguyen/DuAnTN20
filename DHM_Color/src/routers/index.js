@@ -22,6 +22,9 @@ import EditProduct from '../pages/views/Admin/EditProduct';
 import ProductDetail from '../pages/views/Main/ProductDetail';
 import Postt from '../pages/views/Main/Post';
 import Search from '../pages/views/Main/Search';
+import Login from '../pages/views/Main/Login';
+import Register from '../pages/views/Main/Register';
+import ForgotPass from '../pages/views/Main/ForgotPass';
 
 
 const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onRemovect, onAddCt }) => {
@@ -104,6 +107,15 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             </Route>
                             <Route path="/search/:ten_sp">
                                 <Search products={products} />
+                            </Route>
+                            <Route path="/login">
+                                <Login />
+                            </Route>
+                            <Route path="/register">
+                                <Register />
+                            </Route>
+                            <Route path="/forgotpass">
+                                <ForgotPass />
                             </Route>
                         </Switch>
                     </LayoutMain>

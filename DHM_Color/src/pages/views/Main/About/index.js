@@ -28,8 +28,8 @@ const About = ({ products, categorys }) => {
                             <ul className="menu">
                                 <li className="item1">
                                     <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
-                                    {categorys.map(({ id, ten_danhmuc }) => (
-                                        <div className="size__list color__list">
+                                    {categorys.map(({ id, ten_danhmuc, index }) => (
+                                        <div className="size__list color__list" key={index}>
                                             <Link className="link_cate" to={"/cate/" + id}>{ten_danhmuc}</Link>
 
                                         </div>
@@ -112,7 +112,7 @@ const About = ({ products, categorys }) => {
                         <div className=" bottom-product">
                             {products && products.map((item, index) => (
                                 index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
-                                <div className="col-md-4 bottom-cd simpleCart_shelfItem">
+                                <div className="col-md-4 bottom-cd simpleCart_shelfItem" key={index}>
                                     <div className="product-at ">
                                         <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.anh} alt="" />
                                             <div className="pro-grid">

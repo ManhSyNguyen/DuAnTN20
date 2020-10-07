@@ -83,21 +83,21 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                             </table>
 
                             <nav aria-label="Page navigation example">
-                                <ul class="pagination">
+                                <ul className="pagination">
                                     {Sotrang > 0 &&
-                                        <li class="page-item" onClick={() => setSotrang(Sotrang - 1)}>
-                                            <a class="page-link" href="#" aria-label="Previous">
+                                        <li className="page-item" onClick={() => setSotrang(Sotrang - 1)}>
+                                            <a className="page-link" href="#" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
+                                                <span className="sr-only">Previous</span>
                                             </a>
                                         </li>}
                                     {mang && mang.map((sotrang, index) =>
-                                        <li onClick={() => setSotrang(sotrang - 1)} class={Sotrang == (index) && "page-item"}><a class="page-link" href="#">{sotrang}</a></li>)}
+                                        <li onClick={() => setSotrang(sotrang - 1)} className={Sotrang == (index) && "page-item"}><a className="page-link" href="#">{sotrang}</a></li>)}
                                     {Sotrang < (mang.length - 1) &&
-                                        <li class="page-item" onClick={() => setSotrang(Sotrang + 1)}>
-                                            <a class="page-link" href="#" aria-label="Next">
+                                        <li className="page-item" onClick={() => setSotrang(Sotrang + 1)}>
+                                            <a className="page-link" href="#" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
+                                                <span className="sr-only">Next</span>
                                             </a>
                                         </li>}
                                 </ul>

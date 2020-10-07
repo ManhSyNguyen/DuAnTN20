@@ -23,8 +23,8 @@ const Header = props => {
                     </div>
                     <div className="header-left">
                         <ul>
-                            <li><a className="lock" href="#">Đăng nhập</a></li>
-                            <li><a className="lock" href="#">Đăng ký</a></li>
+                            <li><Link className="lock" to="/login">Đăng nhập</Link></li>
+                            <li><Link className="lock" to="/register">Đăng ký</Link></li>
                             <li>
                             </li>
                         </ul>
