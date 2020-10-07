@@ -121,6 +121,7 @@ const About = ({ products, categorys }) => {
                                         </Link>
                                     </div>
                                     <p className="tun">{item.ten_sp}</p>
+
                                     <a href="#" className="item_add">
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
                                     </a>

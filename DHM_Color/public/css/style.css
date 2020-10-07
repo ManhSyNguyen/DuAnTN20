@@ -136,16 +136,15 @@ a.item_add {
 }
 .header-left ul li{
 	display: inline-block;
-	transition-duration: 1s	
 }
 .header-left ul li a{
 	text-decoration: none;
 	color:#fff;
-	  font-size: 1.5em;
-	  margin: 0 2em 0 0;
+	font-size: 1.5em;
+	margin: 0 2em 0 0;
 }
 .header-left ul li:hover{
-	transform: scale(1.3);
+	opacity: 0.6;
 }
 /* .header-left ul li a:hover{
 		opacity: 0.5; 
@@ -545,8 +544,7 @@ ul.nav-bottom li  a{
 }
 ul.nav-bottom li  a:hover{
 	color:#ffffff;
-	transform: scale(1.3);
-	opacity: 0.6;
+	opacity: 0.8;
 }
 .amet-sed p{
 	color:#989696;

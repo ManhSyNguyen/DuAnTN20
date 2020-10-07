@@ -7,7 +7,7 @@ const ForgotPass = props => {
             <div className="container">
                 <div className="account">
                     <h1>DHM COLOR</h1>
-                    <h2>Đăng nhập</h2>
+                    <h2>Quên mật khẩu</h2>
                     <div className="account-pass">
                         <div className="col-md-12 account-top">
                             <form>
