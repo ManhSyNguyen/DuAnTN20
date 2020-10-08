@@ -14,6 +14,7 @@ const Header = props => {
         <div className="header">
             <div className="header-top">
                 <div className="container">
+
                     <div className="search">
                         <form onKeyPress={handleChangeKeyWord} >
                             <input type="text" onChange={handleChangeKeyWord} placeholder="Tìm kiếm sản phẩm ... " />

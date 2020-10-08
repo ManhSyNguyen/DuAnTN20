@@ -41,7 +41,7 @@ const Category = ({ categorys, onRemovect }) => {
                                             <td>{mota}</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandleCt(id)}>Xóa</button>&nbsp;
-                                                {/* <Link className="btn btn-primary" to={`/admin/edit/${id}`}>Sửa</Link>&nbsp; */}
+                                                <Link className="btn btn-primary" to={`/admin/category/edit/${id}`}>Sửa</Link>&nbsp;
                                             </td>
                                         </tr>
                                     ))}

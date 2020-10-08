@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import apiRequest from '../../../../api/productApi';
@@ -17,6 +16,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
             try {
                 const { data } = await apiRequest.get(id);
                 setEditProduct(data);
+                console.log(data)
             } catch (error) {
 
             }

@@ -25,9 +25,10 @@ import Search from '../pages/views/Main/Search';
 import Login from '../pages/views/Main/Login';
 import Register from '../pages/views/Main/Register';
 import ForgotPass from '../pages/views/Main/ForgotPass';
+import EditCategory from '../pages/views/Admin/EditCategory';
 
 
-const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onRemovect, onAddCt }) => {
+const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onUpdateCt, onRemovect, onAddCt }) => {
     const onHandleRemove = (id) => {
         onRemove(id)
     }
@@ -76,6 +77,9 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             <Route path='/admin/category/add'>
                                 <AddCategory onAddCt={onHandleAddCt} />
                             </Route>
+                            <Router path='/admin/category/edit/:id'>
+                                <EditCategory categorys={categorys} onUpdateCt={onUpdateCt} />
+                            </Router>
                         </Switch>
                     </LayoutAdmin>
                 </Route>

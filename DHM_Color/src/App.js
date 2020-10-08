@@ -54,18 +54,8 @@ function App() {
     }
     getCategorys()
   }, [])
-  // cart
-  // useEffect(() => {
-  //   const getCart = async () => {
-  //     try {
-  //       const { data } = await apiRequestCt.getAll();
-  //       setCart(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   getCart()
-  // }, [])
+
+
 
 
   //productRemove
@@ -167,6 +157,19 @@ function App() {
     }
 
   }
+  //update cate
+  const onHandleUpdateCt = async (updateCategory) => {
+    try {
+      apiRequestCt.update(updateCategory.id, updateCategory);
+      const newCate = categorys.map(category => (
+        category.id === updateCategory.id ? updateCategory : category
+      ));
+      setCategorys(newCate);
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
 
 
@@ -186,6 +189,7 @@ function App() {
         categorys={categorys}
         onRemovect={onHandleRemoveCt}
         onAddCt={onHandleAddCt}
+        onUpdateCt={onHandleUpdateCt}
 
       />
 
