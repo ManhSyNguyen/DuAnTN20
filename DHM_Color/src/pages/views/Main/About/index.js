@@ -122,9 +122,9 @@ const About = ({ products, categorys }) => {
                                     </div>
                                     <p className="tun">{item.ten_sp}</p>
 
-                                    <a href="#" className="item_add">
+                                    <Link to="/pay" className="item_add">
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
-                                    </a>
+                                    </Link>
                                 </div>
                             ))}
                         </div>
@@ -148,7 +148,7 @@ const About = ({ products, categorys }) => {
                     </nav>
                 </div>
             </div>
-        </div>
+        </div >
 
 
     )

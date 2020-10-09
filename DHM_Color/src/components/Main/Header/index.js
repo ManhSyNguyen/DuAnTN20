@@ -30,7 +30,7 @@ const Header = props => {
                             </li>
                         </ul>
                         <div className="cart box_1">
-                            <Link to="/giohang">
+                            <Link to="/cart">
                                 <h3> <div className="total">
                                     <span className="simpleCart_total" /> <span id="simpleCart_quantity" className="simpleCart_quantity" /></div>
                                     <img src="images/cart.png" alt="" /></h3>

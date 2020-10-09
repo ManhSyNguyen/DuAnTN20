@@ -18,6 +18,7 @@ import Home from '../pages/views/Main/Home'
 import Introduce from '../pages/views/Main/Introduce';
 import Contact from '../pages/views/Main/Contact';
 import EditProduct from '../pages/views/Admin/EditProduct';
+import EditCategory from '../pages/views/Admin/EditCategory';
 
 import ProductDetail from '../pages/views/Main/ProductDetail';
 import Postt from '../pages/views/Main/Post';
@@ -25,7 +26,10 @@ import Search from '../pages/views/Main/Search';
 import Login from '../pages/views/Main/Login';
 import Register from '../pages/views/Main/Register';
 import ForgotPass from '../pages/views/Main/ForgotPass';
-import EditCategory from '../pages/views/Admin/EditCategory';
+import Pay from '../pages/views/Main/Pay';
+import Cart from '../pages/views/Main/Cart';
+
+
 
 
 const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onUpdateCt, onRemovect, onAddCt }) => {
@@ -77,9 +81,10 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             <Route path='/admin/category/add'>
                                 <AddCategory onAddCt={onHandleAddCt} />
                             </Route>
-                            <Router path='/admin/category/edit/:id'>
+                            <Route path='/admin/category/edit/:id'>
                                 <EditCategory categorys={categorys} onUpdateCt={onUpdateCt} />
-                            </Router>
+                            </Route>
+
                         </Switch>
                     </LayoutAdmin>
                 </Route>
@@ -120,6 +125,14 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             </Route>
                             <Route path="/forgotpass">
                                 <ForgotPass />
+                            </Route>
+                            {/* Cart */}
+                            <Route path="/cart">
+                                <Cart />
+                            </Route>
+                            {/* Pay */}
+                            <Route path='/pay'>
+                                <Pay />
                             </Route>
                         </Switch>
                     </LayoutMain>
