@@ -21,18 +21,20 @@ import EditProduct from '../pages/views/Admin/EditProduct';
 import EditCategory from '../pages/views/Admin/EditCategory';
 
 import ProductDetail from '../pages/views/Main/ProductDetail';
-import Postt from '../pages/views/Main/Post';
+import Posts from '../pages/views/Main/Post';
 import Search from '../pages/views/Main/Search';
 import Login from '../pages/views/Main/Login';
 import Register from '../pages/views/Main/Register';
 import ForgotPass from '../pages/views/Main/ForgotPass';
 import Pay from '../pages/views/Main/Pay';
 import Cart from '../pages/views/Main/Cart';
+import EditPost from '../pages/views/Admin/EditPost';
+import PostDetail from '../pages/views/Main/PostDetail';
 
 
 
 
-const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, categorys, onUpdateCt, onRemovect, onAddCt }) => {
+const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, onUpdatePs, categorys, onUpdateCt, onRemovect, onAddCt }) => {
     const onHandleRemove = (id) => {
         onRemove(id)
     }
@@ -74,6 +76,9 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             <Route path='/admin/post/add'>
                                 <AddPost onAddP={onAddP} />
                             </Route>
+                            <Route path='/admin/post/edit/:id'>
+                                <EditPost posts={posts} onUpdatePs={onUpdatePs} />
+                            </Route>
                             {/* category */}
                             <Route path='/admin/categorys'>
                                 <Category categorys={categorys} onRemovect={onHandleRemoveCt} />
@@ -112,7 +117,10 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                                 <Categorys categorys={categorys} products={products} />
                             </Route>
                             <Route path="/baiviet">
-                                <Postt posts={posts} />
+                                <Posts posts={posts} />
+                            </Route>
+                            <Route path="/post/:id">
+                                <PostDetail posts={posts} exact />
                             </Route>
                             <Route path="/search/:ten_sp">
                                 <Search products={products} />

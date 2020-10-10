@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import apiRequest from './api/productApi';
-import apiRequestPost from './api/postApi';
 import apiRequestCt from './api/categoryApi';
 import apiRequestCart from './api/cartApi';
+import apiRequestPs from './api/postApi';
 import Routers from './routers'
 import Swal from 'sweetalert2';
 
@@ -12,7 +12,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [categorys, setCategorys] = useState([]);
-
 
   //Hien thi danh sach san pham
   //product
@@ -32,7 +31,7 @@ function App() {
   useEffect(() => {
     const getPost = async () => {
       try {
-        const { data } = await apiRequestPost.getAll();
+        const { data } = await apiRequestPs.getAll();
         setPosts(data);
 
       } catch (error) {
@@ -90,7 +89,7 @@ function App() {
   const onHandleRemovePost = async (id) => {
     try {
       const newPosts = posts.filter(post => post.id !== id);
-      apiRequestPost.remove(id);
+      apiRequestPs.remove(id);
       Swal.fire({
         title: 'Bạn có muốn thực hiện?',
         text: "You won't be able to revert this!",
@@ -160,7 +159,7 @@ function App() {
 
   const onHandleAddP = async (post) => {
     try {
-      const { data } = await apiRequestPost.create(post);
+      const { data } = await apiRequestPs.create(post);
       if (data) {
         setPosts([...posts, data]);
       }
@@ -209,7 +208,20 @@ function App() {
 
   }
 
+  //update post
 
+  const onHandleUpdatePs = async (updatePost) => {
+    try {
+      apiRequestPs.update(updatePost.id, updatePost);
+      const newPosts = posts.map(post => (
+        post.id === updatePost.id ? updatePost : post
+      ));
+      setPosts(newPosts);
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   return (
     <div className="App">
@@ -223,6 +235,7 @@ function App() {
         posts={posts}
         onRemoveP={onHandleRemovePost}
         onAddP={onHandleAddP}
+        onUpdatePs={onHandleUpdatePs}
         //category
         categorys={categorys}
         onRemovect={onHandleRemoveCt}

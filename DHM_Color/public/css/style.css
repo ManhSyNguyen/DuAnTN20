@@ -760,8 +760,10 @@ ul.social li i:hover{
 	font-size:1.4em;
 	margin-bottom:1em;
 	color: #000;
+	text-align: center;
 }
 .grid_3 h3 a{
+	font-weight: 600;
 	color:#000;
 	text-decoration: none;
 }
@@ -787,6 +789,7 @@ ul.social li i:hover{
 	
 }
 .grid_3{
+	margin: auto;
 	margin-bottom:3em;
 }
 p.m_10 {

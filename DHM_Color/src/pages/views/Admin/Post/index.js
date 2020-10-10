@@ -36,14 +36,15 @@ const Post = ({ posts, onRemoveP }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {posts.map(({ id, name, image, noidung }, index) => (
+                                        {posts.map(({ id, ten_baiviet, image, noidung }, index) => (
                                             <tr key={index}>
                                                 <th scope="row">{index + 1}</th>
-                                                <td>{name}</td>
+                                                <td>{ten_baiviet}</td>
                                                 <td><img src={image} alt="" width="50" /></td>
                                                 <td>{noidung}</td>
                                                 <td>
-                                                    <button className="btn btn-danger" onClick={() => removeHandlePost(id)}>Xóa</button>
+                                                    <button className="btn btn-danger" onClick={() => removeHandlePost(id)}>Xóa</button>&nbsp;
+                                                    <Link className="btn btn-primary" to={`/admin/post/edit/${id}`}>Sửa</Link>
                                                 </td>
                                             </tr>
                                         ))}

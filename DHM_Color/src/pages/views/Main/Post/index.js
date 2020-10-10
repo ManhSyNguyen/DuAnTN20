@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const Postt = ({ posts }) => {
+const Posts = ({ posts }) => {
     return (
         <div>
             <div className="blog">
@@ -11,16 +12,15 @@ const Postt = ({ posts }) => {
 
                         {posts.map((item, index) => (
                             <div key={index} className="col-md-6 grid_3">
-                                <h3><strong>{item.name}</strong></h3>
-                                <a href="blog_single.html"><img src={item.image} width="500" alt="" /></a>
+                                <h3><strong>{item.ten_baiviet}</strong></h3>
+                                <a href="blog_single.html"><img src={item.image} width="500px" alt="" /></a>
                                 <div className="blog-poast-info">
                                     <ul>
                                         <li><a className="admin" href="#"><i> </i> Admin </a></li>
                                         <li><a className="p-blog" href="#"><i className="comment"> </i>No Comments</a></li>
                                     </ul>
                                 </div>
-                                <p>{item.noidung}</p>
-                                <div className="button"><a href="#">Read More</a></div>
+                                <div className="button"><Link to={`/post/${item.id}`}>Read More</Link></div>
                             </div>
                         ))}
 
@@ -32,8 +32,8 @@ const Postt = ({ posts }) => {
     )
 }
 
-Postt.propTypes = {
+Posts.propTypes = {
 
 }
 
-export default Postt
+export default Posts

@@ -47,8 +47,7 @@ const Sidebar = props => {
             </li>
             {/* Quan ly bai viet */}
             <li className="nav-item">
-                {/* <Link className="nav-link" to="/admin/posts"> */}
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/admin/posts">
                     <i className="fas fa-fw fa-chart-area" />
                     <span>Quản lý bài viết</span></Link>
             </li>

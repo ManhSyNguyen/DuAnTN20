@@ -1,13 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import firebase from '../../../../firebase';
+import React, { useEffect, useState } from 'react'
+import apiRequestPs from '../../../../api/postApi';
 import Swal from 'sweetalert2';
-const AddPost = ({ onAddP }) => {
-    let history = useHistory();
+import firebase from '../../../../firebase';
+import { useHistory, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
+const EditPost = ({ onUpdatePs }) => {
+    const { id } = useParams();
+    const history = useHistory()
+    const [editPosts, setPost] = useState({});
     const { register, handleSubmit, errors } = useForm();
-    const onHandleSubmit = (data) => {
+    useEffect(() => {
+        const getPosts = async () => {
+            try {
+                const { data } = await apiRequestPs.get(id);
+                setPost(data)
+            } catch (error) {
+                console.log(error)
+            }
+        };
+        getPosts()
+    }, [])
+    const onHandleSubmit = async (data) => {
         let file = data.image[0];
         // tạo reference chứa ảnh trên firesbase
         let storageRef = firebase.storage().ref(`imagesPost/${file.name}`);
@@ -15,21 +29,22 @@ const AddPost = ({ onAddP }) => {
         storageRef.put(file).then(function () {
             storageRef.getDownloadURL().then((url) => {
                 console.log(url);
-                const newdata = {
-                    id: Math.random().toString(36).substr(2, 9),
+                const newData = {
+                    id,
                     ...data,
                     image: url
-                };
-                onAddP(newdata);
-                history.push("/admin/posts");
+                }
+                onUpdatePs(newData);
+                console.log(newData)
+                history.push('/admin/posts');
                 Swal.fire(
-                    'Thêm thành công',
+                    'Sửa thành công',
                     'You clicked the button!',
                     'success'
                 )
             })
         });
-    };
+    }
     return (
         <div>
             <div className="card shadow mb-4">
@@ -43,6 +58,7 @@ const AddPost = ({ onAddP }) => {
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
                                 id="categoryName" name="ten_baiviet"
+                                defaultValue={editPosts.ten_baiviet}
                                 ref={register({
                                     required: true, minLength: 3,
                                     pattern: /[A-Z a-z0-9]/
@@ -73,6 +89,7 @@ const AddPost = ({ onAddP }) => {
                             <span style={{ color: 'red' }}>*</span>
                             <textarea type="text" className="form-control"
                                 id="categoryName" name="noidung"
+                                defaultValue={editPosts.noidung}
                                 ref={register({
                                     required: true, minLength: 3,
                                     pattern: /[A-Z a-z0-9]/
@@ -92,8 +109,8 @@ const AddPost = ({ onAddP }) => {
     )
 }
 
-AddPost.propTypes = {
+EditPost.propTypes = {
 
 }
 
-export default AddPost
+export default EditPost
