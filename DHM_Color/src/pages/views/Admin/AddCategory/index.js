@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 const AddCategory = ({ onAddCt }) => {
     let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
@@ -13,6 +13,11 @@ const AddCategory = ({ onAddCt }) => {
         };
         onAddCt(newdata);
         history.push("/admin/categorys");
+        Swal.fire(
+            'Thêm thành công',
+            'You clicked the button!',
+            'success'
+        )
     };
 
     return (

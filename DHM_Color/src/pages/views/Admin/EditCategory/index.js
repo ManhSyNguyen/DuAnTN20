@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import apiRequestCt from '../../../../api/categoryApi';
-
+import Swal from 'sweetalert2';
 const EditCategory = ({ onUpdateCt }) => {
 
     const { id } = useParams();
@@ -28,6 +28,11 @@ const EditCategory = ({ onUpdateCt }) => {
         onUpdateCt(newData);
         console.log(newData)
         history.push('/admin/categorys');
+        Swal.fire(
+            'Sửa thành công',
+            'You clicked the button!',
+            'success'
+        )
     }
 
     return (
@@ -49,6 +54,21 @@ const EditCategory = ({ onUpdateCt }) => {
                         <small className="form-text text-danger">
                             {errors.ten_danhmuc && errors.ten_danhmuc.type === "required" && <span>Vui lòng không để trống</span>}
                             {errors.ten_danhmuc && errors.ten_danhmuc.type === "pattern" && <span className="text-danger">Không được cách</span>}
+                        </small>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Mô tả</label>
+                        <input type="text"
+                            name="mota"
+                            className="form-control"
+                            defaultValue={editCategorys.mota}
+                            id="exampleInputEmail1"
+                            ref={register({ required: true, pattern: /[A-Z a-z0-9]/ })}
+                        />
+                        <small className="form-text text-danger">
+                            {errors.mota && errors.mota.type === "required" && <span>Vui lòng không để trống</span>}
+                            {errors.mota && errors.mota.type === "pattern" && <span className="text-danger">Không được cách</span>}
                         </small>
                     </div>
 

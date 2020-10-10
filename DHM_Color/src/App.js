@@ -5,7 +5,7 @@ import apiRequestPost from './api/postApi';
 import apiRequestCt from './api/categoryApi';
 import apiRequestCart from './api/cartApi';
 import Routers from './routers'
-
+import Swal from 'sweetalert2';
 
 function App() {
 
@@ -64,10 +64,24 @@ function App() {
       const newProducts = products.filter(product => product.id !== id);
       apiRequest.remove(id);
 
-      const confirm = window.confirm("Bạn có muốn xóa ?");
-      if (confirm) {
-        setProducts(newProducts);
-      }
+      Swal.fire({
+        title: 'Bạn có muốn thực hiện?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setProducts(newProducts);
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
     } catch (error) {
       console.log(error)
     }
@@ -77,10 +91,24 @@ function App() {
     try {
       const newPosts = posts.filter(post => post.id !== id);
       apiRequestPost.remove(id);
-      const confirm = window.confirm("Bạn có muốn xóa ?");
-      if (confirm) {
-        setPosts(newPosts);
-      }
+      Swal.fire({
+        title: 'Bạn có muốn thực hiện?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setPosts(newPosts);
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
     } catch (error) {
       console.log(error)
     }
@@ -91,11 +119,24 @@ function App() {
     try {
       const newCategorys = categorys.filter(category => category.id !== id);
       apiRequestCt.remove(id);
-
-      const confirm = window.confirm("Bạn có muốn xóa ?");
-      if (confirm) {
-        setCategorys(newCategorys);
-      }
+      Swal.fire({
+        title: 'Bạn có muốn thực hiện?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setCategorys(newCategorys);
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
     } catch (error) {
       console.log(error)
     }
@@ -106,8 +147,7 @@ function App() {
   const onHandleAdd = async (product) => {
     try {
       const { data } = await apiRequest.create(product);
-      const confirmAdd = window.confirm("Bạn có muốn thêm sản phẩm!");
-      if (data, confirmAdd) {
+      if (data) {
         setProducts([...products, data]);
       }
 
@@ -121,8 +161,7 @@ function App() {
   const onHandleAddP = async (post) => {
     try {
       const { data } = await apiRequestPost.create(post);
-      const confirmAdd = window.confirm("Bạn có muốn thêm bài viết!");
-      if (data, confirmAdd) {
+      if (data) {
         setPosts([...posts, data]);
       }
     } catch (error) {
@@ -134,8 +173,7 @@ function App() {
   const onHandleAddCt = async (category) => {
     try {
       const { data } = await apiRequestCt.create(category);
-      const confirmAdd = window.confirm("Bạn có muốn thêm danh mục!");
-      if (data, confirmAdd) {
+      if (data) {
         setCategorys([...categorys, data]);
       }
 

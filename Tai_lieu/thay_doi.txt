@@ -8,4 +8,5 @@
 - Thêm nhà phân khối.
 - Làm danh mục lọc theo giá --> --> kích thước --> Tay ngắn tay dài
 - Thêm hóa đơn cần phê duyệt (admin/dashboard)
+- Sản phẩm mới ở trang chủ cần được giới hạn số lượng
  

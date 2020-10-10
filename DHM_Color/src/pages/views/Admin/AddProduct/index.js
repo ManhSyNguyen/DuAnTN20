@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link, useHistory } from 'react-router-dom'
 import { useForm } from "react-hook-form";
-import firebase from '../../../../firebase'
+import firebase from '../../../../firebase';
+import Swal from 'sweetalert2';
 const AddProduct = ({ onAdd, categorys }) => {
     const { register, handleSubmit, errors } = useForm();
 
@@ -23,6 +24,11 @@ const AddProduct = ({ onAdd, categorys }) => {
                 //     e.preventDefault();
                 onAdd(newData)
                 history.push("/admin/products");
+                Swal.fire(
+                    'Thêm thành công',
+                    'You clicked the button!',
+                    'success'
+                )
             })
         });
     }
@@ -126,22 +132,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                             </select>
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="InputProductColor">Danh mục</label>
-                            <span style={{ color: 'red' }}>*</span>
-                            <select
-                                name="Color"
-                                tabIndex={1}
-                                data-placeholder="Select here.."
-                                className="form-control "
-                            >
-                                <option value="">--Lựa chọn danh mục--</option>
-                                <option value="">Quần Áo</option>
-                                <option value="">Giày</option>
-                            </select>
-                        </div>
-
-                        {/* <div className="control">
+                        <div className="control">
                             <label htmlFor="InputProductStatus">Danh mục</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select
@@ -158,7 +149,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                                     </option>
                                 ))}
                             </select>
-                        </div> */}
+                        </div>
 
                         <div className="form-group">
                             <label htmlFor="productPrice">Ảnh sản phẩm</label>

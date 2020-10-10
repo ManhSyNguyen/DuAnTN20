@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import apiRequest from '../../../../api/productApi';
 import firebase from '../../../../firebase';
-
+import Swal from 'sweetalert2';
 const EditProduct = ({ onUpdate, categorys }) => {
     let { id } = useParams();
     let history = useHistory();
@@ -41,6 +41,11 @@ const EditProduct = ({ onUpdate, categorys }) => {
                 onUpdate(newData);
                 console.log(newData)
                 history.push("/admin/products");
+                Swal.fire(
+                    'Sửa thành công',
+                    'You clicked the button!',
+                    'success'
+                )
 
             })
         });
