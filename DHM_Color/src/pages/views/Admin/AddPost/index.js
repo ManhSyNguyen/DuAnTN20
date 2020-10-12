@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import firebase from '../../../../firebase';
 import Swal from 'sweetalert2';
 const AddPost = ({ onAddP }) => {
+    const da = new Date();
     let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
     const onHandleSubmit = (data) => {
@@ -68,6 +69,7 @@ const AddPost = ({ onAddP }) => {
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="ngaydang" ref={register} value={da.toISOString()} className="form-control" id="exampleInputEmail1" />
                         <div className="form-group">
                             <label htmlFor="InputCategoryName">Nội dung</label>
                             <span style={{ color: 'red' }}>*</span>

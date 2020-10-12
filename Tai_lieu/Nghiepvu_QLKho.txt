@@ -1,0 +1,13 @@
+- Giới hạn có bao nhiêu sản phẩm
+- Kiểm tra tính hợp lệ của hóa đơn trước khi nhập kho.
+- Kiểm tra ngày tháng xuất nhập sản phẩm
+- Lập chứng từ nhập xuất, hóa đơn bán hàng
+- Lập báo cáo tồn kho, báo cáo xuất nhập tồn
+- Kiểm soát nhập xuất tồn kho
+
+- Tồn kho :
+ - Chi tiết tồn kho
+ - Điều khiển
+ - Điều chỉnh
+ - Mua hàng
+ - Lịch sử

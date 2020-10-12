@@ -6,6 +6,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const EditPost = ({ onUpdatePs }) => {
+    const da = new Date();
     const { id } = useParams();
     const history = useHistory()
     const [editPosts, setPost] = useState({});
@@ -84,6 +85,7 @@ const EditPost = ({ onUpdatePs }) => {
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="ngaydang" ref={register} value={da.toISOString()} className="form-control" id="exampleInputEmail1" />
                         <div className="form-group">
                             <label htmlFor="InputCategoryName">Nội dung</label>
                             <span style={{ color: 'red' }}>*</span>

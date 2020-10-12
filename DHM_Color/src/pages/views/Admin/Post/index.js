@@ -31,17 +31,19 @@ const Post = ({ posts, onRemoveP }) => {
                                             <th scope="col">#</th>
                                             <th scope="col">Tiêu đề</th>
                                             <th scope="col">Ảnh</th>
-                                            <th scope="col">Nội dung</th>
+                                            <th scope="col">Ngày đăng</th>
+                                            {/* <th scope="col">Nội dung</th> */}
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {posts.map(({ id, ten_baiviet, image, noidung }, index) => (
+                                        {posts.map(({ id, ten_baiviet, image, ngaydang, noidung }, index) => (
                                             <tr key={index}>
                                                 <th scope="row">{index + 1}</th>
                                                 <td>{ten_baiviet}</td>
                                                 <td><img src={image} alt="" width="50" /></td>
-                                                <td>{noidung}</td>
+                                                <td>{ngaydang}</td>
+                                                {/* <td>{noidung}</td> */}
                                                 <td>
                                                     <button className="btn btn-danger" onClick={() => removeHandlePost(id)}>Xóa</button>&nbsp;
                                                     <Link className="btn btn-primary" to={`/admin/post/edit/${id}`}>Sửa</Link>

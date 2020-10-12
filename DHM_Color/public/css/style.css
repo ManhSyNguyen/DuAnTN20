@@ -1068,9 +1068,14 @@ a.item_add p.number i{
 p.tun{
 	font-size:1.5em;
 	  color: #5e5e5e;
-  text-align: center;
   line-height: 1.3em;
   padding: 1em 0;
+}
+p.tun1{
+	font-size:1.15em;
+	line-height: 0.3em;
+	color: #5e5e5e;
+	padding-bottom: 10px;
 }
 
 .product-at{
@@ -2551,5 +2556,8 @@ a.item_add p.number {
 .link_cate:hover{
 	text-decoration: none;	
 	color: #C4C3C3;
+}
+.cap{
+	font-family:'Lato', sans-serif;
 }
 
