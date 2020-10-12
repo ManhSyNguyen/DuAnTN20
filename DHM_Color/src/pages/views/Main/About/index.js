@@ -121,6 +121,7 @@ const About = ({ products, categorys }) => {
                                         </Link>
                                     </div>
                                     <p className="tun">{item.ten_sp}</p>
+                                    <p className="tun1">Size : S - M - L -XL</p>
 
                                     <Link to="/pay" className="item_add">
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
