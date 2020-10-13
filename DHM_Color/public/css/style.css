@@ -1594,6 +1594,7 @@ a.add-re:hover{
 	font-size: 20px;
 }
 .btn_login span{
+	padding-top: 7px;
 	color: white;
 	font-size: 20px;
 }
@@ -1876,10 +1877,12 @@ ul.total_price li.last_price span{
   margin-bottom:1em;
     font-family: 'Lato', sans-serif;
 }
-.check h2 {
-  font-size: 1.75em;
+.check p {
+  font-size: 1.25em;
   margin-bottom:1em;
-    font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: rgb(223, 35, 35);
 }
 .lb{
 	font-weight: 400;

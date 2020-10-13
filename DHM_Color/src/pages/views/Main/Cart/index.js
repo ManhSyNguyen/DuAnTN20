@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 
 const Cart = props => {
     return (
@@ -7,7 +7,7 @@ const Cart = props => {
             <div className="container">
                 <div className="check">
                     <h1>Giỏ hàng </h1>
-                    <h2>Giá có thể thay đổi dựa trên giá có hiệu lực vào ngày thanh toán</h2>
+                    <p>Giá có thể thay đổi dựa trên giá có hiệu lực vào ngày thanh toán</p>
                     <hr />
                     <div className="col-md-9 cart-items" style={{ paddingTop: '20px' }}>
                         <div className="cart-header">

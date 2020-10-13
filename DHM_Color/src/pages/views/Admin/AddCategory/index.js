@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';

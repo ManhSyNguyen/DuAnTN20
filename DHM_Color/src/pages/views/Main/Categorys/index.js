@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
 
 const Categorys = ({ categorys, products }) => {
@@ -76,6 +75,7 @@ const Categorys = ({ categorys, products }) => {
                                         </Link>
                                     </div>
                                     <p className="tun">{sh.ten_sp}</p>
+                                    <p className="tun1">Size : S - M - L - XL</p>
                                     <a href="#" className="item_add">
                                         <p className="number item_price"><i> </i>{sh.gia_ban} vnđ</p>
                                     </a>

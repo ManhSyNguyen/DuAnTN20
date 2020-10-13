@@ -85,7 +85,7 @@ const EditPost = ({ onUpdatePs }) => {
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" name="ngaydang" ref={register} value={da.toISOString()} className="form-control" id="exampleInputEmail1" />
+                        <input type="date" name="ngaydang" ref={register} value={da.toISOString()} className="form-control" id="exampleInputEmail1" />
                         <div className="form-group">
                             <label htmlFor="InputCategoryName">Nội dung</label>
                             <span style={{ color: 'red' }}>*</span>
