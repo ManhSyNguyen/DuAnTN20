@@ -29,7 +29,7 @@ const Category = ({ categorys, onRemovect }) => {
                                         <th scope="col">#</th>
                                         <th scope="col">Tên danh mục</th>
                                         <th scope="col">Mô tả</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Tùy chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>

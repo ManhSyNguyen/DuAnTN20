@@ -48,7 +48,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                         <th scope="col">Size</th>
                                         <th scope="col">Tình trạng hàng</th>
                                         <th scope="col">Giá </th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Tùy chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>

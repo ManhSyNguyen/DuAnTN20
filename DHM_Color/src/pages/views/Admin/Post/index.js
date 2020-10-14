@@ -32,7 +32,7 @@ const Post = ({ posts, onRemoveP }) => {
                                             <th scope="col">Ảnh</th>
                                             <th scope="col">Ngày đăng</th>
                                             {/* <th scope="col">Nội dung</th> */}
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Tùy chọn</th>
                                         </tr>
                                     </thead>
                                     <tbody>
