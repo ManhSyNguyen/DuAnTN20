@@ -11,15 +11,16 @@ import Category from '../pages/views/Admin/Category';
 import Post from '../pages/views/Admin/Post';
 import AddCategory from '../pages/views/Admin/AddCategory';
 import Categorys from '../pages/views/Main/Categorys';
+import EditProduct from '../pages/views/Admin/EditProduct';
+import EditCategory from '../pages/views/Admin/EditCategory';
 import AddPost from '../pages/views/Admin/AddPost';
+import EditPost from '../pages/views/Admin/EditPost';
+import Contacts from '../pages/views/Admin/Contact';
 //Views
 import About from '../pages/views/Main/About'
 import Home from '../pages/views/Main/Home'
 import Introduce from '../pages/views/Main/Introduce';
 import Contact from '../pages/views/Main/Contact';
-import EditProduct from '../pages/views/Admin/EditProduct';
-import EditCategory from '../pages/views/Admin/EditCategory';
-
 import ProductDetail from '../pages/views/Main/ProductDetail';
 import Posts from '../pages/views/Main/Post';
 import Search from '../pages/views/Main/Search';
@@ -28,8 +29,8 @@ import Register from '../pages/views/Main/Register';
 import ForgotPass from '../pages/views/Main/ForgotPass';
 import Pay from '../pages/views/Main/Pay';
 import Cart from '../pages/views/Main/Cart';
-import EditPost from '../pages/views/Admin/EditPost';
 import PostDetail from '../pages/views/Main/PostDetail';
+
 
 
 
@@ -89,7 +90,10 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                             <Route path='/admin/category/edit/:id'>
                                 <EditCategory categorys={categorys} onUpdateCt={onUpdateCt} />
                             </Route>
-
+                            {/* contact */}
+                            <Route path='/admin/contacts'>
+                                <Contacts />
+                            </Route>
                         </Switch>
                     </LayoutAdmin>
                 </Route>

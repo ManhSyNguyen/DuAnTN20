@@ -62,6 +62,12 @@ const Sidebar = props => {
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý đơn hàng</span></Link>
             </li>
+            {/* Liên hệ */}
+            <li className="nav-item active">
+                <Link className="nav-link" to="/admin/contacts">
+                    <i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Liên hệ</span></Link>
+            </li>
             {/* Trang chu */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/">
