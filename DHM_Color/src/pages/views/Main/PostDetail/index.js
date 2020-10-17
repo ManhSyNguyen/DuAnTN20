@@ -29,7 +29,7 @@ const PostDetail = props => {
                             <div className="blog-poast-info">
                                 <ul>
                                     <li><a className="admin" href="#"><i> </i> Admin </a></li>
-                                    <li><span><i className="date"> </i>12-04-2015</span></li>
+                                    <li><span><i className="date"> </i>{post.ngaydang}</span></li>
                                     <li><a className="p-blog" href="#"><i className="comment"> </i>No Comments</a></li>
                                 </ul>
                             </div>
