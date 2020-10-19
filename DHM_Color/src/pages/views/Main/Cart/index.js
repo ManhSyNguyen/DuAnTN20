@@ -75,7 +75,7 @@ export default function Cart() {
                                     </div>
                                     <div className="cart-item-info">
                                         <p>Tên sản phẩm : {item.ten_sp}</p><br />
-                                        <p>Giá : {item.gia_ban * item.count}</p>
+                                        <p>Giá : {item.gia_ban * item.count} vnđ</p>
                                         <ul className="qty">
                                             <li><p>Size : </p></li>
                                             <li>
