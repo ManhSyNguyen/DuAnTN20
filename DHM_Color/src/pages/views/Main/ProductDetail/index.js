@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import apiRequest from '../../../../api/productApi';
+import { DataContext } from '../ActionCart';
 
 const ProductDetail = ({ products }) => {
     const id = useParams().id;
     const [product, setProduct] = useState({});
     // const product = products.find(item => item.id === id)
+    const value = useContext(DataContext);
+    const addCart = value.addCart;
+    console.log(addCart)
     useEffect(() => {
         const getProduct = async () => {
             try {
@@ -109,7 +113,7 @@ const ProductDetail = ({ products }) => {
 
                                     <span className="women1">{product.tinh_trang == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng</p> : <p className="women1" style={{ color: 'red' }}>Hết hàng</p>}</span>
                                 </ul>
-                                <a href="#" className="add-cart item_add">ADD TO CART</a>
+                                <Link to="/cart" onClick={() => addCart(product.id)} className="add-cart item_add">ADD TO CART</Link>
                             </div>
                         </div>
                         <div className="clearfix"> </div>
