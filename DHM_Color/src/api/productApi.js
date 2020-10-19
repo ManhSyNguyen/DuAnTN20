@@ -21,6 +21,8 @@ const remove = id => {
     return http.delete(`/products/${id}`);
 };
 
+// Check thôi
+
 
 export default {
     getAll,
