@@ -1746,6 +1746,53 @@ a.create {
 	font-size:0.65em;
 	font-weight:400;
 } 
+.buttons_added {
+    opacity:1;
+    display:inline-block;
+    display:-ms-inline-flexbox;
+    display:inline-flex;
+    white-space:nowrap;
+    vertical-align:top;
+}
+.is-form {
+    overflow:hidden;
+	position:relative;
+	font-size: 1.2rem;
+    background-color:#f9f9f9;
+    height:2.2rem;
+    width:1.9rem;
+    padding:0;
+    text-shadow:1px 1px 1px #fff;
+    border:1px solid #ddd;
+}
+.is-form:focus,.input-text:focus {
+    outline:none;
+}
+.is-form.minus {
+    border-radius:4px 0 0 4px;
+}
+.is-form.plus {
+    border-radius:0 4px 4px 0;
+}
+.input-qty {
+    background-color:#fff;
+	height:2.2rem;
+	width: 27px;
+    text-align:center;
+    font-size:1.2rem;
+    display:inline-block;
+    vertical-align:top;
+    margin:0;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    border-left:0;
+    border-right:0;
+    padding:0;
+}
+.input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+    -webkit-appearance:none;
+    margin:0;
+}
 
 .close1,.close2{
   background: url('../images/close_1.png') no-repeat 0px 0px;
@@ -2562,5 +2609,9 @@ a.item_add p.number {
 }
 .cap{
 	font-family:'Lato', sans-serif;
+}
+.cart-item-info p{
+	color: #555;
+	font-size: 20px;
 }
 

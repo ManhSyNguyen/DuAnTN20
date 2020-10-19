@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DataContext } from '../../../pages/views/Main/ActionCart';
+
 
 const Header = props => {
     const [KeyWord, setKeyWord] = useState('');
     const handleChangeKeyWord = (e) => {
         const { value } = e.target;
         setKeyWord(value)
-
     }
 
     return (

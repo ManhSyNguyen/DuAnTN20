@@ -1,2 +1,3 @@
 - Khi search chưa dùng được Enter
 - Sau khi search sản phẩm đầu tiên chưa search sản phẩm thứ 2
+- Giỏ hàng : màn hình chính, add sản phẩm tương tự nhưng không cộng sl sản phẩm

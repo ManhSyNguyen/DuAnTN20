@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import apiRequest from '../../../../api/productApi'
-
+import Swal from 'sweetalert2';
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
@@ -29,7 +29,11 @@ export const DataProvider = (props) => {
             console.log(data);
             setCart([...cart, ...data])
         } else {
-            alert("The product has been added to cart.")
+            Swal.fire(
+                'Thêm vào giỏ hàng thành công',
+                'You clicked the button!',
+                'success'
+            )
         }
     };
     useEffect(() => {

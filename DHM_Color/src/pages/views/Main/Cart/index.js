@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { DataContext } from '../ActionCart'
+import { DataContext } from '../ActionCart';
+import Swal from 'sweetalert2';
 
 export default function Cart() {
     const value = useContext(DataContext)
@@ -31,18 +32,31 @@ export default function Cart() {
         setCart([...cart])
     }
     const removeProduct = id => {
-        if (window.confirm("Bạn có muốn xóa sản phẩm")) {
-            cart.forEach((item, index) => {
-                if (item.id === id) {
-                    cart.splice(index, 1)
-                }
-            })
-            setCart([...cart])
-        }
+        Swal.fire({
+            title: 'Bạn có muốn thực hiện?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                cart.forEach((item, index) => {
+                    if (item.id === id) {
+                        cart.splice(index, 1)
+                    }
+                })
+                setCart([...cart])
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
     }
 
-    if (cart.length === 0)
-        return <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Cart Empty</h2>
     return (
         <div>
             <div className="container">
@@ -60,15 +74,17 @@ export default function Cart() {
                                         <img src={item.anh} className="img-responsive" alt="" />
                                     </div>
                                     <div className="cart-item-info">
-                                        <h3><a href="#">Tên sản phẩm : {item.ten_sp}</a></h3>
-                                        <h2>Giá : {item.gia_ban * item.count}</h2>
+                                        <p>Tên sản phẩm : {item.ten_sp}</p><br />
+                                        <p>Giá : {item.gia_ban * item.count}</p>
                                         <ul className="qty">
                                             <li><p>Size : </p></li>
-                                            <li><p>Số lượng :
-                                                <button className="count" onClick={() => reduction(item.id)}> - </button>
-                                                <span>{item.count}</span>
-                                                <button className="count" onClick={() => increase(item.id)}> + </button>
-                                            </p>
+                                            <li>
+                                                <div className="buttons_added">
+                                                    <p>Số lượng :</p>&nbsp;
+                                                    <input className="minus is-form" type="button" defaultValue="-" onClick={() => reduction(item.id)} />
+                                                    <input aria-label="quantity" className="input-qty" type="number" placeholder={item.count} />
+                                                    <input className="plus is-form" type="button" defaultValue="+" onClick={() => increase(item.id)} />
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
