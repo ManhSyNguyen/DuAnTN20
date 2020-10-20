@@ -28,12 +28,17 @@ export const DataProvider = (props) => {
             })
             console.log(data);
             setCart([...cart, ...data])
-        } else {
             Swal.fire(
                 'Thêm vào giỏ hàng thành công',
                 'You clicked the button!',
                 'success'
             )
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Sản phẩm đã có trong giỏ hàng',
+                text: 'Something went wrong!',
+            })
         }
     };
     useEffect(() => {
