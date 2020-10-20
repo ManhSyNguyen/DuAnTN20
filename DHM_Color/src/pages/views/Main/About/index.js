@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { DataContext } from '../ActionCart';
 
 const About = ({ products, categorys }) => {
+
 
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
@@ -15,6 +17,8 @@ const About = ({ products, categorys }) => {
     for (var i = 1; i <= tinhTrang; i++) {
         mang.push(i)
     }
+    const value = useContext(DataContext);
+    const addCart = value.addCart;
     return (
         <div>
             <div className="product">
@@ -122,7 +126,7 @@ const About = ({ products, categorys }) => {
                                     <p className="tun">{item.ten_sp}</p>
                                     <p className="tun1">Size : S - M - L - XL</p>
 
-                                    <Link to="/pay" className="item_add">
+                                    <Link to="/cart" onClick={() => addCart(item.id)} className="item_add">
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
                                     </Link>
                                 </div>
