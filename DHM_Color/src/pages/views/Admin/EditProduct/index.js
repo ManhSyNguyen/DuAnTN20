@@ -5,6 +5,13 @@ import apiRequest from '../../../../api/productApi';
 import firebase from '../../../../firebase';
 import Swal from 'sweetalert2';
 const EditProduct = ({ onUpdate, categorys }) => {
+    const da = new Date();
+    const year = da.getFullYear();
+    const month = da.getMonth() + 1;
+    const day = da.getDate();
+    const house = da.getHours();
+    const minu = da.getMinutes();
+    const second = da.getSeconds();
     let { id } = useParams();
     let history = useHistory();
     const [editProduct, setEditProduct] = useState({});
@@ -223,6 +230,12 @@ const EditProduct = ({ onUpdate, categorys }) => {
                                 && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
                             {errors.nd_chitiet && errors.nd_chitiet.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="InputProductName">Ngày tạo</label>
+                            <input type="datetime" name="ngaytao" ref={register}
+                                value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`}
+                                className="form-control" id="exampleInputEmail1" disabled />
                         </div>
                         <button className="btn btn-primary">Cập nhật</button>
                     </form>

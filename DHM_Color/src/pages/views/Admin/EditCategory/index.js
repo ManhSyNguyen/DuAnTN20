@@ -4,7 +4,13 @@ import { useForm } from 'react-hook-form';
 import apiRequestCt from '../../../../api/categoryApi';
 import Swal from 'sweetalert2';
 const EditCategory = ({ onUpdateCt }) => {
-
+    const da = new Date();
+    const year = da.getFullYear();
+    const month = da.getMonth() + 1;
+    const day = da.getDate();
+    const house = da.getHours();
+    const minu = da.getMinutes();
+    const second = da.getSeconds();
     const { id } = useParams();
     const history = useHistory()
     const [editCategorys, setEditCategorys] = useState({});
@@ -58,7 +64,12 @@ const EditCategory = ({ onUpdateCt }) => {
                             {errors.ten_danhmuc && errors.ten_danhmuc.type === "pattern" && <span className="text-danger">Không được cách</span>}
                         </small>
                     </div>
-
+                    <div className="form-group">
+                        <label htmlFor="InputProductName">Ngày tạo</label>
+                        <input type="datetime" name="ngaytao" ref={register}
+                            value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`}
+                            className="form-control" id="exampleInputEmail1" disabled />
+                    </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Mô tả</label>
                         <input type="text"

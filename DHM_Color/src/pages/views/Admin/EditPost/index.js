@@ -7,6 +7,12 @@ import { useForm } from 'react-hook-form';
 
 const EditPost = ({ onUpdatePs }) => {
     const da = new Date();
+    const year = da.getFullYear();
+    const month = da.getMonth() + 1;
+    const day = da.getDate();
+    const house = da.getHours();
+    const minu = da.getMinutes();
+    const second = da.getSeconds();
     const { id } = useParams();
     const history = useHistory()
     const [editPosts, setPost] = useState({});
@@ -86,7 +92,12 @@ const EditPost = ({ onUpdatePs }) => {
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" name="ngaydang" ref={register} value={da.toISOString()} className="form-control" id="exampleInputEmail1" />
+                        <div className="form-group">
+                            <label htmlFor="InputProductName">Ngày tạo</label>
+                            <input type="datetime" name="ngaydang" ref={register}
+                                value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`}
+                                className="form-control" id="exampleInputEmail1" disabled />
+                        </div>
                         <div className="form-group">
                             <label htmlFor="InputCategoryName">Nội dung</label>
                             <span style={{ color: 'red' }}>*</span>
