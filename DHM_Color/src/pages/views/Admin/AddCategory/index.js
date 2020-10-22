@@ -3,6 +3,13 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const AddCategory = ({ onAddCt }) => {
+    const da = new Date();
+    const year = da.getFullYear();
+    const month = da.getMonth() + 1;
+    const day = da.getDate();
+    const house = da.getHours();
+    const minu = da.getMinutes();
+    const second = da.getSeconds();
     let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
     const onHandleSubmit = (data) => {
@@ -10,6 +17,7 @@ const AddCategory = ({ onAddCt }) => {
             id: Math.random().toString(36).substr(2, 9),
             ...data,
         };
+        console.log(newdata)
         onAddCt(newdata);
         history.push("/admin/categorys");
         Swal.fire(
@@ -43,6 +51,7 @@ const AddCategory = ({ onAddCt }) => {
                             {errors.ten_danhmuc && errors.ten_danhmuc.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
+                        <input type="hidden" name="ngaydang" ref={register} value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`} className="form-control" id="exampleInputEmail1" />
                         <div className="form-group">
                             <label htmlFor="InputCategoryName">Mô tả</label>
                             <span style={{ color: 'red' }}>*</span>

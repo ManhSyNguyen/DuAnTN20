@@ -5,22 +5,27 @@ import { useForm } from "react-hook-form";
 import firebase from '../../../../firebase';
 import Swal from 'sweetalert2';
 const AddProduct = ({ onAdd, categorys }) => {
+    const da = new Date();
+    const year = da.getFullYear();
+    const month = da.getMonth() + 1;
+    const day = da.getDate();
+    const house = da.getHours();
+    const minu = da.getMinutes();
+    const second = da.getSeconds();
     const { register, handleSubmit, errors } = useForm();
-
-
     let history = useHistory();
-
     const onHandleAdd = (data) => {
         let file = data.anh[0];
         let storageRef = firebase.storage().ref(`images/${file.name}`);
         storageRef.put(file).then(function () {
             storageRef.getDownloadURL().then((url) => {
+                console.log(url)
                 const newData = {
                     id: Math.random().toString(36).substr(2, 9),
                     ...data,
                     anh: url
                 }
-                console.log(data);
+                console.log(newData);
                 //     e.preventDefault();
                 onAdd(newData)
                 history.push("/admin/products");
@@ -209,6 +214,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                             {errors.nd_chitiet && errors.nd_chitiet.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
+                        <input type="hidden" name="ngaydang" ref={register} value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`} className="form-control" id="exampleInputEmail1" />
 
                         <button type="submit" className="btn btn-success">Lưu</button>
                     </form>

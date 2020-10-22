@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 const Post = ({ posts, onRemoveP }) => {
     const removeHandlePost = (id) => {
         onRemoveP(id)
-
+        console.log(onRemoveP(id))
     }
+
     return (
         <div>
             <div>

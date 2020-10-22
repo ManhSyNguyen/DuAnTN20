@@ -16,6 +16,7 @@ const EditPost = ({ onUpdatePs }) => {
             try {
                 const { data } = await apiRequestPs.get(id);
                 setPost(data)
+                console.log(data)
             } catch (error) {
                 console.log(error)
             }

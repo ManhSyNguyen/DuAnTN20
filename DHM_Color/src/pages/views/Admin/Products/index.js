@@ -6,6 +6,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
     const removeHandle = (id) => {
         onRemove(id)
 
+
     }
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
@@ -48,11 +49,12 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                         <th scope="col">Size</th>
                                         <th scope="col">Tình trạng hàng</th>
                                         <th scope="col">Giá </th>
+                                        <th scope="col">Ngày tạo </th>
                                         <th scope="col">Tùy chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.map(({ id, ten_sp, danhmuc_Id, so_luong, mau, size, tinh_trang, anh, gia_ban }, index) => (
+                                    {products.map(({ id, ten_sp, danhmuc_Id, so_luong, mau, size, tinh_trang, anh, gia_ban, ngaytao }, index) => (
                                         index < (((Sotrang + 1) * 6)) && index > ((Sotrang * 6) - 1) &&
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
@@ -71,6 +73,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
 
                                             <td>{tinh_trang == "true" ? <span className="label label-warning">Còn hàng</span> : <span className="label label-default">Hết hàng</span>}</td>
                                             <td>{gia_ban} vnđ</td>
+                                            <td>{ngaytao} vnđ</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandle(id)}>Xóa</button>&nbsp;
                                                 <Link className="btn btn-primary" to={`/admin/edit/${id}`}>Sửa</Link>&nbsp;

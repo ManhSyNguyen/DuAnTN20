@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const Dashboard = ({ products, categorys, posts }) => {
 
+
     return (
         <div>
 

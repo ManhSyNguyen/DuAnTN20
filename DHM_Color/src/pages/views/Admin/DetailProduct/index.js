@@ -7,6 +7,7 @@ const DetailProduct = ({ products }) => {
     const { id } = useParams();
     const product = products.find(product => product.id === id);
     console.log(id)
+    console.log(product)
     return (
         <div>
             <div className="card-header py-3">

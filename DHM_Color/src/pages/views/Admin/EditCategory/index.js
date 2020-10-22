@@ -14,12 +14,14 @@ const EditCategory = ({ onUpdateCt }) => {
             try {
                 const { data } = await apiRequestCt.get(id);
                 setEditCategorys(data)
+                console.log(data)
             } catch (error) {
                 console.log(error)
             }
         };
         getCategorys()
     }, [])
+
     const onHandleSubmit = async (data) => {
         const newData = {
             id,

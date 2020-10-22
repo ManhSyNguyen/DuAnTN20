@@ -6,6 +6,8 @@ const Category = ({ categorys, onRemovect }) => {
         onRemovect(id)
 
     }
+    console.log(onRemovect);
+    console.log(categorys)
     return (
         <div>
             <div className="mb4-4 d-flex justify-content-between align-items-center">
@@ -29,15 +31,17 @@ const Category = ({ categorys, onRemovect }) => {
                                         <th scope="col">#</th>
                                         <th scope="col">Tên danh mục</th>
                                         <th scope="col">Mô tả</th>
+                                        <th scope="col">Ngày tạo</th>
                                         <th scope="col">Tùy chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {categorys.map(({ id, ten_danhmuc, mota }, index) => (
+                                    {categorys.map(({ id, ten_danhmuc, ngaytao, mota }, index) => (
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
                                             <td>{ten_danhmuc}</td>
                                             <td>{mota}</td>
+                                            <td>{ngaytao}</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandleCt(id)}>Xóa</button>&nbsp;
                                                 <Link className="btn btn-primary" to={`/admin/category/edit/${id}`}>Sửa</Link>&nbsp;
