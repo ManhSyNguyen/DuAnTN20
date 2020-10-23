@@ -110,10 +110,14 @@ const ProductDetail = ({ products }) => {
                                 <ul className="tag-men">
                                     <li><span>TAG</span>
                                         <span className="women1">: Men</span></li>
-
-                                    <span className="women1">{product.tinh_trang == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng</p> : <p className="women1" style={{ color: 'red' }}>Hết hàng</p>}</span>
                                 </ul>
-                                <Link to="/cart" onClick={() => addCart(product.id)} className="add-cart item_add">ADD TO CART</Link>
+                                <span className="women1">{product.tinh_trang == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng
+                                <br></br>
+                                    <Link to="/cart" onClick={() => addCart(product.id)} className="add-cart item_add" >ADD TO CART</Link>
+                                </p> : <p className="women1" style={{ color: 'red' }}>Hết hàng
+                                <br></br>
+                                        <Link className="add-cart item_add disabled-link" >ADD TO CART</Link></p>}
+                                </span>
                             </div>
                         </div>
                         <div className="clearfix"> </div>

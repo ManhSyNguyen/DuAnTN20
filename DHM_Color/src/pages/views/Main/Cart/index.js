@@ -9,7 +9,7 @@ export default function Cart() {
     useEffect(() => {
         const getTotal = () => {
             const res = cart.reduce((prev, item) => {
-                return prev + (item.price * item.count)
+                return prev + (item.gia_ban * item.count)
             }, 0)
             setTotal(res)
         }
@@ -26,7 +26,7 @@ export default function Cart() {
     const increase = id => {
         cart.forEach(item => {
             if (item.id === id) {
-                item.count += 1;
+                item.count == item.so_luong ? item.count = item.so_luong : item.count += 1;
             }
         })
         setCart([...cart])
@@ -56,7 +56,9 @@ export default function Cart() {
             }
         })
     }
-
+    if (cart.length == 0) {
+        return <h2 style={{ color: "red", textAlign: "center" }}>Giỏ hàng trống</h2>;
+    }
     return (
         <div>
             <div className="container">
@@ -82,7 +84,7 @@ export default function Cart() {
                                                 <div className="buttons_added">
                                                     <p>Số lượng :</p>&nbsp;
                                                     <input className="minus is-form" type="button" defaultValue="-" onClick={() => reduction(item.id)} />
-                                                    <input aria-label="quantity" className="input-qty" type="number" placeholder={item.count} />
+                                                    <input aria-label="quantity" className="input-qty" type="number" placeholder={item.count} disabled />
                                                     <input className="plus is-form" type="button" defaultValue="+" onClick={() => increase(item.id)} />
                                                 </div>
                                             </li>
@@ -97,13 +99,13 @@ export default function Cart() {
                     <div className="col-md-3 cart-total" style={{ paddingTop: '20px' }}>
                         <a className="continue" href="#">Tóm tắt đơn hàng</a>
                         <div className="price-details">
-                            <h3>Tổng đơn hàng</h3>
+                            <h3>Tổng đơn hàng : {cart.length}</h3>
                             <span>Giá : </span>
-                            <span className="total1">6200.00</span>
+                            <span className="total1">{total}</span>
                         </div>
                         <ul className="total_price">
-                            <li className="last_price"> <h4>TOTAL</h4></li>
-                            <li className="last_price"><span>6200.00</span></li>
+                            <li className="last_price"> <h4>TOTAL :</h4></li>
+                            <li className="last_price"><span>{total}</span></li>
                             <div className="clearfix"> </div>
                         </ul>
                         <div className="clearfix" />

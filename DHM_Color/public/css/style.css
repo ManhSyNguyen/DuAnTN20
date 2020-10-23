@@ -1207,6 +1207,10 @@ a.add-cart:hover {
   text-decoration: none;
   color: #fff;
 }
+a.add-cart.disabled-link{
+	background:rgb(88, 88, 88);
+	pointer-events: none;
+}
 h3.real{
   color: #000;
   border-bottom: 1px solid #000;
