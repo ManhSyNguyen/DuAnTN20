@@ -25,7 +25,7 @@ const PostDetail = props => {
                     <div className="blog-top">
                         <div className=" grid_3 grid-1">
                             <h3><a href="blog_single.html">{post.ten_baiviet}</a></h3>
-                            <a href="blog_single.html"><img src={post.image} style={{ marginLeft: '175px' }} className="img-responsive" alt="" /></a>
+                            <a href="blog_single.html"><img src={post.image} style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto' }} className="img-responsive" alt="" /></a>
                             <div className="blog-poast-info">
                                 <ul>
                                     <li><a className="admin" href="#"><i> </i> Admin </a></li>

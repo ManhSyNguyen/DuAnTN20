@@ -10,9 +10,13 @@ const Contact = props => {
                     <div className="contact-form">
                         <div className="col-md-8 contact-grid">
                             <form>
+                                <label className='lb'>Họ và tên</label>
                                 <input type="text" />
+                                <label className='lb'>Email</label>
                                 <input type="text" />
+                                <label className='lb'>Số điện thoại</label>
                                 <input type="text" />
+                                <label className='lb'>Nội dung</label>
                                 <textarea cols={77} rows={6} value=" " />
                                 <button className="btn btn-secondary">Gửi</button>
                             </form>
