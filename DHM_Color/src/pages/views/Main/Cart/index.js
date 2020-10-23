@@ -6,6 +6,7 @@ export default function Cart() {
     const value = useContext(DataContext)
     const [cart, setCart] = value.cart;
     const [total, setTotal] = useState(0)
+    const [qty, setQty] = useState(0)
     useEffect(() => {
         const getTotal = () => {
             const res = cart.reduce((prev, item) => {
@@ -13,7 +14,14 @@ export default function Cart() {
             }, 0)
             setTotal(res)
         }
+        const getQty = () => {
+            const quantity = cart.reduce((prev, item) => {
+                return prev + (item.count * 1)
+            }, 0)
+            setQty(quantity)
+        }
         getTotal()
+        getQty()
     }, [cart])
     const reduction = id => {
         cart.forEach(item => {
@@ -99,13 +107,14 @@ export default function Cart() {
                     <div className="col-md-3 cart-total" style={{ paddingTop: '20px' }}>
                         <a className="continue" href="#">Tóm tắt đơn hàng</a>
                         <div className="price-details">
-                            <h3>Tổng đơn hàng : {cart.length}</h3>
+                            <h3>Tổng đơn hàng : {cart.length} đơn hàng</h3>
+                            <h3>Tổng sản phẩm : {qty} sản phẩm</h3>
                             <span>Giá : </span>
-                            <span className="total1">{total}</span>
+                            <span className="total1">{total} vnđ</span>
                         </div>
                         <ul className="total_price">
                             <li className="last_price"> <h4>TOTAL :</h4></li>
-                            <li className="last_price"><span>{total}</span></li>
+                            <li className="last_price"><span>{total} vnđ</span></li>
                             <div className="clearfix"> </div>
                         </ul>
                         <div className="clearfix" />
