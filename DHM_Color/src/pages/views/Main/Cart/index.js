@@ -99,6 +99,7 @@ export default function Cart() {
                     <div className="col-md-3 cart-total" style={{ paddingTop: '20px' }}>
                         <a className="continue" href="#">Tóm tắt đơn hàng</a>
                         <div className="price-details">
+                            <h3>Tổng sản phẩm : {cart.length}</h3>
                             <h3>Tổng đơn hàng : {cart.length}</h3>
                             <span>Giá : </span>
                             <span className="total1">{total}</span>
