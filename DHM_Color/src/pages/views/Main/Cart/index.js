@@ -109,8 +109,10 @@ export default function Cart() {
                         <div className="price-details">
                             <h3>Tổng đơn hàng : {cart.length} đơn hàng</h3>
                             <h3>Tổng sản phẩm : {qty} sản phẩm</h3>
+                            <h3>VAT : 10%</h3>
                             <span>Giá : </span>
                             <span className="total1">{total} vnđ</span>
+
                         </div>
                         <ul className="total_price">
                             <li className="last_price"> <h4>TOTAL :</h4></li>
@@ -118,7 +120,7 @@ export default function Cart() {
                             <div className="clearfix"> </div>
                         </ul>
                         <div className="clearfix" />
-                        <a className="order" href="#">Đặt hàng </a>
+                        <a className="order" href="#" >Đặt hàng </a>
                         <div className="total-item">
                             <h3>Thanh toán an toàn : </h3>
                         </div>

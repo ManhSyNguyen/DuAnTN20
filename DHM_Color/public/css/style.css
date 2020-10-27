@@ -76,6 +76,9 @@ a.item_add {
 }
 .total {
   display: inline-block;
+  color: red;
+  font-size: 1.3em;
+  
 }
 .cart.box_1{
 	float: right;
