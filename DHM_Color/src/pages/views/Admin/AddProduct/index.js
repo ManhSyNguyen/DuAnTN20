@@ -37,6 +37,7 @@ const AddProduct = ({ onAdd, categorys }) => {
             })
         });
     }
+
     return (
         <div>
             <div className="card shadow mb-4">

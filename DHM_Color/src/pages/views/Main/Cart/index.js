@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { DataContext } from '../ActionCart';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
     const value = useContext(DataContext)
@@ -118,7 +119,7 @@ export default function Cart() {
                             <div className="clearfix"> </div>
                         </ul>
                         <div className="clearfix" />
-                        <a className="order" href="#" >Đặt hàng </a>
+                        <Link className="order" to="/pay" >Đặt hàng </Link>
                         <div className="total-item">
                             <h3>Thanh toán an toàn : </h3>
                         </div>
