@@ -64,9 +64,7 @@ export default function Cart() {
             }
         })
     }
-    if (cart.length == 0) {
-        return <h2 style={{ color: "red", textAlign: "center" }}>Giỏ hàng trống</h2>;
-    }
+
     return (
         <div>
             <div className="container">
