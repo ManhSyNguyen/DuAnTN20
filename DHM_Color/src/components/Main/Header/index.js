@@ -5,6 +5,8 @@ import { DataContext } from '../../../pages/views/Main/ActionCart';
 
 const Header = props => {
     const [KeyWord, setKeyWord] = useState('');
+    const value = useContext(DataContext);
+    const [cart] = value.cart;
     const handleChangeKeyWord = (e) => {
         const { value } = e.target;
         setKeyWord(value)
@@ -32,8 +34,10 @@ const Header = props => {
                         <div className="cart box_1">
                             <Link to="/cart">
                                 <h3> <div className="total">
-                                    <span className="simpleCart_total" /> <span id="simpleCart_quantity" className="simpleCart_quantity" /></div>
-                                    <img src="images/cart.png" alt="" /></h3>
+                                    <span className="simpleCart_total" /> <span id="simpleCart_quantity" className="simpleCart_quantity" />
+                                    <img src="images/cart.png" alt="" />({cart.length})
+                                    </div>
+                                </h3>
                             </Link>
                             {/* <p><a href="#" className="simpleCart_empty">Giỏ hàng rỗng</a></p> */}
                         </div>
