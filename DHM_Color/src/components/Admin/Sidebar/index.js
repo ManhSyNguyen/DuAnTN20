@@ -9,7 +9,7 @@ const Sidebar = props => {
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink" />
                 </div>
-                <img className="img_sidebar" src="https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-9/120321837_104956478041476_7176881432022885481_n.png?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=fPyZFnFXMKcAX_Otpvc&_nc_ht=scontent.fhan2-6.fna&oh=e01556c2163237edad7ca891359541e0&oe=5F971A09" />
+                <img className="img_sidebar" src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/120321837_104956478041476_7176881432022885481_n.png?_nc_cat=100&ccb=2&_nc_sid=09cbfe&_nc_ohc=K3O9FfA_rl8AX_eow7w&_nc_ht=scontent.fhan2-4.fna&oh=8db316ece0079d14cb39c196f0204515&oe=5FBEA709" />
                 <div className="sidebar-brand-text mx-3">D H M COLOR</div>
             </Link>
             {/* Divider */}
