@@ -9,4 +9,23 @@
 - Làm danh mục lọc theo giá --> kích thước --> Tay ngắn tay dài
 - Thêm hóa đơn cần phê duyệt (admin/dashboard)
 - Sản phẩm mới ở trang chủ cần được giới hạn số lượng
+
+- Sản phẩm trong kho và sản phẩm cửa hàng trùng nhau sẽ thêm vào số lượng
+- Dropdown: Kho hàng --> ql sản phẩm , phiếu nhập, phiếu xuất
  
+ // Trường Db - Front-end
+- Phiếu nhập : 
+	tên thủ kho (admin)
+ 	Tên sản phẩm
+	Nhà cung cấp
+	Số lượng nhập
+	Số lượng thực
+	Đơn giá (sản phẩm)
+	Ngày tạo 
+- Phiếu xuất :
+	tên bàn giao
+	tên người nhận
+	tên sản phẩm
+	số lượng nhận
+	thực xuất ( sản phẩm từ kho )
+	Đơn giá ( sản phẩm ) 
