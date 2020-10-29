@@ -29,3 +29,5 @@
 	số lượng nhận
 	thực xuất ( sản phẩm từ kho )
 	Đơn giá ( sản phẩm ) 
+- Bài toán :
++ Nhập sản phẩm phân biệt sản phẩm đã tồn tại và tự auto thêm vào sl.
