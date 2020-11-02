@@ -58,7 +58,9 @@ const EditProduct = ({ onUpdate, categorys }) => {
         });
     }
 
-
+    const handleChange = (event) => {
+        this.setEditProduct({ value: event.value })
+    }
     return (
         <div>
             <div className="card shadow mb-4">
@@ -117,7 +119,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             <span style={{ color: 'red' }}>*</span>
                             <select className="form-control form-control"
                                 name="tinh_trang" ref={register({ required: true })}
-                                defaultValue={editProduct.tinh_trang} >
+                                value={editProduct.tinh_trang} >
                                 <option value="">----Không thuộc mục nào----</option>
                                 <option>true</option>
                                 <option>false</option>
@@ -160,7 +162,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                                 tabIndex={1}
                                 data-placeholder="Select here.."
                                 className="form-control "
-                                defaultValue={editProduct.danhmuc_Id}
+                                value={editProduct.danhmuc_Id}
                             >
                                 <option value="">--Không thuộc danh mục nào--</option>
                                 {categorys.map((category, index) => (
