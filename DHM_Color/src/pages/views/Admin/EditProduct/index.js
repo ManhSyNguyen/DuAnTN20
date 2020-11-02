@@ -58,9 +58,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
         });
     }
 
-    const handleChange = (event) => {
-        this.setEditProduct({ value: event.value })
-    }
+
     return (
         <div>
             <div className="card shadow mb-4">
