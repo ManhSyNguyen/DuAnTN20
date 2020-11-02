@@ -63,30 +63,30 @@ const Sidebar = props => {
                     <span>Quản lý đơn hàng</span></Link>
             </li>
 
-            {/* <li className="nav-item">
-                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i className="fas fa-fw fa-folder" />
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Login Screens:</h6>
-                        <a className="collapse-item" href="login.html">Login</a>
-                        <a className="collapse-item" href="register.html">Register</a>
-                        <a className="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div className="collapse-divider" />
-                        <h6 className="collapse-header">Other Pages:</h6>
-                        <a className="collapse-item" href="404.html">404 Page</a>
-                        <a className="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li> */}
             {/* Liên hệ */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/admin/contacts">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Liên hệ</span></Link>
             </li>
+
+            <li className="nav-item active">
+                <a className="nav-link" href="#"><i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Quản lý kho hàng </span></a>
+
+                <ul className="nav-link">
+                    <li>
+                        <a href="#"><i className="ion-ios-color-filter-outline" />Quản lý sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="#"><i className="ion-ios-clock-outline" />Phiếu nhập</a>
+                    </li>
+                    <li>
+                        <a href="#"><i className="ion-android-star-outline" />Phiếu xuất </a>
+                    </li>
+                </ul>
+            </li>
+
             {/* Trang chu */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/">
@@ -102,3 +102,6 @@ Sidebar.propTypes = {
 }
 
 export default Sidebar
+
+
+
