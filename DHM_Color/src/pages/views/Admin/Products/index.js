@@ -43,11 +43,11 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                         <th scope="col">#</th>
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Ảnh </th>
-                                        <th scope="col">Số lượng </th>
+                                        <th scope="col">SL</th>
                                         <th scope="col">Danh mục</th>
                                         <th scope="col">Màu</th>
                                         <th scope="col">Size</th>
-                                        <th scope="col">Tình trạng hàng</th>
+                                        <th scope="col">Tình trạng</th>
                                         <th scope="col">Giá </th>
                                         <th scope="col">Ngày tạo </th>
                                         <th scope="col">Tùy chọn</th>
@@ -58,7 +58,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                         index < (((Sotrang + 1) * 6)) && index > ((Sotrang * 6) - 1) &&
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{ten_sp}</td>
+                                            <td><Link to={`/admin/detail/${id}`} style={{ textDecoration: "none" }}>{ten_sp}</Link></td>
                                             <td><img src={anh} alt="" width="50" /></td>
                                             <td>{so_luong}</td>
                                             <td>
@@ -77,7 +77,7 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandle(id)}>Xóa</button>&nbsp;
                                                 <Link className="btn btn-primary" to={`/admin/edit/${id}`}>Sửa</Link>&nbsp;
-                                                <Link className="btn btn-dark" to={`/admin/detail/${id}`}>Chi tiết</Link>
+
                                             </td>
                                         </tr>
                                     ))}
