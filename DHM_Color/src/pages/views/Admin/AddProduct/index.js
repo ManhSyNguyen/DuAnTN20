@@ -167,6 +167,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                                         name="anh"
                                         ref={register}
                                     />
+                                    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                                     <label className="custom-file-label" htmlFor="inputGroupFile02" aria-describedby="imageHelp">Choose image</label>
                                 </div>
                             </div>

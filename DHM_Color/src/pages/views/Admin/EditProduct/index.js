@@ -14,6 +14,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
     const second = da.getSeconds();
     let { id } = useParams();
     let history = useHistory();
+    const [state, setState] = useState();
     const [editProduct, setEditProduct] = useState({});
     const [Url, setUrl] = useState();
 
@@ -57,7 +58,6 @@ const EditProduct = ({ onUpdate, categorys }) => {
             })
         });
     }
-
 
     return (
         <div>
@@ -117,8 +117,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             <span style={{ color: 'red' }}>*</span>
                             <select className="form-control form-control"
                                 name="tinh_trang" ref={register({ required: true })}
-                                value={editProduct.tinh_trang} >
-                                <option value="">----Không thuộc mục nào----</option>
+                                defaultValue={editProduct.tinh_trang} >
                                 <option>true</option>
                                 <option>false</option>
                             </select>
@@ -160,9 +159,8 @@ const EditProduct = ({ onUpdate, categorys }) => {
                                 tabIndex={1}
                                 data-placeholder="Select here.."
                                 className="form-control "
-                                value={editProduct.danhmuc_Id}
+                                defaultValue={editProduct.danhmuc_Id}
                             >
-                                <option value="">--Không thuộc danh mục nào--</option>
                                 {categorys.map((category, index) => (
                                     <option key={index} value={category.id}>
                                         {category.ten_danhmuc}
@@ -171,7 +169,7 @@ const EditProduct = ({ onUpdate, categorys }) => {
                             </select>
                         </div>
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="productPrice">Ảnh sản phẩm</label>
                             <div className="input-group">
                                 <div className="custom-file">
@@ -183,6 +181,20 @@ const EditProduct = ({ onUpdate, categorys }) => {
                                     />
                                     <label className="custom-file-label" htmlFor="inputGroupFile02" aria-describedby="imageHelp">Choose image</label>
                                 </div>
+                            </div>
+                        </div> */}
+
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Ảnh</label>
+                            <div class="custom-file">
+                                <img style={{ height: "250px", paddingTop: "50px" }} src={Url ? Url : editProduct.anh} />
+                                <input name="anh" type="hidden" defaultValue={Url ? Url : editProduct.anh} ref={register({ required: true })} />
+                                <input type="file" onChange={onHandleSubmit} class="custom-file-input" id="inputGroupFile04" />
+
+                                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                <small className="form-text text-danger">
+                                    {errors.anh && errors.anh.type === "required" && <span>Vui lòng không để trống</span>}
+                                </small>
                             </div>
                         </div>
                         <div className="form-group">
