@@ -70,7 +70,7 @@ const Sidebar = props => {
                     <span>Liên hệ</span></Link>
             </li>
 
-            <li className="nav-item active">
+            {/* <li className="nav-item active">
                 <a className="nav-link" href="#"><i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý kho hàng </span></a>
 
@@ -85,7 +85,7 @@ const Sidebar = props => {
                         <a href="#"><i className="ion-android-star-outline" />Phiếu xuất </a>
                     </li>
                 </ul>
-            </li>
+            </li> */}
 
             {/* Trang chu */}
             <li className="nav-item active">
