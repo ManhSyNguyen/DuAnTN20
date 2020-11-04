@@ -67,7 +67,7 @@ const EditCategory = ({ onUpdateCt }) => {
                     <div className="form-group">
                         <label htmlFor="InputProductName">Ngày tạo</label>
                         <input type="datetime" name="ngaytao" ref={register}
-                            value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`}
+                            value={`${day}-${month}-${year} / ${house}:${minu}:${second}s`}
                             className="form-control" id="exampleInputEmail1" disabled />
                     </div>
                     <div className="form-group">

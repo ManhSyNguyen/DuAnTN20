@@ -171,6 +171,8 @@ const AddProduct = ({ onAdd, categorys }) => {
                                     <label className="custom-file-label" htmlFor="inputGroupFile02" aria-describedby="imageHelp">Choose image</label>
                                 </div>
                             </div>
+                            {errors.anh && errors.anh.type === "required"
+                                && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="InputProductPrice">Giá nhập</label>
@@ -219,7 +221,7 @@ const AddProduct = ({ onAdd, categorys }) => {
                         <div className="form-group">
                             <label htmlFor="InputProductName">Ngày tạo</label>
                             <input type="datetime" name="ngaytao" ref={register}
-                                value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`}
+                                value={`${day}-${month}-${year} / ${house}:${minu}:${second}s`}
                                 className="form-control" id="exampleInputEmail1" disabled />
                         </div>
                         <button type="submit" className="btn btn-success">Lưu</button>
