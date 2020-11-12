@@ -2828,7 +2828,7 @@
 											"top": 1053,
 											"width": 113.09716796875,
 											"height": 13,
-											"text": "Chuc nang"
+											"text": "Role"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -3325,9 +3325,9 @@
 											"font": "Arial;13;1",
 											"left": 824,
 											"top": 485,
-											"width": 142.9072265625,
+											"width": 168.91357421875,
 											"height": 13,
-											"text": "Giao dich - San pham"
+											"text": "Nha cung cap - San pham"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -3351,7 +3351,7 @@
 													"font": "Arial;13;0",
 													"left": 829,
 													"top": 508,
-													"width": 132.9072265625,
+													"width": 158.91357421875,
 													"height": 13
 												},
 												{
@@ -3366,21 +3366,21 @@
 													"font": "Arial;13;0",
 													"left": 829,
 													"top": 523,
-													"width": 132.9072265625,
+													"width": 158.91357421875,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 824,
 											"top": 503,
-											"width": 142.9072265625,
+											"width": 168.91357421875,
 											"height": 38
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 824,
 									"top": 480,
-									"width": 142.9072265625,
+									"width": 168.91357421875,
 									"height": 61,
 									"nameLabel": {
 										"$ref": "AAAAAAF1t93IFa20v14="
@@ -6879,7 +6879,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1tYxhFJo9apk="
 							},
-							"name": "Chuc nang",
+							"name": "Role",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -7051,7 +7051,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1tYxhFJo9apk="
 							},
-							"name": "Giao dich - San pham",
+							"name": "Nha cung cap - San pham",
 							"columns": [
 								{
 									"_type": "ERDColumn",
