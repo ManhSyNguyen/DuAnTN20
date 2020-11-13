@@ -82,7 +82,7 @@ const Search = props => {
                             </div>
                         </div>
                         {/**/}
-                        <div className="product-bottom">
+                        {/* <div className="product-bottom">
                             <div className="of-left-in">
                                 <h3 className="best">Bán chạy</h3>
                             </div>
@@ -115,7 +115,7 @@ const Search = props => {
                                     <span>60%</span>
                                 </div>
                             </a>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/**/}

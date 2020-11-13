@@ -117,7 +117,7 @@ const About = ({ products, categorys }) => {
                                 index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem" key={index}>
                                     <div className="product-at ">
-                                        <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.anh} alt="" />
+                                        <Link to="/cart" onClick={() => addCart(item.id)}><img className="img-responsive" src={item.anh} alt="" />
                                             <div className="pro-grid">
                                                 <span className="buy-in">Buy Now</span>
                                             </div>
@@ -126,7 +126,7 @@ const About = ({ products, categorys }) => {
                                     <p className="tun">{item.ten_sp}</p>
                                     <p className="tun1">Size : S - M - L - XL</p>
 
-                                    <Link to={`/product/${item.id}`} onClick={() => addCart(item.id)} className="item_add">
+                                    <Link to="/cart" onClick={() => addCart(item.id)} className="item_add">
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
                                     </Link>
                                 </div>
