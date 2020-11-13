@@ -123,7 +123,7 @@ const About = ({ products, categorys }) => {
                                             </div>
                                         </Link>
                                     </div>
-                                    <p className="tun">{item.ten_sp}</p>
+                                    <Link to={`/product/${item.id}`} className="tun">{item.ten_sp}</Link>
                                     <p className="tun1">Size : S - M - L - XL</p>
 
                                     <Link to="/cart" onClick={() => addCart(item.id)} className="item_add">
