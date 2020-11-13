@@ -35,8 +35,8 @@ const Header = props => {
                             <Link to="/cart">
                                 <h3> <div className="total">
                                     <span className="simpleCart_total" /> <span id="simpleCart_quantity" className="simpleCart_quantity" />
-                                    <img src="images/cart.png" alt="" />({cart.length})
-                                    </div>
+                                    <img src="images/cart.png" alt="" /><span className="badge badge-danger">{cart.length}</span>
+                                </div>
                                 </h3>
                             </Link>
                             {/* <p><a href="#" className="simpleCart_empty">Giỏ hàng rỗng</a></p> */}
