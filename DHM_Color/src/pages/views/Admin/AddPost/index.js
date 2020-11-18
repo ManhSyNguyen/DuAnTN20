@@ -69,17 +69,20 @@ const AddPost = ({ onAddP }) => {
                                     <input type="file"
                                         className="custom-file-input"
                                         id="inputGroupFile02"
-                                        name="image"
-                                        ref={register}
+                                        name="anh"
+                                        ref={register({ required: true })}
                                     />
                                     <label className="custom-file-label" htmlFor="inputGroupFile02" aria-describedby="imageHelp">Choose image</label>
+
                                 </div>
                             </div>
+                            {errors.anh && errors.anh.type === "required"
+                                && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="InputProductName">Ngày tạo</label>
                             <input type="datetime" name="ngaydang" ref={register}
-                                value={`${day}-${month}-${year} _ ${house}:${minu}:${second}s`}
+                                value={`${day}-${month}-${year} / ${house}:${minu}:${second}s`}
                                 className="form-control" id="exampleInputEmail1" disabled />
                         </div>
                         <div className="form-group">

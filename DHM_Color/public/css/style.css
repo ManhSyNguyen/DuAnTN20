@@ -76,8 +76,9 @@ a.item_add {
 }
 .total {
   display: inline-block;
-  color: red;
-  font-size: 1.3em;
+  color:white;
+  font-size: 1.4em;
+  padding: 0 10px;
   
 }
 .cart.box_1{
@@ -1068,10 +1069,10 @@ a.item_add p.number i{
   vertical-align: middle;
   margin: 0 5px 0 0;
 }
-p.tun{
+.tun{
 	font-size:1.5em;
 	  color: #5e5e5e;
-  line-height: 1.3em;
+  line-height: 3em;
   padding: 1em 0;
 }
 p.tun1{

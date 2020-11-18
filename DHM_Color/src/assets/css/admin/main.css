@@ -9942,16 +9942,15 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #56f4c8;
-  background-image: linear-gradient(180deg, #643be7 1%, #c750b3 ,#e74a3b 100%);
-  background-size: cover;
-}
+ background-color: #f8f9fc;
+    background-image: linear-gradient(180deg, #f8f9fc 10%, #c2cbe5 100%);
+    background-size: cover;}
 
-.bg-gradient-secondary {
+/* .bg-gradient-secondary {
   background-color: #858796;
   background-image: linear-gradient(180deg, #858796 10%, #60616f 100%);
   background-size: cover;
-}
+} */
 
 .bg-gradient-success {
   background-color: #1cc88a;
@@ -10379,6 +10378,7 @@ a:focus {
 .sidebar .nav-item .nav-link span {
   font-size: .65rem;
   display: block;
+  color:  #3a3b45;
 }
 
 .sidebar .nav-item.active .nav-link {
@@ -10496,10 +10496,12 @@ a:focus {
   font-size: 15px;
   display: none;
   font-weight: 400;
+  color: #373840;
 }
 
 .sidebar hr.sidebar-divider {
   margin: 0 1rem 1rem;
+  padding-top: 25px;
 }
 
 .sidebar .sidebar-heading {
@@ -11297,5 +11299,6 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
 
 /*# sourceMappingURL=main.css.map */
