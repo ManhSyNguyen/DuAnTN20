@@ -109,7 +109,6 @@ export default function Cart() {
                         <div className="price-details">
                             <h3>Tổng đơn hàng : {cart.length} đơn hàng</h3>
                             <h3>Tổng sản phẩm : {qty} sản phẩm</h3>
-                            <h3>VAT : 10%</h3>
                             <span>Giá : </span>
                             <span className="total1">{total} vnđ</span>
 
