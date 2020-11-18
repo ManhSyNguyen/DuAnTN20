@@ -242,5 +242,15 @@
     }
   ],
   "orders": [],
-  "users": []
+  "users": [
+    {
+      "id": "",
+      "hoten": "",
+      "email": "",
+      "tenTK": "",
+      "matkhau": "",
+      "trangthai ": "",
+      "ngaytao": ""
+    }
+  ]
 }

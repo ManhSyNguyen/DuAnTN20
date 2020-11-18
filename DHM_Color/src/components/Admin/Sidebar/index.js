@@ -20,11 +20,11 @@ const Sidebar = props => {
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Bảng điều khiển</span></Link>
             </li>
-            {/* Quan ly nhan vien*/}
+            {/* Quan ly tai khoan*/}
             <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/admin/users">
                     <i className="fas fa-fw fa-tachometer-alt" />
-                    <span>Quản lý nhân viên</span></Link>
+                    <span>Quản lý tài khoản</span></Link>
             </li>
             {/* Quan ly danh muc*/}
             <li className="nav-item">
@@ -34,13 +34,13 @@ const Sidebar = props => {
             </li>
             {/* Quan ly size*/}
             <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/admin/sizes">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý size</span></Link>
             </li>
             {/* Quan ly mau*/}
             <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/admin/colors">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý màu</span></Link>
             </li>

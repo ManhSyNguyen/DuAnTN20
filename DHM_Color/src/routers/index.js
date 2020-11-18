@@ -17,6 +17,13 @@ import AddPost from '../pages/views/Admin/AddPost';
 import EditPost from '../pages/views/Admin/EditPost';
 import Contacts from '../pages/views/Admin/Contact';
 import { DataProvider } from '../pages/views/Main/ActionCart';
+import User from '../pages/views/Admin/User';
+import Size from '../pages/views/Admin/Size';
+import Color from '../pages/views/Admin/Color';
+import AddSize from '../pages/views/Admin/AddSize';
+import AddColor from '../pages/views/Admin/AddColor';
+import EditSize from '../pages/views/Admin/EditSize';
+import EditColor from '../pages/views/Admin/EditColor';
 //Views
 import About from '../pages/views/Main/About'
 import Home from '../pages/views/Main/Home'
@@ -36,7 +43,9 @@ import PostDetail from '../pages/views/Main/PostDetail';
 
 
 
-const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP, onUpdatePs, categorys, onUpdateCt, onRemovect, onAddCt }) => {
+
+
+const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS, onUpdateS, onAddS, colors, onRemoveColor, onAddColor, onUpdateColor, posts, onRemoveP, onAddP, onUpdatePs, categorys, onUpdateCt, onRemovect, onAddCt }) => {
     const onHandleRemove = (id) => {
         onRemove(id)
     }
@@ -72,6 +81,30 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                                 <Route path="/admin/detail/:id" >
                                     <DetailProduct products={products} />
                                 </Route>
+                                {/* users */}
+                                <Route path='/admin/users'>
+                                    <User users={users} />
+                                </Route>
+                                {/* size */}
+                                <Route path='/admin/sizes'>
+                                    <Size sizes={sizes} onRemoveS={onRemoveS} />
+                                </Route>
+                                <Route path='/admin/size/add'>
+                                    <AddSize sizes={sizes} onAddS={onAddS} />
+                                </Route>
+                                <Route path='/admin/size/edit/:id'>
+                                    <EditSize sizes={sizes} onUpdateS={onUpdateS} />
+                                </Route>
+                                {/* color */}
+                                <Route path='/admin/colors'>
+                                    <Color colors={colors} onRemoveColor={onRemoveColor} />
+                                </Route>
+                                <Route path='/admin/color/add'>
+                                    <AddColor colors={colors} onAddColor={onAddColor} />
+                                </Route>
+                                <Route path='/admin/color/edit/:id'>
+                                    <EditColor colors={colors} onUpdateColor={onUpdateColor} />
+                                </Route>
                                 {/* post */}
                                 <Route path='/admin/posts'>
                                     <Post posts={posts} onRemoveP={onRemoveP} />
@@ -96,6 +129,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, posts, onRemoveP, onAddP
                                 <Route path='/admin/contacts'>
                                     <Contacts />
                                 </Route>
+
                             </Switch>
                         </LayoutAdmin>
                     </Route>
