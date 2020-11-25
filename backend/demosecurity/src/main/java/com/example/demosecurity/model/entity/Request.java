@@ -11,26 +11,31 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-@Getter
 @Setter
-@Entity(name = "size")
+@Getter
+@Entity(name = "request")
 @EntityListeners(AuditingEntityListener.class)
-public class Size implements Serializable {
+public class Request  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IdSize")
+    @Column(name = "IdRequest")
     private long id;
-    @Column(length = 20)
-    private String namesize;
 
-    private  boolean status;
+    @ManyToOne
+    @JoinColumn(name = "IdUser")
+    private Users users;
+
     @CreatedDate
     private Date createdate;
-
     @Column(length = 50)
     @CreatedBy
     private String createby;
-    @OneToMany
-    @JoinColumn(name = "IdColor")
-    private Set<ProductDetail> ProductDetail;
+    @ManyToMany
+    @JoinTable(
+            // ten bang lien ket
+            name = "request_productdetail",
+            joinColumns = {@JoinColumn(name = "IdRequest", referencedColumnName = "IdRequest")},
+            inverseJoinColumns = {@JoinColumn(name = "IdProductDetail", referencedColumnName = "IdProductDetail")}
+    )
+    Set<ProductDetail> productdetail;
 }
