@@ -1,32 +1,40 @@
 package com.example.demosecurity.model.entity;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
-
-@Entity(name = "role")
 @Getter
 @Setter
-@NoArgsConstructor
+@Entity(name = "productdetail")
 @EntityListeners(AuditingEntityListener.class)
-public class Role {
+public class ProductDetail implements Serializable {
     @Id
-    @Column(name = "idRole")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(length = 20)
-    private String role;
+    @Column(name = "IdProductDetail")
+    private long id;
+    @ManyToOne
+    @JoinColumn(name = "IdProduct")
+    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "IdColor")
+    private Color color;
+    @ManyToOne
+    @JoinColumn(name = "IdSize")
+    private Size size;
+
+    private int quantity;
+    private int status;
+
     @CreatedDate
     private Date createdate;
-
     @Column(length = 50)
     @CreatedBy
     private String createby;
+
 }

@@ -1,7 +1,6 @@
 package com.example.demosecurity.model.entity;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,22 +10,25 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity(name = "role")
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
+@Entity(name = "color")
 @EntityListeners(AuditingEntityListener.class)
-public class Role {
+public class Color {
     @Id
-    @Column(name = "idRole")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "IdColor")
+    private long id;
     @Column(length = 20)
-    private String role;
+    private String namesize;
+    private int status;
     @CreatedDate
     private Date createdate;
-
     @Column(length = 50)
     @CreatedBy
     private String createby;
+    @OneToMany
+    @JoinColumn(name = "IdColor")
+    private Set<ProductDetail> ProductDetail;
+
 }
