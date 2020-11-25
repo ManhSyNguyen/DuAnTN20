@@ -4,6 +4,8 @@ import apiRequest from './api/productApi';
 import apiRequestCt from './api/categoryApi';
 import apiRequestCart from './api/cartApi';
 import apiRequestPs from './api/postApi';
+import apiRequestSize from './api/sizeApi';
+import apiRequestColor from './api/colorApi';
 import Routers from './routers'
 import Swal from 'sweetalert2';
 
@@ -12,6 +14,9 @@ function App() {
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [categorys, setCategorys] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [sizes, setSizes] = useState([]);
+  const [colors, setColors] = useState([]);
 
   //Hien thi danh sach san pham
   //product
@@ -54,8 +59,31 @@ function App() {
     getCategorys()
   }, [])
 
+  //size
+  useEffect(() => {
+    const getSizes = async () => {
+      try {
+        const { data } = await apiRequestSize.getAll();
+        setSizes(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getSizes()
+  }, [])
 
-
+  //color
+  useEffect(() => {
+    const getColors = async () => {
+      try {
+        const { data } = await apiRequestColor.getAll();
+        setColors(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getColors()
+  }, [])
 
   //productRemove
   const onHandleRemove = async (id) => {
@@ -140,7 +168,61 @@ function App() {
       console.log(error)
     }
   }
+  // Size Remove
+  const onHandleRemoveS = async (id) => {
+    try {
+      const newSizes = sizes.filter(size => size.id !== id);
+      apiRequestSize.remove(id);
+      Swal.fire({
+        title: 'Bạn có muốn thực hiện?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setSizes(newSizes);
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
+  // Color Remove
+  const onHandleRemoveColor = async (id) => {
+    try {
+      const newColors = colors.filter(color => color.id !== id);
+      apiRequestColor.remove(id);
+      Swal.fire({
+        title: 'Bạn có muốn thực hiện?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setColors(newColors);
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   //productAdd
   const onHandleAdd = async (product) => {
@@ -181,6 +263,31 @@ function App() {
     }
   }
 
+  //Size Add
+  const onHandleAddS = async (size) => {
+    try {
+      const { data } = await apiRequestSize.create(size);
+      if (data) {
+        setSizes([...sizes, data]);
+      }
+
+    } catch (error) {
+      console.log('failed to request API: ', error)
+    }
+  }
+
+  //Color Add
+  const onHandleAddColor = async (color) => {
+    try {
+      const { data } = await apiRequestColor.create(color);
+      if (data) {
+        setColors([...colors, data]);
+      }
+
+    } catch (error) {
+      console.log('failed to request API: ', error)
+    }
+  }
   //update products
   const onHandleUpdate = async (updateProduct) => {
     try {
@@ -222,6 +329,33 @@ function App() {
     }
 
   }
+  //update size
+  const onHandleUpdateS = async (updateSize) => {
+    try {
+      apiRequestSize.update(updateSize.id, updateSize);
+      const newSizes = sizes.map(size => (
+        size.id === updateSize.id ? updateSize : size
+      ));
+      setSizes(newSizes);
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  //update color
+  const onHandleUpdateColor = async (updateColor) => {
+    try {
+      apiRequestColor.update(updateColor.id, updateColor);
+      const newColors = colors.map(color => (
+        color.id === updateColor.id ? updateColor : color
+      ));
+      setColors(newColors);
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   return (
     <div className="App">
@@ -241,7 +375,18 @@ function App() {
         onRemovect={onHandleRemoveCt}
         onAddCt={onHandleAddCt}
         onUpdateCt={onHandleUpdateCt}
-
+        //user
+        users={users}
+        //size
+        sizes={sizes}
+        onRemoveS={onHandleRemoveS}
+        onAddS={onHandleAddS}
+        onUpdateS={onHandleUpdateS}
+        //color
+        colors={colors}
+        onRemoveColor={onHandleRemoveColor}
+        onAddColor={onHandleAddColor}
+        onUpdateColor={onHandleUpdateColor}
       />
 
     </div>

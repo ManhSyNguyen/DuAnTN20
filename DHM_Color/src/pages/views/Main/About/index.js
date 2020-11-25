@@ -125,8 +125,7 @@ const About = ({ products, categorys }) => {
                                     </div>
                                     <Link to={`/product/${item.id}`} className="tun">{item.ten_sp}</Link>
                                     <p className="tun1">Size : S - M - L - XL</p>
-
-                                    <Link to="/cart" onClick={() => addCart(item.id)} className="item_add">
+                                    <Link to={`/product/${item.id}`} className="item_add">
                                         <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
                                     </Link>
                                 </div>

@@ -76,9 +76,9 @@ const Categorys = ({ categorys, products }) => {
                                     </div>
                                     <p className="tun">{sh.ten_sp}</p>
                                     <p className="tun1">Size : S - M - L - XL</p>
-                                    <a href="#" className="item_add">
+                                    <Link to={`/product/${sh.id}`} className="item_add">
                                         <p className="number item_price"><i> </i>{sh.gia_ban} vnđ</p>
-                                    </a>
+                                    </Link>
                                 </div>
 
                             ))}
