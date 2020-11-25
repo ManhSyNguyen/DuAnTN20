@@ -6,10 +6,9 @@ import com.example.demosecurity.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/secure/auth/")
-@CrossOrigin(origins = "*")
 public class APIAdminController {
     @Autowired
     private JwtUtil jwtUtil;
@@ -21,6 +20,8 @@ public class APIAdminController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /*@PreAuthorize("hasAnyRole('ADMIN')")*/
+    // hàm đó viết đi
+    //chức năng đăng ký truyền xuống username,password viết như hàn thêm
     @PostMapping("/admin/add")
     public String addUserByAdmin(@RequestBody Users user) {
         String pwd = user.getPassword();

@@ -164,13 +164,12 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 </Route>
                                 <Route path="/search/:ten_sp">
                                     <Search products={products} />
-                                </Route>
-                                <Route path="/login">
-                                    <Login />
-                                </Route>
-                                <Route path="/register">
-                                    <Register />
-                                </Route>
+                                </Route
+                                >
+                                <Route component={Login} path="/login" ></Route>
+
+                                <Route component={Register} path="/register"></Route>
+
                                 <Route path="/forgotpass">
                                     <ForgotPass />
                                 </Route>

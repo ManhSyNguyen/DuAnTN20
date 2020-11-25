@@ -63,8 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/rest/**").permitAll() // Cho phép tất cả mọi người truy cập vào địa chỉ này
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/rest/**").permitAll()
-                .antMatchers("/secure/auth/admin/all").hasAnyRole("ADMIN")
-                .antMatchers("/secure/auth/admin/add").hasAnyRole("ADMIN" , "GUEST")
+                .antMatchers("/secure/**").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and()
