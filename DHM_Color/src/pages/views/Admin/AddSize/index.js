@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-
-const AddSize = ({ onAddS }) => {
+import apiSize from '../../../../api/sizeApi';
+const AddSize = () => {
 
     const da = new Date();
     const year = da.getFullYear();
@@ -13,21 +13,54 @@ const AddSize = ({ onAddS }) => {
     const house = da.getHours();
     const minu = da.getMinutes();
     const second = da.getSeconds();
+
+    const sizeState = {
+        id: null,
+        name: '',
+        status: false,
+        createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
+    };
+
     let history = useHistory();
+
+    const [sizes, setSizes] = useState(sizeState);
+    const [submitted, setSubmitted] = useState(false);
     const { register, handleSubmit, errors } = useForm();
-    const onHandleSubmit = (data) => {
-        const newdata = {
-            id: Math.random().toString(36).substr(2, 9),
-            ...data,
+
+    const handleInputChange = event => {
+        const { name, value } = event.target;
+        setSizes({ ...sizes, [name]: value });
+    };
+
+    const saveSize = () => {
+        // debugger
+        var data = {
+            name: sizes.name,
+            status: sizes.status,
+            createdate: sizes.createdate,
         };
-        console.log(newdata)
-        onAddS(newdata);
-        history.push("/admin/sizes");
-        Swal.fire(
-            'Thêm thành công',
-            'You clicked the button!',
-            'success'
-        )
+
+        apiSize.create(data)
+            .then(res => {
+                setSizes({
+                    id: res.data.id,
+                    name: res.data.name,
+                    status: res.data.status,
+                    createdate: res.data.creatdate,
+                });
+                setSubmitted(true);
+                console.log(res.data);
+                history.push("/admin/v1/api/categorys");
+                Swal.fire(
+                    'Thêm thành công',
+                    'You clicked the button!',
+                    'success'
+                )
+
+            })
+            .catch(e => {
+                console.log(e);
+            });
     };
 
     return (
@@ -38,20 +71,22 @@ const AddSize = ({ onAddS }) => {
                 </div>
 
                 <div className="card-body" >
-                    <form onSubmit={handleSubmit(onHandleSubmit)}>
+                    <form onSubmit={handleSubmit(saveSize)}>
                         <div className="form-group">
                             <label htmlFor="InputCategoryName">Tên size</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="categoryName" name="tenSize"
+                                id="categoryName" name="name"
+                                value={sizes.name}
+                                onChange={handleInputChange}
                                 ref={register({
                                     required: true,
                                     pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.tenSize && errors.tenSize.type === "required"
+                            {errors.name && errors.name.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
 
-                            {errors.tenSize && errors.tenSize.type === "pattern"
+                            {errors.name && errors.name.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 
@@ -59,19 +94,23 @@ const AddSize = ({ onAddS }) => {
                             <label htmlFor="InputProductStatus">Trạng thái</label>
                             <span style={{ color: 'red' }}>*</span>
                             <select className="form-control form-control"
-                                name="trangthai" ref={register({ required: true })} >
+                                name="status"
+                                value={sizes.status}
+                                onChange={handleInputChange}
+                                ref={register({ required: true })} >
                                 <option></option>
-                                <option>true</option>
-                                <option>false</option>
+                                <option>1</option>
+                                <option>2</option>
                             </select>
-                            {errors.trangthai && errors.trangthai.type === "required"
+                            {errors.status && errors.status.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="InputProductName">Ngày tạo</label>
                             <input type="datetime" name="ngaytao" ref={register}
-                                value={`${day}-${month}-${year} / ${house}:${minu}:${second}s`}
+                                // value={`${day}-${month}-${year} / ${house}:${minu}:${second}s`}
+                                value={sizes.creatdate}
                                 className="form-control" id="exampleInputEmail1" disabled />
                         </div>
                         <button type="submit" className="btn btn-success">Lưu</button>

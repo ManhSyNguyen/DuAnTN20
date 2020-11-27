@@ -1,13 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2';
+import apiRequestCt from './../../../../api/categoryApi';
+const Category = () => {
 
-const Category = ({ categorys, onRemovect }) => {
-    const removeHandleCt = (id) => {
-        onRemovect(id)
+    const [categorys, setCategorys] = useState([]);
+    const [currentCate, setCurrentCate] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(-1);
 
-    }
-    console.log(onRemovect);
-    console.log(categorys)
+    const retrieveCategorys = () => {
+        apiRequestCt.getAll()
+            .then(response => {
+                setCategorys(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+    const refreshList = () => {
+        retrieveCategorys();
+        setCurrentCate(null);
+        setCurrentIndex(-1);
+    };
+    // const setActiveCate = (category, index) => {
+    //     setCurrentCate(category);
+    //     setCurrentIndex(index);
+    // };
+    const removeHandleCt = () => {
+        apiRequestCt.removeAll()
+        Swal.fire({
+            title: 'Bạn có muốn thực hiện?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(response => {
+            if (response.isConfirmed) {
+                console.log(response.data);
+                refreshList();
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+
     return (
         <div>
             <div className="mb4-4 d-flex justify-content-between align-items-center">
@@ -16,7 +62,7 @@ const Category = ({ categorys, onRemovect }) => {
                 </h1><br />
 
             </div>
-            <Link className="btn btn-danger" to="/admin/category/add">Thêm danh mục</Link><hr />
+            <Link className="btn btn-danger" to="/admin/v1/api/category/add">Thêm danh mục</Link><hr />
 
             <div>
                 <div className="card shadow mb-4">
@@ -36,15 +82,16 @@ const Category = ({ categorys, onRemovect }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {categorys.map(({ id, ten_danhmuc, ngaytao, mota }, index) => (
+                                    {categorys && categorys.map(({ id, name, status, createdate, createby }, index) => (
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{ten_danhmuc}</td>
-                                            <td>{mota}</td>
-                                            <td>{ngaytao}</td>
+                                            <td>{name}</td>
+                                            <td>{status}</td>
+                                            <td>{createdate}</td>
+                                            <td>{createby}</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandleCt(id)}>Xóa</button>&nbsp;
-                                                <Link className="btn btn-primary" to={`/admin/category/edit/${id}`}>Sửa</Link>&nbsp;
+                                                <Link className="btn btn-primary" to={`/admin/v1/api/category/edit/${id}`}>Sửa</Link>&nbsp;
                                             </td>
                                         </tr>
                                     ))}

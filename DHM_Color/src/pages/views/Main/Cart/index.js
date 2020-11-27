@@ -74,7 +74,7 @@ export default function Cart() {
                     <p>Giá có thể thay đổi dựa trên giá có hiệu lực vào ngày thanh toán</p>
                     <hr />
 
-                    <div className="col-md-9 cart-items" style={{ paddingTop: '20px' }}>
+                    <div className="col-md-12 cart-items" style={{ paddingTop: '20px' }}>
                         {cart.map(item => (
                             <div className="cart-header">
                                 <div className="close1" onClick={() => removeProduct(item.id)}> </div>
@@ -103,7 +103,23 @@ export default function Cart() {
                         ))}
                     </div>
 
-                    <div className="col-md-3 cart-total" style={{ paddingTop: '20px' }}>
+                    <hr />
+                    <div className="form">
+                        <div className="col-md-8 contact-grid">
+                            <form>
+                                <label className='lb'>Họ và tên</label>
+                                <input type="text" />
+                                <label className='lb'>Số điện thoại</label>
+                                <input type="text" />
+                                <label className='lb'>Địa chỉ</label>
+                                <input type="text" />
+                                <label className='lb'>Ghi chú</label>
+                                <textarea cols={77} rows={6} />
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="col-md-3 cart-total" style={{ paddingTop: '29px' }}>
                         <a className="continue" href="#">Tóm tắt đơn hàng</a>
                         <div className="price-details">
                             <h3>Tổng đơn hàng : {cart.length} đơn hàng</h3>
@@ -118,7 +134,7 @@ export default function Cart() {
                             <div className="clearfix"> </div>
                         </ul>
                         <div className="clearfix" />
-                        <Link className="order" to="/pay" >Đặt hàng </Link>
+                        <Link className="order" to="#" >Đặt hàng </Link>
                         <div className="total-item">
                             <h3>Thanh toán an toàn : </h3>
                         </div>

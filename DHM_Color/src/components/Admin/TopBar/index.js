@@ -1,161 +1,76 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import AuthService from "../../../api/userApi";
+import { useDispatch, useSelector } from "react-redux";
+import { Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import { logout } from "./../../../actions/auth";
+import { clearMessage } from "./../../../actions/message";
+import { history } from "./../../../helpers/history";
+const Topbar = () => {
 
-const Topbar = props => {
+    const [showAdminBoard, setShowAdminBoard] = useState(false);
+    const { user: currentUser } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
+    // const currentUser = AuthService.getCurrentUser();
+
+    useEffect(() => {
+        history.listen((location) => {
+            dispatch(clearMessage()); // clear message when changing location
+        });
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (currentUser) {
+            // setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
+            setShowAdminBoard(currentUser.roles.includes("ADMIN"));
+        }
+    }, [currentUser]);
+
+
+    const logOut = () => {
+        dispatch(logout());
+    };
     return (
         <div>
             <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                {/* Sidebar Toggle (Topbar) */}
-                {/* <form className="form-inline">
-                    <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
-                        <i className="fa fa-bars" />
-                    </button>
-                </form> */}
-                {/* Topbar Search */}
-                {/* <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div className="input-group">
-                        <input type="text" className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                        <div className="input-group-append">
-                            <button className="btn btn-primary" type="button">
-                                <i className="fas fa-search fa-sm" />
-                            </button>
-                        </div>
+                {currentUser ? (
+                    <div className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <Link to={"/admin"} className="nav-link">
+                                {currentUser.userName}
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <a href="/logina" className="nav-link" onClick={logOut}>
+                                LogOut</a>
+                        </li>
                     </div>
-                </form> */}
-                {/* Topbar Navbar */}
+                ) : (
+                        <div className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <Link to={"/logina"} className="nav-link">Login</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to={"/registera"} className="nav-link">Sign Up</Link>
+                            </li>
+                        </div>
+                    )}
                 <ul className="navbar-nav ml-auto">
-                    {/* Nav Item - Search Dropdown (Visible Only XS) */}
-                    {/* <li className="nav-item dropdown no-arrow d-sm-none">
-                        <a className="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-search fa-fw" />
-                        </a> */}
-                    {/* Dropdown - Messages */}
-                    {/* <div className="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                        <form className="form-inline mr-auto w-100 navbar-search">
-                            <div className="input-group">
-                                <input type="text" className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                                <div className="input-group-append">
-                                    <button className="btn btn-primary" type="button">
-                                        <i className="fas fa-search fa-sm" />
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    </li> */}
-                    {/* Nav Item - Alerts */}
-                    {/* <li className="nav-item dropdown no-arrow mx-1">
-                        <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-bell fa-fw" /> */}
-                    {/* Counter - Alerts */}
-                    {/* <span className="badge badge-danger badge-counter">3+</span>
-                        </a> */}
-                    {/* Dropdown - Alerts */}
-                    {/* <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                            <h6 className="dropdown-header">
-                                Alerts Center
-                    </h6>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="mr-3">
-                                    <div className="icon-circle bg-primary">
-                                        <i className="fas fa-file-alt text-white" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="small text-gray-500">December 12, 2019</div>
-                                    <span className="font-weight-bold">A new monthly report is ready to download!</span>
-                                </div>
-                            </a>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="mr-3">
-                                    <div className="icon-circle bg-success">
-                                        <i className="fas fa-donate text-white" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="small text-gray-500">December 7, 2019</div>
-                        $290.29 has been deposited into your account!
-                      </div>
-                            </a>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="mr-3">
-                                    <div className="icon-circle bg-warning">
-                                        <i className="fas fa-exclamation-triangle text-white" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="small text-gray-500">December 2, 2019</div>
-                        Spending Alert: We've noticed unusually high spending for your account.
-                      </div>
-                            </a>
-                            <a className="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                        </div>
-                    </li> */}
-                    {/* Nav Item - Messages */}
-                    {/* <li className="nav-item dropdown no-arrow mx-1">
-                        <a className="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-envelope fa-fw" /> */}
-                    {/* Counter - Messages */}
-                    {/* <span className="badge badge-danger badge-counter">7</span>
-                        </a> */}
-                    {/* Dropdown - Messages */}
-                    {/* <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                            <h6 className="dropdown-header">
-                                Message Center
-                    </h6>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="dropdown-list-image mr-3">
-                                    <img className="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="" />
-                                    <div className="status-indicator bg-success" />
-                                </div>
-                                <div className="font-weight-bold">
-                                    <div className="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                    <div className="small text-gray-500">Emily Fowler · 58m</div>
-                                </div>
-                            </a>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="dropdown-list-image mr-3">
-                                    <img className="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="" />
-                                    <div className="status-indicator" />
-                                </div>
-                                <div>
-                                    <div className="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                                    <div className="small text-gray-500">Jae Chun · 1d</div>
-                                </div>
-                            </a>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="dropdown-list-image mr-3">
-                                    <img className="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="" />
-                                    <div className="status-indicator bg-warning" />
-                                </div>
-                                <div>
-                                    <div className="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                                    <div className="small text-gray-500">Morgan Alvarez · 2d</div>
-                                </div>
-                            </a>
-                            <a className="dropdown-item d-flex align-items-center" href="#">
-                                <div className="dropdown-list-image mr-3">
-                                    <img className="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="" />
-                                    <div className="status-indicator bg-success" />
-                                </div>
-                                <div>
-                                    <div className="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                                    <div className="small text-gray-500">Chicken the Dog · 2w</div>
-                                </div>
-                            </a>
-                            <a className="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                        </div>
-                    </li> */}
-                    <li className="nav-item dropdown no-arrow">
-                        <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span className="mr-2 d-none d-lg-inline text-gray-600 small">DHM COLOR</span>
-                            <img className="img-profile rounded-circle" src="https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-9/120321837_104956478041476_7176881432022885481_n.png?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=fPyZFnFXMKcAX_Otpvc&_nc_ht=scontent.fhan2-6.fna&oh=e01556c2163237edad7ca891359541e0&oe=5F971A09" />
-                        </a>
-                    </li>
+                    {showAdminBoard && (
+                        <li className="nav-item dropdown no-arrow">
+                            <Link to="/admin" className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span className="mr-2 d-none d-lg-inline text-gray-600 small">DHM COLOR</span>
+                                <img className="img-profile rounded-circle" src="https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-9/120321837_104956478041476_7176881432022885481_n.png?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=fPyZFnFXMKcAX_Otpvc&_nc_ht=scontent.fhan2-6.fna&oh=e01556c2163237edad7ca891359541e0&oe=5F971A09" />
+                            </Link>
+                        </li>
+                    )}
                     <div className="topbar-divider d-none d-sm-block" />
                     {/* Nav Item - User Information */}
                     <li className="nav-item dropdown no-arrow">
                         <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span className="mr-2 d-none d-lg-inline text-gray-600 small">Tên người dùng </span>
+                            {/* <span className="mr-2 d-none d-lg-inline text-gray-600 small">{currentUser.uername}</span> */}
+                            <span className="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+
                             <img className="img-profile rounded-circle" src="https://yinnepal.files.wordpress.com/2017/11/admin.png?w=640" />
                         </a>
                         {/* Dropdown - User Information */}

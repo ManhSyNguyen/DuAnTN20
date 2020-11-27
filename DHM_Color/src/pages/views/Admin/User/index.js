@@ -1,8 +1,10 @@
+
+import { Link } from 'react-router-dom'
+import userApi from '../../../../api/userApi';
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 
-const User = ({ users }) => {
+const User = props => {
     return (
         <div>
             <div className="card shadow mb-4">
@@ -25,21 +27,22 @@ const User = ({ users }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.map(({ id, hoten, email, tenTK, matkhau, trangthai, ngaytao }, index) => (
-                                    <tr key={index}>
-                                        <th scope="row">{index + 1}</th>
-                                        <td>{hoten}</td>
-                                        <td>{email}</td>
-                                        <td>{tenTK}</td>
-                                        <td>{matkhau}</td>
-                                        <td>{trangthai}</td>
-                                        <td>{ngaytao}</td>
-                                        <td>
-                                            <button className="btn btn-danger">Xóa</button>&nbsp;
-                                                    <Link className="btn btn-primary" >Sửa</Link>
-                                        </td>
-                                    </tr>
-                                ))}
+                                {this.state.users.map(
+                                    user => (
+                                        <tr key={user.index}>
+                                            <th scope="row">{user.index + 1}</th>
+                                            <td>{user.hoten}</td>
+                                            <td>{user.email}</td>
+                                            <td>{user.username}</td>
+                                            <td>{user.password}</td>
+                                            <td>{user.trangthai}</td>
+                                            <td>{user.ngaytao}</td>
+                                            <td>
+                                                <button onClick={() => this.deleteUser(user.id)} className="btn btn-danger">Xóa</button>&nbsp;
+                                                    {/* <Link onClick={() => this.editEmployee(employee.id)} className="btn btn-primary" >Sửa</Link> */}
+                                            </td>
+                                        </tr>
+                                    ))}
 
                             </tbody>
                         </table>
@@ -50,6 +53,7 @@ const User = ({ users }) => {
         </div>
     )
 }
+
 
 User.propTypes = {
 

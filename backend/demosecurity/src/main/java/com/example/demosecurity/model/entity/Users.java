@@ -33,14 +33,6 @@ public class Users {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "IdUser"), inverseJoinColumns = @JoinColumn(name = "IdRole"))
     private Set<Role> roles;
 
-    public Users() {
-    }
 
-    public Users(Users users) {
-        this.id = users.getId();
-        this.email = users.getEmail();
-        this.username = users.getUsername();
-        this.password = users.getPassword();
-        this.roles=users.getRoles();
-    }
+
 }

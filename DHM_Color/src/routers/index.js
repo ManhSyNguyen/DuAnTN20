@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LayoutMain from '../pages/layouts/LayoutMain'
 import LayoutAdmin from '../pages/layouts/LayoutAdmin'
+
 //Admin
 import Dashboard from '../pages/views/Admin/Dashboard'
 import ProductsManager from '../pages/views/Admin/Products'
@@ -17,7 +18,7 @@ import AddPost from '../pages/views/Admin/AddPost';
 import EditPost from '../pages/views/Admin/EditPost';
 import Contacts from '../pages/views/Admin/Contact';
 import { DataProvider } from '../pages/views/Main/ActionCart';
-import User from '../pages/views/Admin/User';
+import User from '../pages/views/Admin/User/index';
 import Size from '../pages/views/Admin/Size';
 import Color from '../pages/views/Admin/Color';
 import AddSize from '../pages/views/Admin/AddSize';
@@ -35,9 +36,12 @@ import Search from '../pages/views/Main/Search';
 import Login from '../pages/views/Main/Login';
 import Register from '../pages/views/Main/Register';
 import ForgotPass from '../pages/views/Main/ForgotPass';
-import Pay from '../pages/views/Main/Pay';
 import Cart from '../pages/views/Main/Cart';
 import PostDetail from '../pages/views/Main/PostDetail';
+import LayoutLogin from '../pages/layouts/LayoutLogin';
+import LayoutRegister from '../pages/layouts/LayoutRegister';
+import RegisterA from '../pages/views/Admin/RegisterA';
+import LoginA from '../pages/views/Admin/LoginA';
 
 
 
@@ -62,7 +66,20 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
         <DataProvider>
             <Router>
                 <Switch>
-                    <Route path="/admin/:path?/:path?/:path?" exact>
+
+                    <Route exact path="/logina">
+                        <LayoutLogin>
+                            <Route component={LoginA} />
+                        </LayoutLogin>
+                    </Route>
+
+                    <Route exact path="/registera">
+                        <LayoutRegister>
+                            <Route component={RegisterA} />
+                        </LayoutRegister>
+                    </Route>
+
+                    <Route path="/admin/:path?/:path?/:path?/:path?/:path?" exact>
                         <LayoutAdmin>
                             <Switch>
                                 {/* product */}
@@ -82,8 +99,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                     <DetailProduct products={products} />
                                 </Route>
                                 {/* users */}
-                                <Route path='/admin/users'>
-                                    <User users={users} />
+                                <Route component={User} users={users} path='/admin/users'>
                                 </Route>
                                 {/* size */}
                                 <Route path='/admin/sizes'>
@@ -116,19 +132,20 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                     <EditPost posts={posts} onUpdatePs={onUpdatePs} />
                                 </Route>
                                 {/* category */}
-                                <Route path='/admin/categorys'>
+                                <Route path='/admin/v1/api/categorys'>
                                     <Category categorys={categorys} onRemovect={onHandleRemoveCt} />
                                 </Route>
-                                <Route path='/admin/category/add'>
+                                <Route path='/admin/v1/api/category/add'>
                                     <AddCategory onAddCt={onHandleAddCt} />
                                 </Route>
-                                <Route path='/admin/category/edit/:id'>
+                                <Route path='/admin/v1/api/category/edit/:id'>
                                     <EditCategory categorys={categorys} onUpdateCt={onUpdateCt} />
                                 </Route>
                                 {/* contact */}
                                 <Route path='/admin/contacts'>
                                     <Contacts />
                                 </Route>
+
 
                             </Switch>
                         </LayoutAdmin>
@@ -164,8 +181,8 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 </Route>
                                 <Route path="/search/:ten_sp">
                                     <Search products={products} />
-                                </Route
-                                >
+                                </Route>
+
                                 <Route component={Login} path="/login" ></Route>
 
                                 <Route component={Register} path="/register"></Route>
@@ -177,10 +194,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 <Route path="/cart">
                                     <Cart />
                                 </Route>
-                                {/* Pay */}
-                                <Route path='/pay'>
-                                    <Pay />
-                                </Route>
+
                             </Switch>
                         </LayoutMain>
                     </Route>

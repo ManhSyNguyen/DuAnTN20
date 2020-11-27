@@ -28,7 +28,7 @@ const Sidebar = props => {
             </li>
             {/* Quan ly danh muc*/}
             <li className="nav-item">
-                <Link className="nav-link" to="/admin/categorys">
+                <Link className="nav-link" to="/admin/v1/api/categorys">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý danh mục</span></Link>
             </li>
