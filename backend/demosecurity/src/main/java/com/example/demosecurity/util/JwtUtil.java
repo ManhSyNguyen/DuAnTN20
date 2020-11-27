@@ -15,7 +15,7 @@ import java.util.Map;
 public class JwtUtil {
 
     // Thời gian hiệu lực của token
-    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    public static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
     // Khóa bí mật, token sẽ được mã hóa với khóa này
     private static final String secret = "12345abcde";
 

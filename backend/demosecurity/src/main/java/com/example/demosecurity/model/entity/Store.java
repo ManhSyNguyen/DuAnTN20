@@ -19,8 +19,8 @@ public class Store implements Serializable {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "IdOrder")
-    private Order orders;
+    @JoinColumn(name = "IdUser")
+    private Users users;
 
     @Column (length=50)
     private String namestore;

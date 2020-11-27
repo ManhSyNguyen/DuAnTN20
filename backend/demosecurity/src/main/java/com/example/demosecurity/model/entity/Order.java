@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -7,6 +8,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -29,8 +32,9 @@ public class Order {
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "IdProductDetail")
-    Set<OrderProductDetail> orderProductDetail;
+    @JoinColumn(name = "IdOrder")
+    @JsonIgnore
+    private Set<OrderProductDetail> orderProductDetails ;
 
     @Column(length = 15)
     private String phone;

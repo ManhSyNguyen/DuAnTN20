@@ -20,7 +20,7 @@ public class Color {
     @Column(name = "IdColor")
     private long id;
     @Column(length = 20)
-    private String namesize;
+    private String namecolor;
     private int status;
     @CreatedDate
     private Date createdate;

@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -9,6 +10,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity(name = "productdetail")
@@ -27,6 +30,11 @@ public class ProductDetail implements Serializable {
     @ManyToOne
     @JoinColumn(name = "IdSize")
     private Size size;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "IdProductDetail")
+    @JsonIgnore
+    private Set<OrderProductDetail> sales ;
 
     private int quantity;
     private int status;

@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -19,18 +20,23 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCart")
     private long id;
+
     @ManyToOne
-    @JoinColumn(name = "IdUser")
-    private Users users;
+    @JoinColumn(name = "IdCustomer")
+    private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "IdProductDetail")
-    Set<CartProductDetail> cartProductDetail;
+    @JoinColumn(name ="IdCart")
+    @JsonIgnore
+    private Set<CartProductDetail>  cartProductDetails;
 
     @Column(length = 15)
     private String phone;
+
     @Column(length = 200)
     private String address;
+
+
     @CreatedDate
     private Date createdate;
     @Column(length = 50)

@@ -10,8 +10,6 @@ import java.io.Serializable;
 
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Embeddable
 public class OrderProductDetailId implements Serializable {
     private Long IdOrder;

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class SupplierService {
-    private static final Logger logger = LogManager.getLogger(CategoryService.class);
+    private static final Logger logger = LogManager.getLogger(SupplierService.class);
 @Autowired
 private SupplierRepo supplierRepo;
 @Autowired

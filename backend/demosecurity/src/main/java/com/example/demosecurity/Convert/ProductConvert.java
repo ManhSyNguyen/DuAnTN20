@@ -10,7 +10,6 @@ public class ProductConvert {
 
     public Product toEntity(ProductDTO dto) {
         Product entity = new Product();
-        entity.setCategory(dto.getCategory());
         entity.setNameproduct(dto.getNameproduct());
         entity.setPrice(dto.getPrice());
         entity.setStatus(dto.getStatus());
@@ -23,7 +22,9 @@ public class ProductConvert {
     public ProductDTO toDTO(Product entity) {
         ProductDTO dto = new ProductDTO();
         dto.setId(entity.getId());
+        dto.setIdcategory(entity.getCategory().getId());
         dto.setNameproduct(entity.getNameproduct());
+        dto.setPrice(entity.getPrice());
         dto.setStatus(entity.getStatus());
         dto.setImage(entity.getImage());
         dto.setPurchase(entity.getPurchase());
@@ -33,7 +34,6 @@ public class ProductConvert {
     }
 
     public Product toEntity(ProductDTO dto, Product entity) {
-        entity.setCategory(dto.getCategory());
         entity.setNameproduct(dto.getNameproduct());
         entity.setPrice(dto.getPrice());
         entity.setStatus(dto.getStatus());

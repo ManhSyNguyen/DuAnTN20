@@ -13,6 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Embeddable
 public class CartProductDetailId implements Serializable {
+
     private Long IdCart;
     private Long IdProductDetail;
 

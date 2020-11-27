@@ -20,7 +20,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class ProductDTO {
     private long id;
-    private Category category;
+    private Long idcategory;
     private String nameproduct;
     private float price;
     private int status;

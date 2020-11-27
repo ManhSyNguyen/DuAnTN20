@@ -56,5 +56,21 @@ public class Product {
     )
     Set<Supplier> suppliers;
 
-
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", category=" + category +
+                ", nameproduct='" + nameproduct + '\'' +
+                ", price=" + price +
+                ", status=" + status +
+                ", image='" + image + '\'' +
+                ", decription='" + decription + '\'' +
+                ", purchase=" + purchase +
+                ", createdate=" + createdate +
+                ", createby='" + createby + '\'' +
+                ", productDetail=" + productDetail +
+                ", suppliers=" + suppliers +
+                '}';
+    }
 }
