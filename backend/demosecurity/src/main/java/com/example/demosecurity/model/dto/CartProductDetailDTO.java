@@ -1,24 +1,18 @@
 package com.example.demosecurity.model.dto;
 
+import com.example.demosecurity.model.entity.CartProductDetailId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDetailDTO {
-    private long id;
-    private Long idproduct;
-    private Long idcolor;
-    private Long idsize;
+public class CartProductDetailDTO {
+    private CartProductDetailId id;
     private int quantity;
-    private int status;
     private float price;
-    private Date createdate;
-    private String createby;
-
+    private int status ;
 }

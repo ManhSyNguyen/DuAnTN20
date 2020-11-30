@@ -34,7 +34,7 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdOrder")
     @JsonIgnore
-    private Set<OrderProductDetail> orderProductDetails ;
+    private Set<OrderProductDetail> orderProductDetails;
 
     @Column(length = 15)
     private String phone;

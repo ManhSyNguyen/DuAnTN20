@@ -1,29 +1,32 @@
 package com.example.demosecurity.model.dto;
 
-
 import com.example.demosecurity.model.entity.CartProductDetail;
-import com.example.demosecurity.model.entity.OrderProductDetail;
+import com.example.demosecurity.model.entity.Customer;
 import com.example.demosecurity.model.entity.ProductDetail;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 
-import java.util.*;
+
+import java.util.Date;
+import java.util.Set;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO {
-    private long Id;
-    private long idUser;
+public class CartDTO {
+    private long id;
     private long idcustomer;
     private String phone;
     private String address;
-    private int status;
+    @CreatedDate
     private Date createdate;
+    @CreatedBy
     private String createby;
-    private Set<ProductDetailDTO> productDetailList ;
-    private Set<OrderProductDetail> orderProductDetails ;
+    private int status;
+    private Set<ProductDetailDTO> ProductDetails;
 }

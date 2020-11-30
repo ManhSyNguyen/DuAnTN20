@@ -1,10 +1,11 @@
 package com.example.demosecurity.Service.auth;
 
 import com.example.demosecurity.Convert.OrderConvert;
-import com.example.demosecurity.Repository.CustomerRepo;
-import com.example.demosecurity.Repository.OrderRepo;
-import com.example.demosecurity.Repository.UsersRepository;
+import com.example.demosecurity.Convert.ProductConvert;
+import com.example.demosecurity.Convert.ProductDetailConvert;
+import com.example.demosecurity.Repository.*;
 import com.example.demosecurity.model.dto.OrderDTO;
+import com.example.demosecurity.model.dto.OrderProductDetailDTO;
 import com.example.demosecurity.model.dto.ProductDetailDTO;
 import com.example.demosecurity.model.entity.*;
 import org.apache.logging.log4j.LogManager;
@@ -13,30 +14,62 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import javax.transaction.Transactional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
-@Autowired
-private OrderConvert orderConvert;
+    @Autowired
+    private OrderConvert orderConvert;
     @Autowired
     private CustomerRepo customerRepo;
     @Autowired
     private UsersRepository usersRepository;
-@Autowired
-private OrderRepo orderRepo;
-    private static final Logger logger = LogManager.getLogger(ProductDetailService.class);
+    @Autowired
+    private ProductDetailRepo productDetailRepo;
+    @Autowired
+    private OrderRepo orderRepo;
+    @Autowired
+    private OrderProductDetailRepo orderProductDetailRepo;
+
+    private static final Logger logger = LogManager.getLogger(OrderService.class);
 
     public OrderDTO save(OrderDTO orderDTO) {
-        Order neworder= new Order();
+        Order  neworder = new Order();
+        neworder = orderConvert.toEntity(orderDTO);
         Customer customer = customerRepo.findCustomersById(orderDTO.getIdcustomer());
         Users users = usersRepository.findUsersById(orderDTO.getIdUser());
-        neworder = orderConvert.toEntity(orderDTO);
         neworder.setCustomer(customer);
         neworder.setUsers(users);
         orderRepo.save(neworder);
+        Set<ProductDetailDTO> productDetailList = orderDTO.getProductDetailList();
+        if(orderRepo.save(neworder)!=null){
+            for (ProductDetailDTO pd : productDetailList){
+
+                OrderProductDetailId opdi = new OrderProductDetailId();
+                opdi.setIdOrder(neworder.getId());
+                opdi.setIdProductDetail(pd.getId());
+
+                OrderProductDetailDTO orderProductDetaildto = new OrderProductDetailDTO();
+                orderProductDetaildto.setId(opdi);
+                orderProductDetaildto.setQuantity(pd.getQuantity());
+                orderProductDetaildto.setPrice(pd.getPrice());
+
+                OrderProductDetail orderProductDetail = new OrderProductDetail();
+                orderProductDetail.setId(orderProductDetaildto.getId());
+                orderProductDetail.setQuantity(orderProductDetaildto.getQuantity());
+                orderProductDetail.setPrice(orderProductDetaildto.getPrice());
+
+                orderProductDetail.setStatus(1);
+                Order order = orderRepo.findOrdersById(orderProductDetaildto.getId().getIdOrder());
+                ProductDetail productDetail = productDetailRepo.findProductDetailById(orderProductDetaildto.getId().getIdProductDetail());
+                orderProductDetail.setOrder(order);
+                orderProductDetail.setProductDetail(productDetail);
+
+                orderProductDetailRepo.save(orderProductDetail);
+            }
+        }
         return orderConvert.toDTO(neworder);
 
     }
@@ -50,15 +83,51 @@ private OrderRepo orderRepo;
         newOrder.setCustomer(customer);
         newOrder.setUsers(users);
         orderRepo.save(newOrder);
+        Set<ProductDetailDTO> productDetailList = orderDTO.getProductDetailList();
+        if(orderRepo.save(newOrder)!=null){
+            for (ProductDetailDTO pd : productDetailList){
+
+                OrderProductDetailId opdi = new OrderProductDetailId();
+                opdi.setIdOrder(newOrder.getId());
+                opdi.setIdProductDetail(pd.getId());
+
+                OrderProductDetailDTO orderProductDetaildto = new OrderProductDetailDTO();
+                orderProductDetaildto.setId(opdi);
+                orderProductDetaildto.setQuantity(pd.getQuantity());
+                orderProductDetaildto.setPrice(pd.getPrice());
+
+                OrderProductDetail orderProductDetail = new OrderProductDetail();
+                orderProductDetail.setId(orderProductDetaildto.getId());
+                orderProductDetail.setQuantity(orderProductDetaildto.getQuantity());
+                orderProductDetail.setPrice(orderProductDetaildto.getPrice());
+
+                orderProductDetail.setStatus(1);
+                Order order = orderRepo.findOrdersById(orderProductDetaildto.getId().getIdOrder());
+                ProductDetail productDetail = productDetailRepo.findProductDetailById(orderProductDetaildto.getId().getIdProductDetail());
+                orderProductDetail.setOrder(order);
+                orderProductDetail.setProductDetail(productDetail);
+
+                orderProductDetailRepo.save(orderProductDetail);
+            }
+        }
         return orderConvert.toDTO(newOrder);
 
     }
 
     public void delete(Long id) {
         try {
-            Optional<Order> product = orderRepo.findById(id);
-            if(product!=null){
-                orderRepo.deleteById(id);
+            Optional<Order> order = orderRepo.findById(id);
+            if(order!=null){
+
+                List<OrderProductDetail> dt = orderProductDetailRepo.findOrderProductDetailBys(id);
+                        if(dt!=null){
+                            for (OrderProductDetail xoa : dt){
+                                orderProductDetailRepo.delete(xoa);
+                            }
+                            orderRepo.deleteById(id);
+                        }else{
+                            logger.error("Không được phép xóa");
+                        }
             }
         }catch (Exception e){
             logger.error(e.getMessage());

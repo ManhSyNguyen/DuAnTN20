@@ -1,10 +1,9 @@
 package com.example.demosecurity.Controller;
 
-import com.example.demosecurity.Service.auth.ColorService;
+
 import com.example.demosecurity.Service.auth.OrderService;
-import com.example.demosecurity.model.dto.ColorDTO;
 import com.example.demosecurity.model.dto.OrderDTO;
-import com.example.demosecurity.model.entity.Order;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/order")
+    @GetMapping("/orders")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public List<OrderDTO> getAll() {

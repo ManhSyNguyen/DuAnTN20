@@ -9,6 +9,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -31,10 +33,10 @@ public class ProductDetail implements Serializable {
     @JoinColumn(name = "IdSize")
     private Size size;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "IdProductDetail")
     @JsonIgnore
-    private Set<OrderProductDetail> sales ;
+    private Collection<OrderProductDetail> sales = new ArrayList<>();
 
     private int quantity;
     private int status;
