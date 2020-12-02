@@ -93,4 +93,15 @@ public class ProductService {
         }
         return results;
     }
+    public List<ProductDTO> getProductByCategory(long idcategory) {
+        List<ProductDTO> results = new ArrayList<>();
+        Product product = new Product();
+        List<Product> entities = productRepo.getProductByCategory(product.getCategory().getId());
+        System.out.println(entities);
+        for (Product item: entities) {
+            ProductDTO newDTO = productConvert.toDTO(item);
+            results.add(newDTO);
+        }
+        return results;
+    }
 }

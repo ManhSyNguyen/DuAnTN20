@@ -5,6 +5,7 @@ import com.example.demosecurity.Service.auth.CategoryService;
 import com.example.demosecurity.Service.auth.OrderService;
 import com.example.demosecurity.model.dto.CartDTO;
 import com.example.demosecurity.model.dto.CategoryDTO;
+import com.example.demosecurity.model.entity.Cart;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.List;
 @RequestMapping("v1/api")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CartController {
+
     @Autowired
     private CartService cartService;
 
@@ -44,5 +46,10 @@ public class CartController {
     @DeleteMapping(value = "/cart/{id}")
     public void deleteNew(@PathVariable("id") Long id) {
         cartService.delete(id);
+    }
+
+    @GetMapping("cart/status")
+    public List<Cart> getSatus(){
+        return cartService.findCartByStatus();
     }
 }

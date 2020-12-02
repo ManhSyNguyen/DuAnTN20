@@ -21,6 +21,7 @@ public class OrderDTO {
     private long idcustomer;
     private String phone;
     private String address;
+    private String paymentmethod;
     private int status;
     private Date createdate;
     private String createby;

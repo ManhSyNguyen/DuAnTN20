@@ -30,7 +30,7 @@ public class Receipt implements Serializable {
     private int status;
     @CreatedDate
     private Date createdate;
-    @Column(length = 50)
+    @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")
     @CreatedBy
     private String createby;
 

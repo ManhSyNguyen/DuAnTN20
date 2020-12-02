@@ -20,14 +20,14 @@ public class Size implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdSize")
     private long id;
-    @Column(length = 20)
+    @Column(name = "namesize",columnDefinition = "VARCHAR(40)  NULL")
     private String namesize;
 
     private  boolean status;
     @CreatedDate
     private Date createdate;
 
-    @Column(length = 50)
+    @Column(name = "createby",columnDefinition = "VARCHAR(40)  NULL")
     @CreatedBy
     private String createby;
     @OneToMany

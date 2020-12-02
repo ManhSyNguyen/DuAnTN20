@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.EntityListeners;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -17,8 +18,9 @@ import javax.persistence.EntityListeners;
 public class CategoryDTO {
     private long id;
     private String name;
+    private String decription;
     private boolean status;
     private String createdate;
-    private String createby;
+    private Date createby;
 
 }

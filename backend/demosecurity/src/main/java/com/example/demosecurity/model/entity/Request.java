@@ -27,7 +27,8 @@ public class Request  implements Serializable {
 
     @CreatedDate
     private Date createdate;
-    @Column(length = 50)
+
+    @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")
     @CreatedBy
     private String createby;
     @ManyToMany

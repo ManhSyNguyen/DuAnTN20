@@ -22,7 +22,7 @@ public class Store implements Serializable {
     @JoinColumn(name = "IdUser")
     private Users users;
 
-    @Column (length=50)
+    @Column(name = "namestore",columnDefinition = "VARCHAR(50)  NULL")
     private String namestore;
     @ManyToMany
     @JoinTable(

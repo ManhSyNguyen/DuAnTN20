@@ -15,7 +15,7 @@ public class ProductConvert {
         entity.setStatus(dto.getStatus());
         entity.setImage(dto.getImage());
         entity.setDecription(dto.getDecription());
-        entity.setPurchase(dto.getPurchase());
+       entity.setPurchase(dto.getPurchase());
         return entity;
     }
 

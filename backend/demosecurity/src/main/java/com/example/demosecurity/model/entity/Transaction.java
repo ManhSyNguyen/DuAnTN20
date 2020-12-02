@@ -25,10 +25,8 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "IdCustomer")
     private Customer customer;
-
     private Date gio;
-
-    @Column (length=20)
+    @Column(name = "cardNumber",columnDefinition = "VARCHAR(15)  NULL")
     private String cardNumber;
     @Column (length=50)
     @CreatedDate

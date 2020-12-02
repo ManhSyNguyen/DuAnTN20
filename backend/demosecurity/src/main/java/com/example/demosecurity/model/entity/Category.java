@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 @Setter
 @Getter
@@ -21,12 +22,15 @@ public class Category implements Serializable {
     private long id;
     @OneToMany(mappedBy = "category")
     private Set<Product> product;
+    @Column(name = "name",columnDefinition = "VARCHAR(50)  NULL")
     private String name;
+    @Column(name = "decription",columnDefinition = "VARCHAR(100)  NULL")
+    private String decription;
     private boolean status;
     @CreatedDate
     private String createdate;
     @CreatedBy
-    private String createby;
+    private Date createby;
 
     public Category(){
 

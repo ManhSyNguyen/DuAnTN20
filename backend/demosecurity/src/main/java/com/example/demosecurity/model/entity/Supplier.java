@@ -21,11 +21,13 @@ public class Supplier  {
     private long Id;
     private String NameSupplier;
     private String Titile;
+    @Column(name = "Address",columnDefinition = "VARCHAR(150)  NULL")
     private String Address;
     private boolean status;
     @CreatedDate
     private Date createdate;
     @CreatedBy
+    @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")
     private String createby;
 
 }

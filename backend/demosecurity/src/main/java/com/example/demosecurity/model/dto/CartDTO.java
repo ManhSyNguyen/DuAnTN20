@@ -23,6 +23,7 @@ public class CartDTO {
     private long idcustomer;
     private String phone;
     private String address;
+    private String paymentmethod;
     @CreatedDate
     private Date createdate;
     @CreatedBy

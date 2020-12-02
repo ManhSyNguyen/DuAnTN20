@@ -28,8 +28,9 @@ public class WareHouse {
     private int quantity;
     @CreatedDate
     private Date createdate;
-    @Column(length = 50)
+
     @CreatedBy
+    @Column(name = "createby",columnDefinition = "VARCHAR(40)  NULL")
     private String createby;
 
     @ManyToMany

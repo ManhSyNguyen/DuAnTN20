@@ -19,11 +19,11 @@ public class Users {
     @Column(name = "IdUser")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (length=50)
+    @Column(name = "username",columnDefinition = "VARCHAR(50)  NULL")
     private String username;
-    @Column (length=100)
+    @Column(name = "password",columnDefinition = "VARCHAR(100)  NULL")
     private String password;
-    @Column (length=50)
+    @Column(name = "email",columnDefinition = "VARCHAR(40)  NULL")
     private String email;
     @CreatedDate
     private Date createdate;

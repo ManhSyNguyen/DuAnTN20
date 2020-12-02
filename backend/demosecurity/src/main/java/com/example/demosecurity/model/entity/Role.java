@@ -21,12 +21,12 @@ public class Role {
     @Column(name = "idRole")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 20)
-    private String role;
+    @Column(name = "namerole",columnDefinition = "VARCHAR(20)  NULL")
+    private String namerole;
     @CreatedDate
     private Date createdate;
 
-    @Column(length = 50)
+    @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")
     @CreatedBy
     private String createby;
 }

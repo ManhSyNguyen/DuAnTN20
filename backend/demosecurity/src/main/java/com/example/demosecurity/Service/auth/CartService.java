@@ -157,5 +157,8 @@ public CartDTO save(CartDTO cartDTO){
         }
         return results;
     }
+    public List<Cart> findCartByStatus(){
+    return cartRepo.findCartByStatus();
+    }
 
 }

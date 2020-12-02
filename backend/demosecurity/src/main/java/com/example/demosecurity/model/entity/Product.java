@@ -28,18 +28,18 @@ public class Product {
     @JoinColumn(name = "IdCategory")
     private Category category;
 
-    @Column(length = 100)
+    @Column(name = "nameproduct",columnDefinition = "VARCHAR(100)  NULL")
     private String nameproduct;
     private float price;
     private int status;
-    @Column(length = 255)
+    @Column(name = "image",columnDefinition = "VARCHAR(255)  NULL")
     private String image;
-    @Column(length = 255)
+    @Column(name = "decription",columnDefinition = "VARCHAR(255)  NULL")
     private String decription;
     private int purchase;
     @CreatedDate
     private Date createdate;
-    @Column(length = 50)
+    @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")
     @CreatedBy
     private String createby;
 
