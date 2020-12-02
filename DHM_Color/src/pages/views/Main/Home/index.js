@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import apiProduct from '../../../../api/productApi'
 
-const Home = ({ products }) => {
+const Home = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        apiProduct.getAll().then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
+    }, []);
     return (
         <div>
             <div className="content">
@@ -9,13 +17,14 @@ const Home = ({ products }) => {
                     <div className="content-top">
                         <h1><img src="images/giohang.png" width="40px" /> NEW PRODUCTS</h1>
                         <div className="grid-in">
-                            {products.map((item, index) => (
+                            {products?.map((item, index) => (
+
                                 <div key={index} className="col-md-4 grid-top">
                                     <Link to={`/product/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
-                                        <img className="img-responsive" src={item.anh} />
+                                        <img className="img-responsive" src={item.image} />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-left    b-delay03 ">
-                                                <span>{item.ten_sp}</span>
+                                                <span>{item.nameproduct}</span>
                                             </h3>
                                         </div>
                                     </Link>

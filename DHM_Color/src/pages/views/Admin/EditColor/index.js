@@ -16,7 +16,7 @@ const EditColor = props => {
 
     const colorState = {
         id: null,
-        name: '',
+        namecolor: '',
         status: false,
         createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
         createby: null
@@ -41,14 +41,14 @@ const EditColor = props => {
     }, [props.match.params.id]);
 
     const handleInputChange = event => {
-        const { name, value } = event.target;
-        setColors({ ...colors, [name]: value });
+        const { namecolor, value } = event.target;
+        setColors({ ...colors, [namecolor]: value });
     };
 
     const updatePublished = status => {
         var data = {
             id: colors.id,
-            name: colors.name,
+            namecolor: colors.namecolor,
             status: status,
             createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
         };
@@ -102,17 +102,17 @@ const EditColor = props => {
                             <label htmlFor="InputCategoryName">Tên màu</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="categoryName" name="name"
-                                defaultValue={colors.name}
+                                id="categoryName" name="namecolor"
+                                defaultValue={colors.namecolor}
                                 onChange={handleInputChange}
                                 ref={register({
                                     required: true,
                                     pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.name && errors.name.type === "required"
+                            {errors.namecolor && errors.namecolor.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
 
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.namecolor && errors.namecolor.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 

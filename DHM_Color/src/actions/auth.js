@@ -46,11 +46,12 @@ export const createUser = (username, password) => (dispatch) => {
 };
 
 export const loginUser = (userName, password) => (dispatch) => {
+
   return AuthService.loginUser(userName, password).then(
-    (data) => {
+    (response) => {
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: { user: data },
+        payload: { user: response },
       });
 
       return Promise.resolve();

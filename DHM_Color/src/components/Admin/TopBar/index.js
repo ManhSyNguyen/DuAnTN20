@@ -10,20 +10,23 @@ const Topbar = () => {
     const [showAdminBoard, setShowAdminBoard] = useState(false);
     const { user: currentUser } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
-    // const currentUser = AuthService.getCurrentUser();
-
-    useEffect(() => {
-        history.listen((location) => {
-            dispatch(clearMessage()); // clear message when changing location
-        });
-    }, [dispatch]);
-
-    useEffect(() => {
-        if (currentUser) {
-            // setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
-            setShowAdminBoard(currentUser.roles.includes("ADMIN"));
-        }
-    }, [currentUser]);
+    // const { user: currentUser } = props;
+    //nếu không có tài khoản sẽ tự động chuyển sang login
+    // if (!currentUser) {
+    //     return <Redirect to="/logina" />
+    // }
+    // useEffect(() => {
+    //     history.listen((location) => {
+    //         dispatch(clearMessage()); // clear message when changing location
+    //     });
+    // }, [dispatch]);
+    // debugger
+    // useEffect(() => {
+    //     if (currentUser) {
+    //         // setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
+    //         setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
+    //     }
+    // }, [currentUser]);
 
 
     const logOut = () => {
@@ -68,7 +71,7 @@ const Topbar = () => {
                     {/* Nav Item - User Information */}
                     <li className="nav-item dropdown no-arrow">
                         <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {/* <span className="mr-2 d-none d-lg-inline text-gray-600 small">{currentUser.uername}</span> */}
+                            {/* <span className="mr-2 d-none d-lg-inline text-gray-600 small">{currentUser.user}</span> */}
                             <span className="mr-2 d-none d-lg-inline text-gray-600 small"></span>
 
                             <img className="img-profile rounded-circle" src="https://yinnepal.files.wordpress.com/2017/11/admin.png?w=640" />

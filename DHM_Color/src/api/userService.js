@@ -16,6 +16,7 @@ const API_URL = "http://localhost:5000/";
 // };
 
 const getAdminBoard = () => {
+    console.log(authHeader)
     return axios.get(API_URL + "admin", { headers: authHeader() });
 };
 

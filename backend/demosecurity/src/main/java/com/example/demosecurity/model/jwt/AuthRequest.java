@@ -1,7 +1,5 @@
 package com.example.demosecurity.model.jwt;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor

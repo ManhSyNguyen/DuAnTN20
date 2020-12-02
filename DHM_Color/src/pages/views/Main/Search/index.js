@@ -1,40 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import apiRequest from '../../../../api/productApi';
+import apiProduct from '../../../../api/productApi';
 
 
 const Search = props => {
-    const { ten_sp } = useParams();
-    console.log(ten_sp)
-    const [products, setProduct] = useState('')
+    const { nameproduct } = useParams();
+    console.log(nameproduct)
+    const [products, setProducts] = useState()
     useEffect(() => {
-        const getProduct = async () => {
-            try {
-                const { data } = await apiRequest.getAll();
-                setProduct(data);
-            } catch (error) {
-
-            }
-        }
-        getProduct()
+        apiProduct.getAll().then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
     }, []);
 
     // search
 
-    const [KeyWord, setKeyWord] = useState(ten_sp)
+    const [KeyWord, setKeyWord] = useState(nameproduct)
     console.log(KeyWord)
-    const [ProductSearch, setProductSearch] = useState()
-    if (KeyWord !== ten_sp) {
-        setKeyWord(ten_sp)
-        setProductSearch(products.filter((p) => p.ten_sp.toUpperCase().indexOf(KeyWord.toUpperCase().toLowerCase().toLowerCase()) > -1))
+    const [ProductSearch, setProductSearch] = useState("")
+
+    if (KeyWord !== nameproduct) {
+        setKeyWord(nameproduct)
+        setProductSearch(products.filter((p) => p.nameproduct.toUpperCase().indexOf(KeyWord.toUpperCase().toLowerCase().toLowerCase()) > -1))
     }
 
-    products && !ProductSearch && setProductSearch(products.filter((p) => p.ten_sp.toUpperCase().toLowerCase().indexOf(KeyWord.toUpperCase().toLowerCase()) > -1))
+    props.products && !ProductSearch && setProductSearch(props.products.filter((p) => p.nameproduct.toUpperCase().toLowerCase().indexOf(KeyWord.toUpperCase().toLowerCase()) > -1))
 
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
 
-    const tongSp = products.length;
+    const tongSp = props.products.length;
     console.log(222, products)
 
     const tinhTrang = Math.ceil(tongSp / 9);
@@ -121,19 +117,19 @@ const Search = props => {
                     {/**/}
                     <div className="col-md-9 product1">
                         <div className=" bottom-product">
-                            {ProductSearch && ProductSearch.map((item, index) => (
+                            {ProductSearch && ProductSearch?.map((item, index) => (
                                 index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
                                 <div key={index} className="col-md-4 bottom-cd simpleCart_shelfItem">
                                     <div className="product-at ">
-                                        <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.anh} alt="" />
+                                        <Link to={`/product/${item.id}`}><img className="img-responsive" src={item.image} alt="" />
                                             <div className="pro-grid">
                                                 <span className="buy-in">Buy Now</span>
                                             </div>
                                         </Link>
                                     </div>
-                                    <p className="tun">{item.ten_sp}</p>
+                                    <p className="tun">{item.nameproduct}</p>
                                     <a href="#" className="item_add">
-                                        <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
+                                        <p className="number item_price"><i> </i>{item.price} vnđ</p>
                                     </a>
                                 </div>
                             ))}

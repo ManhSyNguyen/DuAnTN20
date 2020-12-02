@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/api")
 @CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("v1/api")
+
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

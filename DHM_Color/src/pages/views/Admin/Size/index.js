@@ -64,39 +64,44 @@ const Size = () => {
 
             </div>
             <Link className="btn btn-danger" to="/admin/size/add">Thêm Size</Link><hr />
-            <div className="card-body">
-                <div className="table-responsive">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Tên size</th>
-                                <th scope="col">Trang thái</th>
-                                <th scope="col">Ngày tạo</th>
-                                <th scope="col">Tùy chọn</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {sizes && sizes.map(({ id, name, status, createdate }, index) => (
-                                <tr key={index}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{name}</td>
-                                    <td>{status}</td>
-                                    <td>{createdate}</td>
-                                    <td>
-                                        <button className="btn btn-danger" onClick={() => removeHandleSz(id)}>Xóa</button>&nbsp;
-                                        <Link className="btn btn-primary" to={`/admin/size/edit/${id}`}>Sửa</Link>
-                                    </td>
+            <div className="card shadow mb-4">
+                <div className="card-header py-3">
+                    <h6 className="m-0 font-weight-bold text-primary">Quản lý Size</h6>
+                </div>
+                <div className="card-body">
+                    <div className="table-responsive">
+                        <table className="table">
+                            <thead>
+
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tên size</th>
+                                    <th scope="col">Trang thái</th>
+                                    <th scope="col">Ngày tạo</th>
+                                    <th scope="col">Tùy chọn</th>
                                 </tr>
-                            ))}
+                            </thead>
+                            <tbody>
+                                {sizes && sizes.map(({ id, namesize, status, createdate }, index) => (
+                                    <tr key={index}>
+                                        <th scope="row">{index + 1}</th>
+                                        <td>{namesize}</td>
+                                        <td>{status}</td>
+                                        <td>{createdate}</td>
+                                        <td>
+                                            <button className="btn btn-danger" onClick={() => removeHandleSz(id)}>Xóa</button>&nbsp;
+                                        <Link className="btn btn-primary" to={`/admin/size/edit/${id}`}>Sửa</Link>
+                                        </td>
+                                    </tr>
+                                ))}
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
+                    </div>
                 </div>
             </div>
         </div>
-
     )
 }
 

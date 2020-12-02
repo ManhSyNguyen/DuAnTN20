@@ -4,25 +4,26 @@
 
 import http from "./axiosHttp";
 
+const USER_API_BASE_URL = "v1/api";
 const getAll = () => {
-    return http.get("/products");
+    return http.get(USER_API_BASE_URL + "/products");
 };
 
 const get = id => {
-    return http.get(`/products/${id}`);
+    return http.get(USER_API_BASE_URL + `/products/${id}`);
 };
 
 const create = data => {
-    return http.post("/products", data);
+    return http.post(USER_API_BASE_URL + "/product", data);
 };
 
 const update = (id, data) => {
-    return http.put(`/products/${id}`, data);
+    return http.put(USER_API_BASE_URL + `/product/${id}`, data);
 };
 
 const remove = id => {
     console.log(id);
-    return http.delete(`/products/${id}`);
+    return http.delete(USER_API_BASE_URL + `/product/${id}`);
 };
 
 

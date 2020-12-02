@@ -22,19 +22,20 @@ function App() {
   const [sizes, setSizes] = useState([]);
   const [colors, setColors] = useState([]);
 
+
   //Hien thi danh sach san pham
   //product
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const { data } = await apiRequest.getAll();
-        setProducts(data);
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   const getProducts = async () => {
+  //     try { 
+  //       const { data } = await apiRequest.getAll();
+  //       setProducts(data);
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getProducts();
+  // }, []);
 
   //posts
   useEffect(() => {
@@ -394,7 +395,7 @@ function App() {
 
   return (
     <div className="App">
-      <Routers history={history}
+      <Routers
         //product
         products={products}
         onRemove={onHandleRemove}

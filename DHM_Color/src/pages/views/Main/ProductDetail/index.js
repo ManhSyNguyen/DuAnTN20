@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import apiRequest from '../../../../api/productApi';
 import { DataContext } from '../ActionCart';
 
-const ProductDetail = ({ products }) => {
+const ProductDetail = () => {
     const id = useParams().id;
     const [product, setProduct] = useState({});
     // const product = products.find(item => item.id === id)

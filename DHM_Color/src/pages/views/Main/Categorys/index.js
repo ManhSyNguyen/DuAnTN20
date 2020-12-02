@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import apiProduct from '../../../../api/productApi'
+import apiCategory from '../../../../api/categoryApi'
 
-const Categorys = ({ categorys, products }) => {
+const Categorys = () => {
+
+    const [products, setProducts] = useState([]);
+    const [categorys, setCategorys] = useState([]);
+
+    useEffect(() => {
+        apiProduct.getAll().then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
+    }, []);
+
+    useEffect(() => {
+        apiCategory.getAll().then((res) => {
+            console.log(res.data);
+            setCategorys(res.data)
+        })
+    }, []);
+
     const { id } = useParams()
-    const product = products.filter(product => product.danhmuc_Id === id)
+    const product = products.filter(product => product.id_category === id)
     return (
 
         <div>
@@ -17,9 +37,10 @@ const Categorys = ({ categorys, products }) => {
                             <ul className="menu">
                                 <li className="item4">
                                     <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
-                                    {categorys.map(({ id, ten_danhmuc, index }) => (
+                                    {categorys.map(({ id, name, index }) => (
                                         <div className="size__list color__list" key={index}>
-                                            <Link className="link_cate" to={"/cate/" + id}>{ten_danhmuc}</Link>
+                                            <Link className="link_cate" to={"/cate/" + id}>{name}</Link>
+                                            {console.log(name)}
                                         </div>
                                     ))}
                                 </li>
@@ -65,19 +86,19 @@ const Categorys = ({ categorys, products }) => {
                         <div className=" bottom-product">
 
 
-                            {product.map((sh, index) => (
+                            {product?.map((sh, index) => (
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem" key={index}>
                                     <div className="product-at ">
-                                        <Link to={`/product/${sh.id}`}><img className="img-responsive" src={sh.anh} alt="" />
+                                        <Link to={`/product/${sh.id}`}><img className="img-responsive" src={sh.image} alt="" />
                                             <div className="pro-grid">
                                                 <span className="buy-in">Buy Now</span>
                                             </div>
                                         </Link>
                                     </div>
-                                    <p className="tun">{sh.ten_sp}</p>
+                                    <p className="tun">{sh.nameproduct}</p>
                                     <p className="tun1">Size : S - M - L - XL</p>
                                     <Link to={`/product/${sh.id}`} className="item_add">
-                                        <p className="number item_price"><i> </i>{sh.gia_ban} vnđ</p>
+                                        <p className="number item_price"><i> </i>{sh.price} vnđ</p>
                                     </Link>
                                 </div>
 

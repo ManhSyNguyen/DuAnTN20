@@ -1,10 +1,26 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { DataContext } from '../ActionCart';
+import apiProduct from '../../../../api/productApi'
+import apiCategory from '../../../../api/categoryApi'
+const About = () => {
 
-const About = ({ products, categorys }) => {
+    const [products, setProducts] = useState([]);
+    const [categorys, setCategorys] = useState([]);
 
+    useEffect(() => {
+        apiProduct.getAll().then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
+    }, []);
 
+    useEffect(() => {
+        apiCategory.getAll().then((res) => {
+            console.log(res.data);
+            setCategorys(res.data)
+        })
+    }, []);
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
 
@@ -31,10 +47,10 @@ const About = ({ products, categorys }) => {
                             <ul className="menu">
                                 <li className="item1">
                                     <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
-                                    {categorys.map(({ id, ten_danhmuc, index }) => (
+                                    {categorys?.map(({ id, name, index }) => (
                                         <div className="size__list color__list" key={index}>
-                                            <Link className="link_cate" to={"/cate/" + id}>{ten_danhmuc}</Link>
-
+                                            <Link className="link_cate" to={"/cate/" + id}>{name}</Link>
+                                            {console.log(name)}
                                         </div>
                                     ))}
 
@@ -113,20 +129,20 @@ const About = ({ products, categorys }) => {
                     {/**/}
                     <div className="col-md-9 product1">
                         <div className=" bottom-product">
-                            {products && products.map((item, index) => (
+                            {products?.map((item, index) => (
                                 index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem" key={index}>
                                     <div className="product-at ">
-                                        <Link to="/cart" onClick={() => addCart(item.id)}><img className="img-responsive" src={item.anh} alt="" />
+                                        <Link to="/cart" onClick={() => addCart(item.id)}><img className="img-responsive" src={item.image} alt="" />
                                             <div className="pro-grid">
                                                 <span className="buy-in">Buy Now</span>
                                             </div>
                                         </Link>
                                     </div>
-                                    <Link to={`/product/${item.id}`} className="tun">{item.ten_sp}</Link>
+                                    <Link to={`/product/${item.id}`} className="tun">{item.nameproduct}</Link>
                                     <p className="tun1">Size : S - M - L - XL</p>
                                     <Link to={`/product/${item.id}`} className="item_add">
-                                        <p className="number item_price"><i> </i>{item.gia_ban} vnđ</p>
+                                        <p className="number item_price"><i> </i>{item.price} vnđ</p>
                                     </Link>
                                 </div>
                             ))}

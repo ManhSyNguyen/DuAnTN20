@@ -15,7 +15,7 @@ const EditSize = props => {
 
     const sizeState = {
         id: null,
-        name: '',
+        namesize: '',
         status: false,
         createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
         createby: null
@@ -40,14 +40,14 @@ const EditSize = props => {
     }, [props.match.params.id]);
 
     const handleInputChange = event => {
-        const { name, value } = event.target;
-        setSizes({ ...sizes, [name]: value });
+        const { namesize, value } = event.target;
+        setSizes({ ...sizes, [namesize]: value });
     };
 
     const updatePublished = status => {
         var data = {
             id: sizes.id,
-            name: sizes.name,
+            namesize: sizes.namesize,
             status: status,
             createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
         };
@@ -103,16 +103,16 @@ const EditSize = props => {
                             <label htmlFor="InputCategoryName">Tên màu</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="categoryName" name="name"
-                                defaultValue={sizes.name}
+                                id="categoryName" name="namesize"
+                                defaultValue={sizes.namesize}
                                 onChange={handleInputChange}
                                 ref={register({
                                     required: true,
                                     pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.name && errors.name.type === "required"
+                            {errors.namesize && errors.namesize.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.namesize && errors.namesize.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 

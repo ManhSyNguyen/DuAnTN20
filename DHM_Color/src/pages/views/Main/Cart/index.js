@@ -103,8 +103,7 @@ export default function Cart() {
                         ))}
                     </div>
 
-                    <hr />
-                    <div className="form">
+                    <div className="contact-form">
                         <div className="col-md-8 contact-grid">
                             <form>
                                 <label className='lb'>Họ và tên</label>
@@ -119,7 +118,7 @@ export default function Cart() {
                         </div>
                     </div>
 
-                    <div className="col-md-3 cart-total" style={{ paddingTop: '29px' }}>
+                    <div className="col-md-3 cart-total" style={{ paddingTop: '29px', left: '50px' }}>
                         <a className="continue" href="#">Tóm tắt đơn hàng</a>
                         <div className="price-details">
                             <h3>Tổng đơn hàng : {cart.length} đơn hàng</h3>

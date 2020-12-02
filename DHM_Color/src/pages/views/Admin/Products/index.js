@@ -1,13 +1,62 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import apiProducts from '../../../../api/productApi';
+import apiCategory from '../../../../api/categoryApi';
+const ProductsManager = () => {
 
-const ProductsManager = ({ products, onRemove, categorys }) => {
+    const [products, setProducts] = useState([]);
+    const [categorys, setCategorys] = useState([]);
+    const [currentCate, setCurrentCate] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(-1);
 
-    const removeHandle = (id) => {
-        onRemove(id)
+    const retrieveProducts = () => {
+        apiProducts.getAll()
+            .then(response => {
+                setProducts(response.data);
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+    const refreshList = () => {
+        retrieveProducts();
+        setCurrentCate(null);
+        setCurrentIndex(-1);
+    };
 
 
-    }
+    // const setActiveCate = (category, index) => {
+    //     setCurrentCate(category);
+    //     setCurrentIndex(index);
+    // };
+    const removeHandle = () => {
+        apiProducts.removeAll()
+        Swal.fire({
+            title: 'Bạn có muốn thực hiện?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(response => {
+            if (response.isConfirmed) {
+                console.log(response.data);
+                refreshList();
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
 
@@ -54,29 +103,29 @@ const ProductsManager = ({ products, onRemove, categorys }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.map(({ id, ten_sp, danhmuc_Id, so_luong, mau, size, tinh_trang, anh, gia_ban, ngaytao }, index) => (
+                                    {products && products.map(({ id, nameproduct, idcategory, price, status, image, decription, purchase, createdate }, index) => (
                                         index < (((Sotrang + 1) * 6)) && index > ((Sotrang * 6) - 1) &&
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
-                                            <td><Link to={`/admin/detail/${id}`} style={{ textDecoration: "none" }}>{ten_sp}</Link></td>
-                                            <td><img src={anh} alt="" width="50" /></td>
-                                            <td>{so_luong}</td>
+                                            {/* <td><Link to={`/admin/detail/${id}`} style={{ textDecoration: "none" }}>{ten_sp}</Link></td> */}
+                                            <td>{nameproduct}</td>
+                                            <td><img src={image} alt="" width="50" /></td>
                                             <td>
-                                                {categorys.map((id) => {
-                                                    if (danhmuc_Id == id.id) {
-                                                        return id.ten_danhmuc;
+                                                {categorys && categorys.map((id) => {
+                                                    if (idcategory == id.id) {
+                                                        return id.name;
                                                     }
                                                 })}
                                             </td>
-                                            <td>{mau}</td>
-                                            <td>{size}</td>
 
-                                            <td>{tinh_trang == "true" ? <span className="label label-warning">Còn hàng</span> : <span className="label label-default">Hết hàng</span>}</td>
-                                            <td>{gia_ban} vnđ</td>
-                                            <td>{ngaytao}</td>
+                                            <td>{status == "true" ? <span className="label label-warning">Còn hàng</span> : <span className="label label-default">Hết hàng</span>}</td>
+                                            <td>{price} vnđ</td>
+                                            <td>{decription}</td>
+                                            <td>{purchase}</td>
+                                            <td>{createdate}</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => removeHandle(id)}>Xóa</button>&nbsp;
-                                                <Link className="btn btn-primary" to={`/admin/edit/${id}`}>Sửa</Link>&nbsp;
+                                                {/* <Link className="btn btn-primary" to={`/admin/edit/${id}`}>Sửa</Link>&nbsp; */}
 
                                             </td>
                                         </tr>

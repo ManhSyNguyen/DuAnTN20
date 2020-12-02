@@ -16,7 +16,7 @@ const AddSize = () => {
 
     const sizeState = {
         id: null,
-        name: '',
+        namesize: '',
         status: false,
         createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
     };
@@ -35,7 +35,7 @@ const AddSize = () => {
     const saveSize = () => {
         // debugger
         var data = {
-            name: sizes.name,
+            namesize: sizes.namesize,
             status: sizes.status,
             createdate: sizes.createdate,
         };
@@ -44,7 +44,7 @@ const AddSize = () => {
             .then(res => {
                 setSizes({
                     id: res.data.id,
-                    name: res.data.name,
+                    namesize: res.data.namesize,
                     status: res.data.status,
                     createdate: res.data.creatdate,
                 });
@@ -73,20 +73,19 @@ const AddSize = () => {
                 <div className="card-body" >
                     <form onSubmit={handleSubmit(saveSize)}>
                         <div className="form-group">
-                            <label htmlFor="InputCategoryName">Tên size</label>
+                            <label htmlFor="InputCategoryName">Tên Size</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="categoryName" name="name"
-                                value={sizes.name}
+                                id="categoryName" name="namesize"
+                                value={sizes.namesize}
                                 onChange={handleInputChange}
                                 ref={register({
                                     required: true,
                                     pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.name && errors.name.type === "required"
+                            {errors.namesize && errors.namesize.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.namesize && errors.namesize.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 

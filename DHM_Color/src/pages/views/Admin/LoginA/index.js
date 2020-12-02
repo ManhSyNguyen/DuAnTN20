@@ -123,8 +123,11 @@ const LoginA = (props) => {
         form.current.validateAll();
 
         if (checkBtn.current.context._errors.length === 0) {
+            // debugger
             dispatch(loginUser(username, password))
-                .then(() => {
+                .then((result) => {
+                    console.log(result.data, " Có");
+                    localStorage.setItem("jwt", result.data.jwt);
                     props.history.push("/admin");
                     window.location.reload();
                 })
@@ -146,6 +149,7 @@ const LoginA = (props) => {
                 <Form onSubmit={handleLogin} ref={form}
                     action method="POST" className="form" id="form-1">
                     <h1>DHM COLOR</h1>
+
                     <h2>Đăng nhập</h2>
                     <div className="spacer" />
                     <div className="form-group">

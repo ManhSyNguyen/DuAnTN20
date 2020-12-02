@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2';
-import apiRequestCt from './../../../../api/categoryApi';
+import apiCategory from './../../../../api/categoryApi';
 const Category = () => {
 
     const [categorys, setCategorys] = useState([]);
@@ -9,14 +9,10 @@ const Category = () => {
     const [currentIndex, setCurrentIndex] = useState(-1);
 
     const retrieveCategorys = () => {
-        apiRequestCt.getAll()
-            .then(response => {
-                setCategorys(response.data);
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
+        apiCategory.getAll().then((res) => {
+            console.log(res.data);
+            setCategorys(res.data)
+        })
     };
     const refreshList = () => {
         retrieveCategorys();
@@ -28,7 +24,7 @@ const Category = () => {
     //     setCurrentIndex(index);
     // };
     const removeHandleCt = () => {
-        apiRequestCt.removeAll()
+        apiCategory.removeAll()
         Swal.fire({
             title: 'Bạn có muốn thực hiện?',
             text: "You won't be able to revert this!",
@@ -82,7 +78,7 @@ const Category = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {categorys && categorys.map(({ id, name, status, createdate, createby }, index) => (
+                                    {categorys && categorys?.map(({ id, name, status, createdate, createby }, index) => (
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
                                             <td>{name}</td>

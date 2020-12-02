@@ -1,6 +1,6 @@
 
 // import axios from "axios";
-// import authHeader from "./auth-header";
+import authHeader from "./auth-header";
 // const USER_API_BASE_URL = "http://localhost:5000/";
 // class UserService {
 
@@ -18,17 +18,17 @@
 //     }
 //     loginUser(authReq) {
 //         return axios.post(USER_API_BASE_URL + 'rest/auth/authenticate', authReq, { headers: authHeader() })
-//         // .then((res) => {
-//         //     if (res.data.accessToken) {
-//         //         localStorage.setItem("user", JSON.stringify(res.data));
-//         //     }
+//             .then((res) => {
+//                 if (res.data.accessToken) {
+//                     localStorage.setItem("user", JSON.stringify(res.data));
+//                 }
 
-//         //     return res.data;
-//         // })
+//                 return res.data;
+//             })
 //     }
-//     // getCurrentUser = () => {
-//     //     return JSON.parse(localStorage.getItem("user"));
-//     // };
+//     getCurrentUser = () => {
+//         return JSON.parse(localStorage.getItem("user"));
+//     };
 // }
 // export default new UserService()
 
@@ -41,16 +41,19 @@ const createUser = (username, password) => {
     return axios.post(API_URL + "secure/auth/admin/add", {
         username,
         password,
+
     });
 };
 
 const loginUser = (userName, password) => {
-    return axios
-        .post(API_URL + "rest/auth/authenticate", {
-            userName,
-            password,
-        })
+    // debugger
+    return axios.post(API_URL + "rest/auth/authenticate", {
+        userName,
+        password,
+    })
         .then((response) => {
+            console.log(response.data, "Ok");
+            localStorage.setItem("jwt", response.data.jwt);
             if (response.data.accessToken) {
                 localStorage.setItem("user", JSON.stringify(response.data));
             }

@@ -27,22 +27,21 @@ const User = props => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.users.map(
-                                    user => (
-                                        <tr key={user.index}>
-                                            <th scope="row">{user.index + 1}</th>
-                                            <td>{user.hoten}</td>
-                                            <td>{user.email}</td>
-                                            <td>{user.username}</td>
-                                            <td>{user.password}</td>
-                                            <td>{user.trangthai}</td>
-                                            <td>{user.ngaytao}</td>
-                                            <td>
-                                                <button onClick={() => this.deleteUser(user.id)} className="btn btn-danger">Xóa</button>&nbsp;
-                                                    {/* <Link onClick={() => this.editEmployee(employee.id)} className="btn btn-primary" >Sửa</Link> */}
-                                            </td>
-                                        </tr>
-                                    ))}
+                                {/* 
+                                <tr key={user.index}>
+                                    <th scope="row">{user.index + 1}</th>
+                                    <td>{user.hoten}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.username}</td>
+                                    <td>{user.password}</td>
+                                    <td>{user.trangthai}</td>
+                                    <td>{user.ngaytao}</td>
+                                    <td>
+                                        <button onClick={() => this.deleteUser(user.id)} className="btn btn-danger">Xóa</button>&nbsp;
+                                                    <Link onClick={() => this.editEmployee(employee.id)} className="btn btn-primary" >Sửa</Link>
+                                    </td>
+                                </tr> */}
+
 
                             </tbody>
                         </table>

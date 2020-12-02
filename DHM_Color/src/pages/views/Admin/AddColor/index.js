@@ -15,7 +15,7 @@ const AddColor = () => {
 
     const colorState = {
         id: null,
-        name: '',
+        namecolor: '',
         status: false,
         createdate: `${day}-${month}-${year} / ${house}:${minu}:${second}s`,
     };
@@ -34,7 +34,7 @@ const AddColor = () => {
     const saveColor = () => {
         // debugger
         var data = {
-            name: colors.name,
+            namecolor: colors.namecolor,
             status: colors.status,
             createdate: colors.createdate,
         };
@@ -43,7 +43,7 @@ const AddColor = () => {
             .then(res => {
                 setColors({
                     id: res.data.id,
-                    name: res.data.name,
+                    namecolor: res.data.namecolor,
                     status: res.data.status,
                     createdate: res.data.creatdate,
                 });
@@ -72,20 +72,19 @@ const AddColor = () => {
                 <div className="card-body" >
                     <form onSubmit={handleSubmit(saveColor)}>
                         <div className="form-group">
-                            <label htmlFor="InputCategoryName">Tên màu</label>
+                            <label htmlFor="InputCategoryName">Tên Color</label>
                             <span style={{ color: 'red' }}>*</span>
                             <input type="text" className="form-control"
-                                id="categoryName" name="name"
-                                value={colors.name}
+                                id="categoryName" name="namecolor"
+                                value={colors.namecolor}
                                 onChange={handleInputChange}
                                 ref={register({
                                     required: true,
                                     pattern: /[A-Z a-z0-9]/
                                 })} />
-                            {errors.name && errors.name.type === "required"
+                            {errors.namecolor && errors.namecolor.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
-
-                            {errors.name && errors.name.type === "pattern"
+                            {errors.namecolor && errors.namecolor.type === "pattern"
                                 && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                         </div>
 
@@ -98,8 +97,8 @@ const AddColor = () => {
                                 onChange={handleInputChange}
                                 ref={register({ required: true })} >
                                 <option></option>
-                                <option>true</option>
-                                <option>false</option>
+                                <option>1</option>
+                                <option>2</option>
                             </select>
                             {errors.status && errors.status.type === "required"
                                 && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
