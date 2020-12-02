@@ -28,7 +28,7 @@ public class ProductController {
     @GetMapping("/products/{idcategory}")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public List<ProductDTO> getProductByCategory(@PathVariable("idcategory") long idcategory) {
+    public List<ProductDTO> getProductByCategory(@PathVariable(value ="idcategory") long idcategory) {
         return productService.getProductByCategory(idcategory);
     }
 
