@@ -11,7 +11,6 @@ import AddProduct from '../pages/views/Admin/AddProduct';
 import Category from '../pages/views/Admin/Category';
 import Post from '../pages/views/Admin/Post';
 import AddCategory from '../pages/views/Admin/AddCategory';
-import Categorys from '../pages/views/Main/Categorys';
 import EditProduct from '../pages/views/Admin/EditProduct';
 import EditCategory from '../pages/views/Admin/EditCategory';
 import AddPost from '../pages/views/Admin/AddPost';
@@ -161,7 +160,10 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 <Route path="/sanpham">
                                     <About products={products} categorys={categorys} />
                                 </Route>
-                                <Route path="/product/:id" exact>
+                                <Route path="/sanpham/:id">
+                                    <About products={products} categorys={categorys} />
+                                </Route>
+                                <Route path="/productdetails/:id" exact>
                                     <ProductDetail products={products} />
                                 </Route>
                                 <Route path="/gioithieu">
@@ -170,9 +172,9 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 <Route path="/lienhe">
                                     <Contact />
                                 </Route>
-                                <Route path="/cate/:id">
+                                {/* <Route path="/cate/:id">
                                     <Categorys categorys={categorys} products={products} />
-                                </Route>
+                                </Route> */}
                                 <Route path="/baiviet">
                                     <Posts posts={posts} />
                                 </Route>

@@ -20,7 +20,7 @@ const Home = () => {
                             {products?.map((item, index) => (
 
                                 <div key={index} className="col-md-4 grid-top">
-                                    <Link to={`/product/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
+                                    <Link to={`/productdetails/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
                                         <img className="img-responsive" src={item.image} />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-left    b-delay03 ">
