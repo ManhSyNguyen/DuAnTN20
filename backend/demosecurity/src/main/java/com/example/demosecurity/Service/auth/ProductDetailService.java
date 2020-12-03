@@ -107,4 +107,13 @@ public class ProductDetailService {
         }
         return results;
     }
+    public List<ProductDetailDTO> findAllIdProduct(long productid) {
+        List<ProductDetailDTO> results = new ArrayList<>();
+        List<ProductDetail> entities = productDetailRepo.findByProductId(productid);
+        for (ProductDetail item: entities) {
+            ProductDetailDTO newDTO = productDetailConvert.toDTO(item);
+            results.add(newDTO);
+        }
+        return results;
+    }
 }

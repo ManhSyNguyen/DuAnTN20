@@ -21,6 +21,13 @@ public class ProductDetailController {
         return productDetailService.findAll();
     }
 
+    @GetMapping("/productdetails/{idproduct}")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public List<ProductDetailDTO> getAllProduct(@PathVariable(name = "idproduct") long idproduct) {
+        return productDetailService.findAllIdProduct(idproduct);
+    }
+
     @PostMapping("/productdetail")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
