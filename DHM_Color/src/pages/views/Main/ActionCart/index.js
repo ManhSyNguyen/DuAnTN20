@@ -1,21 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react'
-import apiRequest from '../../../../api/productApi'
+import apiProduct from '../../../../api/productApi'
 import Swal from 'sweetalert2';
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
     const [products, setProducts] = useState({});
     useEffect(() => {
-        const getProduct = async () => {
-            try {
-                const { data } = await apiRequest.getAll();
-                setProducts(data)
-                // console.log(data)
-            } catch (error) {
-                console.log('Faile to request API', error)
-            }
-        }
-        getProduct()
+        apiProduct.getAll().then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
     }, {})
     const [cart, setCart] = useState([]);
     const addCart = (id) => {

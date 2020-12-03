@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import apiProduct from '../../../../api/productApi'
+import { DataContext } from '../ActionCart';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
+    const value = useContext(DataContext);
+    const addCart = value.addCart;
     useEffect(() => {
         apiProduct.getAll().then((res) => {
             console.log(res.data);
@@ -20,7 +23,7 @@ const Home = () => {
                             {products?.map((item, index) => (
 
                                 <div key={index} className="col-md-4 grid-top">
-                                    <Link to={`/product/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
+                                    <Link to="/cart" onClick={() => addCart(products.id)} className="b-link-stripe b-animate-go  thickbox">
                                         <img className="img-responsive" src={item.image} />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-left    b-delay03 ">

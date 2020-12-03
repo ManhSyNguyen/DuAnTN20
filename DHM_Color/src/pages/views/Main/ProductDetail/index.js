@@ -1,30 +1,37 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom';
-import apiRequest from '../../../../api/productApi';
+import apiProduct from '../../../../api/productApi';
+import apiProductDetail from '../../../../api/productDetailApi';
 import { DataContext } from '../ActionCart';
 
 const ProductDetail = () => {
-    const id = useParams().id;
-    const [product, setProduct] = useState({});
+    const idproduct = useParams().idproduct;
+    const [product, setProducts] = useState({});
     // const product = products.find(item => item.id === id)
     const value = useContext(DataContext);
     const addCart = value.addCart;
-    console.log(addCart)
+    // useEffect(() => {
+    //     const getProduct = async () => {
+    //         try {
+    //             const { data } = await apiRequest.get(id);
+    //             setProduct(data)
+    //             console.log(data)
+    //         } catch (error) {
+    //             console.log('Faile to request API', error)
+    //         }
+    //     }
+    //     getProduct()
+    // }, {})
+
     useEffect(() => {
-        const getProduct = async () => {
-            try {
-                const { data } = await apiRequest.get(id);
-                setProduct(data)
-                console.log(data)
-            } catch (error) {
-                console.log('Faile to request API', error)
-            }
-        }
-        getProduct()
-    }, {})
+        apiProductDetail.get(idproduct).then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
+    }, []);
+
     return (
         <div>
-
             <div className="product">
                 <div className="container">
                     <div className="col-md-3 product-price">
@@ -88,11 +95,11 @@ const ProductDetail = () => {
                     </div>
                     <div className="col-md-9 product-price1">
                         <div className="col-md-5 single-top">
-                            <img src={product.anh} width="300" />
+                            <img src={product.image} width="300" />
                         </div>
                         <div className="col-md-7 single-top-in simpleCart_shelfItem">
                             <div className="single-para ">
-                                <h4><strong>{product.ten_sp}</strong></h4>
+                                <h4><strong>{product.idcolor}</strong></h4>
                                 <div className="star-on">
                                     <ul className="star-footer">
                                         <li><a href="#"><i> </i></a></li>
@@ -104,14 +111,13 @@ const ProductDetail = () => {
 
                                     <div className="clearfix"> </div>
                                 </div>
-                                <del className="dels">{product.gia_nhap} vnđ </del><h5 className="item_price">{product.gia_ban} vnđ</h5>
-                                <p>{product.nd_chitiet} </p>
+                                <h5 className="item_price">{product.price} vnđ</h5>
 
                                 <ul className="tag-men">
                                     <li><span>TAG</span>
                                         <span className="women1">: Men</span></li>
                                 </ul>
-                                <span className="women1">{product.tinh_trang == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng
+                                <span className="women1">{product.status == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng
                                 <br></br>
                                     <Link to="/cart" onClick={() => addCart(product.id)} className="add-cart item_add" >ADD TO CART</Link>
                                 </p> : <p className="women1" style={{ color: 'red' }}>Hết hàng

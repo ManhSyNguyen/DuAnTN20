@@ -25,6 +25,9 @@ import AddSize from '../pages/views/Admin/AddSize';
 import AddColor from '../pages/views/Admin/AddColor';
 import EditSize from '../pages/views/Admin/EditSize';
 import EditColor from '../pages/views/Admin/EditColor';
+import Supplier from '../pages/views/Admin/Supplier';
+import AddSuppiler from '../pages/views/Admin/AddSupplier';
+import EditSupplier from '../pages/views/Admin/EditSupplier';
 //Views
 import About from '../pages/views/Main/About'
 import Home from '../pages/views/Main/Home'
@@ -98,6 +101,16 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 <Route path="/admin/detail/:id" >
                                     <DetailProduct products={products} />
                                 </Route>
+                                {/* Supplier */}
+                                <Route path='/admin/supplier'>
+                                    <Supplier />
+                                </Route>
+                                <Route path='/admin/suppliers/add'>
+                                    <AddSuppiler />
+                                </Route>
+                                <Route path='/admin/suppliers/edit/:id'>
+                                    <EditSupplier />
+                                </Route>
                                 {/* users */}
                                 <Route component={User} users={users} path='/admin/users'>
                                 </Route>
@@ -132,7 +145,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                     <EditPost posts={posts} onUpdatePs={onUpdatePs} />
                                 </Route>
                                 {/* category */}
-                                <Route path='/admin/v1/api/categorys'>
+                                <Route path='/admin/categorys'>
                                     <Category categorys={categorys} onRemovect={onHandleRemoveCt} />
                                 </Route>
                                 <Route path='/admin/v1/api/category/add'>

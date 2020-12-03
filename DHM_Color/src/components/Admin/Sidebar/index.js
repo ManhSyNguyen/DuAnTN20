@@ -28,7 +28,7 @@ const Sidebar = props => {
             </li>
             {/* Quan ly danh muc*/}
             <li className="nav-item">
-                <Link className="nav-link" to="/admin/v1/api/categorys">
+                <Link className="nav-link" to="/admin/categorys">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý danh mục</span></Link>
             </li>
@@ -62,7 +62,12 @@ const Sidebar = props => {
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý đơn hàng</span></Link>
             </li>
-
+            {/* Nhà cung cấp */}
+            <li className="nav-item active">
+                <Link className="nav-link" to="/admin/supplier">
+                    <i className="fas fa-fw fa-tachometer-alt" />
+                    <span>Nhà cung cấp</span></Link>
+            </li>
             {/* Liên hệ */}
             <li className="nav-item active">
                 <Link className="nav-link" to="/admin/contacts">
