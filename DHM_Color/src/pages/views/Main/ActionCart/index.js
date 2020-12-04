@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react'
 import apiProduct from '../../../../api/productApi'
 import Swal from 'sweetalert2';
+import apiDetail from '../../../../api/productDetail'
+
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
@@ -11,6 +13,13 @@ export const DataProvider = (props) => {
             setProducts(res.data)
         })
     }, {})
+    const [detail, setDetail] = useState([]);
+    const getAllProductDetail = (id) => {
+        apiDetail.get(id).then((res) => {
+            console.log(res.data);
+            setDetail(res.data)
+        })
+    }
     const [cart, setCart] = useState([]);
     const addCart = (id) => {
         const check = cart.every(item => {

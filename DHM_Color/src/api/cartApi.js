@@ -4,10 +4,10 @@
 
 
 import http from "./axiosHttp";
-const API_URL = "v1/api/";
+const API_URL = "v1/api";
 
 const getAll = () => {
-    return http.get(API_URL + "carts");
+    return http.get(API_URL + "/carts");
 };
 
 const get = id => {
@@ -15,7 +15,7 @@ const get = id => {
 };
 
 const create = data => {
-    return http.post(API_URL + "cart", data);
+    return http.post(API_URL + "/cart", data);
 };
 
 const update = (id, data) => {

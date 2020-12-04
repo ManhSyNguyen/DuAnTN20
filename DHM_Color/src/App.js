@@ -15,12 +15,12 @@ function App() {
 
 
 
-  const [products, setProducts] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [categorys, setCategorys] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [sizes, setSizes] = useState([]);
-  const [colors, setColors] = useState([]);
+  // const [products, setProducts] = useState([]);
+  // const [posts, setPosts] = useState([]);
+  // const [categorys, setCategorys] = useState([]);
+  // const [users, setUsers] = useState([]);
+  // const [sizes, setSizes] = useState([]);
+  // const [colors, setColors] = useState([]);
 
 
   //Hien thi danh sach san pham
@@ -38,18 +38,18 @@ function App() {
   // }, []);
 
   //posts
-  useEffect(() => {
-    const getPost = async () => {
-      try {
-        const { data } = await apiRequestPs.getAll();
-        setPosts(data);
+  // useEffect(() => {
+  //   const getPost = async () => {
+  //     try {
+  //       const { data } = await apiRequestPs.getAll();
+  //       setPosts(data);
 
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getPost();
-  }, [])
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getPost();
+  // }, [])
   //category
 
   // useEffect(() => {
@@ -81,17 +81,17 @@ function App() {
   // }, [])
 
   //user
-  useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const { data } = await userApi.getAll();
-        setUsers(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getUsers()
-  }, [])
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     try {
+  //       const { data } = await userApi.getAll();
+  //       setUsers(data)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getUsers()
+  // }, [])
 
 
 
@@ -110,60 +110,62 @@ function App() {
 
 
   //productRemove
-  const onHandleRemove = async (id) => {
-    try {
-      const newProducts = products.filter(product => product.id !== id);
-      apiRequest.remove(id);
+  // const onHandleRemove = async (id) => {
+  //   try {
+  //     const newProducts = products.filter(product => product.id !== id);
+  //     apiRequest.remove(id);
 
-      Swal.fire({
-        title: 'Bạn có muốn thực hiện?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          setProducts(newProducts);
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        }
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  //     Swal.fire({
+  //       title: 'Bạn có muốn thực hiện?',
+  //       text: "You won't be able to revert this!",
+  //       icon: 'warning',
+  //       showCancelButton: true,
+  //       confirmButtonColor: '#3085d6',
+  //       cancelButtonColor: '#d33',
+  //       confirmButtonText: 'Yes, delete it!'
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         setProducts(newProducts);
+  //         Swal.fire(
+  //           'Deleted!',
+  //           'Your file has been deleted.',
+  //           'success'
+  //         )
+  //       }
+  //     })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+
   //postRemove
-  const onHandleRemovePost = async (id) => {
-    try {
-      const newPosts = posts.filter(post => post.id !== id);
-      apiRequestPs.remove(id);
-      Swal.fire({
-        title: 'Bạn có muốn thực hiện?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          setPosts(newPosts);
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        }
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const onHandleRemovePost = async (id) => {
+  //   try {
+  //     const newPosts = posts.filter(post => post.id !== id);
+  //     apiRequestPs.remove(id);
+  //     Swal.fire({
+  //       title: 'Bạn có muốn thực hiện?',
+  //       text: "You won't be able to revert this!",
+  //       icon: 'warning',
+  //       showCancelButton: true,
+  //       confirmButtonColor: '#3085d6',
+  //       cancelButtonColor: '#d33',
+  //       confirmButtonText: 'Yes, delete it!'
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         setPosts(newPosts);
+  //         Swal.fire(
+  //           'Deleted!',
+  //           'Your file has been deleted.',
+  //           'success'
+  //         )
+  //       }
+  //     })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   //categoryRemove
   // const onHandleRemoveCt = async (id) => {
@@ -250,30 +252,30 @@ function App() {
   // }
 
   //productAdd
-  const onHandleAdd = async (product) => {
-    try {
-      const { data } = await apiRequest.create(product);
-      if (data) {
-        setProducts([...products, data]);
-      }
+  // const onHandleAdd = async (product) => {
+  //   try {
+  //     const { data } = await apiRequest.create(product);
+  //     if (data) {
+  //       setProducts([...products, data]);
+  //     }
 
-    } catch (error) {
-      console.log('failed to request API: ', error)
-    }
-  }
+  //   } catch (error) {
+  //     console.log('failed to request API: ', error)
+  //   }
+  // }
 
-  //postadd
+  // //postadd
 
-  const onHandleAddP = async (post) => {
-    try {
-      const { data } = await apiRequestPs.create(post);
-      if (data) {
-        setPosts([...posts, data]);
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const onHandleAddP = async (post) => {
+  //   try {
+  //     const { data } = await apiRequestPs.create(post);
+  //     if (data) {
+  //       setPosts([...posts, data]);
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
   //catgoryAdd
 
   // const onHandleAddCt = async (category) => {
@@ -325,18 +327,22 @@ function App() {
   //     console.log('failed to request API: ', error)
   //   }
   // }
-  //update products
-  const onHandleUpdate = async (updateProduct) => {
-    try {
-      apiRequest.update(updateProduct.id, updateProduct);
-      const newProducts = products.map(product => (
-        product.id === updateProduct.id ? updateProduct : product
-      ));
-      setProducts(newProducts);
-    } catch (error) {
-      console.log(error)
-    }
-  }
+
+
+  // //update products
+  // const onHandleUpdate = async (updateProduct) => {
+  //   try {
+  //     apiRequest.update(updateProduct.id, updateProduct);
+  //     const newProducts = products.map(product => (
+  //       product.id === updateProduct.id ? updateProduct : product
+  //     ));
+  //     setProducts(newProducts);
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+
   //update cate
   // const onHandleUpdateCt = async (updateCategory) => {
   //   try {
@@ -353,18 +359,20 @@ function App() {
 
   //update post
 
-  const onHandleUpdatePs = async (updatePost) => {
-    try {
-      apiRequestPs.update(updatePost.id, updatePost);
-      const newPosts = posts.map(post => (
-        post.id === updatePost.id ? updatePost : post
-      ));
-      setPosts(newPosts);
-    } catch (error) {
-      console.log(error)
-    }
+  // const onHandleUpdatePs = async (updatePost) => {
+  //   try {
+  //     apiRequestPs.update(updatePost.id, updatePost);
+  //     const newPosts = posts.map(post => (
+  //       post.id === updatePost.id ? updatePost : post
+  //     ));
+  //     setPosts(newPosts);
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
 
-  }
+  // }
+
+
   //update size
   // const onHandleUpdateS = async (updateSize) => {
   //   try {
@@ -396,30 +404,30 @@ function App() {
   return (
     <div className="App">
       <Routers
-        //product
-        products={products}
-        onRemove={onHandleRemove}
-        onAdd={onHandleAdd}
-        onUpdate={onHandleUpdate}
-        //post
-        posts={posts}
-        onRemoveP={onHandleRemovePost}
-        onAddP={onHandleAddP}
-        onUpdatePs={onHandleUpdatePs}
-        //category
-        categorys={categorys}
-        // onRemovect={onHandleRemoveCt}
-        // onAddCt={onHandleAddCt}
-        // onUpdateCt={onHandleUpdateCt}
-        //user
-        users={users}
-        //size
-        sizes={sizes}
-        // onRemoveS={onHandleRemoveS}
-        // onAddS={onHandleAddS}
-        // onUpdateS={onHandleUpdateS}
-        //color
-        colors={colors}
+      //product
+      // products={products}
+      // onRemove={onHandleRemove}
+      // onAdd={onHandleAdd}
+      // onUpdate={onHandleUpdate}
+      //post
+      // posts={posts}
+      // onRemoveP={onHandleRemovePost}
+      // onAddP={onHandleAddP}
+      // onUpdatePs={onHandleUpdatePs}
+      //category
+      // categorys={categorys}
+      // onRemovect={onHandleRemoveCt}
+      // onAddCt={onHandleAddCt}
+      // onUpdateCt={onHandleUpdateCt}
+      //user
+      // users={users}
+      //size
+      // sizes={sizes}
+      // onRemoveS={onHandleRemoveS}
+      // onAddS={onHandleAddS}
+      // onUpdateS={onHandleUpdateS}
+      //color
+      // colors={colors}
       // onRemoveColor={onHandleRemoveColor}
       // onAddColor={onHandleAddColor}
       // onUpdateColor={onHandleUpdateColor}

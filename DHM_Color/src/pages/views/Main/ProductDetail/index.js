@@ -1,32 +1,33 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom';
-import apiProduct from '../../../../api/productApi';
-import apiProductDetail from '../../../../api/productDetailApi';
 import { DataContext } from '../ActionCart';
+import apiProduct from '../../../../api/productApi'
+import apiDetail from '../../../../api/productDetail'
+import apiColor from '../../../../api/colorApi'
 
 const ProductDetail = () => {
-    const idproduct = useParams().idproduct;
-    const [product, setProducts] = useState({});
-    // const product = products.find(item => item.id === id)
+    const id = useParams().id;
+    const [products, setProducts] = useState([]);
+    const [detail, setDetail] = useState([]);
+    const [colors, setColors] = useState([]);
     const value = useContext(DataContext);
     const addCart = value.addCart;
-    // useEffect(() => {
-    //     const getProduct = async () => {
-    //         try {
-    //             const { data } = await apiRequest.get(id);
-    //             setProduct(data)
-    //             console.log(data)
-    //         } catch (error) {
-    //             console.log('Faile to request API', error)
-    //         }
-    //     }
-    //     getProduct()
-    // }, {})
-
     useEffect(() => {
-        apiProductDetail.get(idproduct).then((res) => {
+        apiProduct.getAll().then((res) => {
             console.log(res.data);
             setProducts(res.data)
+        })
+    }, []);
+    useEffect(() => {
+        apiDetail.getAll().then((res) => {
+            console.log(res.data);
+            setDetail(res.data)
+        })
+    }, []);
+    useEffect(() => {
+        apiColor.getAll().then((res) => {
+            console.log(res.data);
+            setColors(res.data)
         })
     }, []);
 
@@ -88,18 +89,14 @@ const ProductDetail = () => {
                                 </ul>
                             </div>
                         </div>
-                        {/*initiate accordion*/}
-                        {/**/}
-
-                        {/**/}
                     </div>
                     <div className="col-md-9 product-price1">
                         <div className="col-md-5 single-top">
-                            <img src={product.image} width="300" />
+                            <img src={products.image} width="300" />
                         </div>
                         <div className="col-md-7 single-top-in simpleCart_shelfItem">
                             <div className="single-para ">
-                                <h4><strong>{product.idcolor}</strong></h4>
+                                <h4><strong>{detail.idcolor}</strong></h4>
                                 <div className="star-on">
                                     <ul className="star-footer">
                                         <li><a href="#"><i> </i></a></li>
@@ -111,15 +108,14 @@ const ProductDetail = () => {
 
                                     <div className="clearfix"> </div>
                                 </div>
-                                <h5 className="item_price">{product.price} vnđ</h5>
-
+                                <h5 className="item_price">{detail.idcolor} vnđ</h5>
                                 <ul className="tag-men">
                                     <li><span>TAG</span>
                                         <span className="women1">: Men</span></li>
                                 </ul>
-                                <span className="women1">{product.status == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng
+                                <span className="women1">{products.status == 'true' ? <p className="women1" style={{ color: '#00BB00' }}>Còn hàng
                                 <br></br>
-                                    <Link to="/cart" onClick={() => addCart(product.id)} className="add-cart item_add" >ADD TO CART</Link>
+                                    <Link to="/cart" onClick={() => addCart(products.id)} className="add-cart item_add" >ADD TO CART</Link>
                                 </p> : <p className="women1" style={{ color: 'red' }}>Hết hàng
                                 <br></br>
                                         <Link className="add-cart item_add disabled-link" >ADD TO CART</Link></p>}
@@ -128,10 +124,7 @@ const ProductDetail = () => {
                         </div>
                         <div className="clearfix"> </div>
                         {/**/}
-
-
                         <div className="clearfix" />
-
                     </div>
                 </div></div></div>
 

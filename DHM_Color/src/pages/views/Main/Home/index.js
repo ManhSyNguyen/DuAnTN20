@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import apiProduct from '../../../../api/productApi'
+import apiDetail from '../../../../api/productDetail'
+import apiColor from '../../../../api/colorApi'
 import { DataContext } from '../ActionCart';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
     const value = useContext(DataContext);
+    const [detail, setDetail] = useState([]);
     const addCart = value.addCart;
     useEffect(() => {
         apiProduct.getAll().then((res) => {
@@ -13,6 +16,15 @@ const Home = () => {
             setProducts(res.data)
         })
     }, []);
+    const getAllProductDetailById = (id) => {
+        apiDetail.get(id).then((res) => {
+            console.log(res.data);
+            setDetail(res.data)
+        })
+    }
+    const onHandelClick = (id) => {
+        getAllProductDetailById(id)
+    }
     return (
         <div>
             <div className="content">
@@ -21,9 +33,8 @@ const Home = () => {
                         <h1><img src="images/giohang.png" width="40px" /> NEW PRODUCTS</h1>
                         <div className="grid-in">
                             {products?.map((item, index) => (
-
                                 <div key={index} className="col-md-4 grid-top">
-                                    <Link to="/cart" onClick={() => addCart(products.id)} className="b-link-stripe b-animate-go  thickbox">
+                                    <Link to={`/productdetails/${item.id}`} onClick={() => onHandelClick(item.id)} className="b-link-stripe b-animate-go  thickbox">
                                         <img className="img-responsive" src={item.image} />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-left    b-delay03 ">

@@ -33,7 +33,7 @@ const Dashboard = ({ products, categorys, posts }) => {
                                 <div className="card card-stats">
                                     <div className="card-header card-header-success card-header-icon">
                                         <p className="card-category">DANH MỤC</p>
-                                        <h3 className="card-title">Số lượng : {categorys.length}</h3>
+                                        {/* <h3 className="card-title">Số lượng : {categorys.length}</h3> */}
                                     </div>
                                     <div className="card-footer">
 
@@ -70,7 +70,7 @@ const Dashboard = ({ products, categorys, posts }) => {
                                     <div className="card-header card-header-danger card-header-icon">
 
                                         <p className="card-category">BÀI VIẾT</p>
-                                        <h3 className="card-title">Số lượng : {posts.length}</h3>
+                                        {/* <h3 className="card-title">Số lượng : {posts.length}</h3> */}
                                     </div>
                                     <div className="card-footer">
 
@@ -84,8 +84,8 @@ const Dashboard = ({ products, categorys, posts }) => {
                                 <div className="card card-stats">
                                     <div className="card-header card-header-warning card-header-icon">
                                         <p className="card-category">SẢN PHẨM </p>
-                                        <h3 className="card-title">Số Lượng : {products.length}
-                                        </h3>
+                                        {/* <h3 className="card-title">Số Lượng : {products.length}
+                                        </h3> */}
                                     </div>
                                     <div className="card-footer">
 

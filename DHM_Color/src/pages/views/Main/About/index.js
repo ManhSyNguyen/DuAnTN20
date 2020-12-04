@@ -1,12 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { DataContext } from '../ActionCart';
+
 import apiProduct from '../../../../api/productApi'
 import apiCategory from '../../../../api/categoryApi'
+import apiDetail from '../../../../api/productDetail'
+import apiColor from '../../../../api/colorApi'
 const About = () => {
 
     const [products, setProducts] = useState([]);
     const [categorys, setCategorys] = useState([]);
+    const [detail, setDetail] = useState([]);
+    const [colors, setColors] = useState([]);
+
 
     useEffect(() => {
         apiProduct.getAll().then((res) => {
@@ -15,12 +21,51 @@ const About = () => {
         })
     }, []);
 
+    const getAllProducts = () => {
+        apiProduct.getAll().then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
+    }
+    const onHandelClickAll = () => {
+        getAllProducts()
+    }
+
     useEffect(() => {
         apiCategory.getAll().then((res) => {
             console.log(res.data);
             setCategorys(res.data)
         })
     }, []);
+
+    useEffect(() => {
+        apiColor.getAll().then((res) => {
+            console.log(res.data);
+            setColors(res.data)
+        })
+    }, []);
+
+    const getAllProductsByCateId = (id) => {
+        apiProduct.get(id).then((res) => {
+            console.log(res.data);
+            setProducts(res.data)
+        })
+    }
+
+    const onHandelClick = (id) => {
+        getAllProductsByCateId(id)
+    }
+
+
+    const getAllProductDetail = (id) => {
+        apiDetail.get(id).then((res) => {
+            console.log(res.data);
+            setDetail(res.data)
+        })
+    }
+    const onHandelDetail = (id) => {
+        getAllProductDetail(id)
+    }
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
 
@@ -46,14 +91,13 @@ const About = () => {
                             </div>
                             <ul className="menu">
                                 <li className="item1">
-                                    <Link className="link_cate" to={"/sanpham"}>Tất cả</Link>
+                                    <Link className="link_cate" onClick={() => onHandelClickAll()} to={"/sanpham"}>Tất cả</Link>
                                     {categorys?.map(({ id, name, index }) => (
                                         <div className="size__list color__list" key={index}>
-                                            <Link className="link_cate" to={"/cate/" + id}>{name}</Link>
+                                            <Link onClick={() => onHandelClick(id)} className="link_cate" to={`/sanpham/${id}`}>{name}</Link>
                                             {console.log(name)}
                                         </div>
                                     ))}
-
                                 </li>
 
                             </ul>
@@ -129,7 +173,7 @@ const About = () => {
                     {/**/}
                     <div className="col-md-9 product1">
                         <div className=" bottom-product">
-                            {products?.map((item, index) => (
+                            {products.map((item, index) => (
                                 index < (((Sotrang + 1) * 9)) && index > ((Sotrang * 9) - 1) &&
                                 <div className="col-md-4 bottom-cd simpleCart_shelfItem" key={index}>
                                     <div className="product-at ">
@@ -139,9 +183,8 @@ const About = () => {
                                             </div>
                                         </Link>
                                     </div>
-                                    <Link to={`/product/${item.id}`} className="tun">{item.nameproduct}</Link>
-                                    <p className="tun1">Size : S - M - L - XL</p>
-                                    <Link to={`/product/${item.id}`} className="item_add">
+                                    <Link onClick={() => onHandelDetail(item.id)} to={`/productdetails/${item.id}`} className="tun">{item.nameproduct}</Link>
+                                    <Link to="/cart" onClick={() => addCart(item.id)} className="item_add">
                                         <p className="number item_price"><i> </i>{item.price} vnđ</p>
                                     </Link>
                                 </div>

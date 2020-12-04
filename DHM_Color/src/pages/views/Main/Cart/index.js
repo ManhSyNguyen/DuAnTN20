@@ -8,10 +8,11 @@ export default function Cart() {
     const [cart, setCart] = value.cart;
     const [total, setTotal] = useState(0)
     const [qty, setQty] = useState(0)
+
     useEffect(() => {
         const getTotal = () => {
             const res = cart.reduce((prev, item) => {
-                return prev + (item.gia_ban * item.count)
+                return prev + (item.price * item.count)
             }, 0)
             setTotal(res)
         }
@@ -80,11 +81,11 @@ export default function Cart() {
                                 <div className="close1" onClick={() => removeProduct(item.id)}> </div>
                                 <div className="cart-sec simpleCart_shelfItem">
                                     <div className="cart-item cyc">
-                                        <img src={item.anh} className="img-responsive" alt="" />
+                                        <img src={item.image} className="img-responsive" alt="" />
                                     </div>
                                     <div className="cart-item-info">
-                                        <p>Tên sản phẩm : {item.ten_sp}</p><br />
-                                        <p>Giá : {item.gia_ban * item.count} vnđ</p>
+                                        <p>Tên sản phẩm : {item.nameproduct}</p><br />
+                                        <p>Giá : {item.price} vnđ</p>
                                         <ul className="qty">
                                             <li><p>Size : </p></li>
                                             <li>
@@ -106,14 +107,26 @@ export default function Cart() {
                     <div className="contact-form">
                         <div className="col-md-8 contact-grid">
                             <form>
-                                <label className='lb'>Họ và tên</label>
-                                <input type="text" />
-                                <label className='lb'>Số điện thoại</label>
-                                <input type="text" />
-                                <label className='lb'>Địa chỉ</label>
-                                <input type="text" />
-                                <label className='lb'>Ghi chú</label>
-                                <textarea cols={77} rows={6} />
+                                <div className="form-group">
+                                    <label className='lb'>Họ và tên</label>
+                                    <input type="text" className="form-control"
+                                        id="name" name="name" />
+                                </div>
+                                <div className="form-group">
+                                    <label className='lb'>Số điện thoại</label>
+                                    <input type="text" lassName="form-control"
+                                        id="sdt" name="sdt" />
+                                </div>
+                                <div className="form-group">
+                                    <label className='lb'>Địa chỉ</label>
+                                    <input type="text" lassName="form-control"
+                                        id="address" name="address" />
+                                </div>
+                                <div className="form-group">
+                                    <label className='lb'>Ghi chú</label>
+                                    <textarea cols={77} rows={6} lassName="form-control"
+                                        id="note" name="note" />
+                                </div>
                             </form>
                         </div>
                     </div>

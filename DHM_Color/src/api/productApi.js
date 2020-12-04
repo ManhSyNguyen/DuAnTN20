@@ -1,7 +1,4 @@
 
-
-
-
 import http from "./axiosHttp";
 
 const USER_API_BASE_URL = "v1/api";
@@ -10,7 +7,7 @@ const getAll = () => {
 };
 
 const get = id => {
-    return http.get(USER_API_BASE_URL + `/products/${id}`);
+    return http.get(USER_API_BASE_URL + `/products/${id}/categorys`);
 };
 
 const create = data => {
@@ -33,5 +30,6 @@ export default {
     create,
     update,
     remove,
+
 };
 
