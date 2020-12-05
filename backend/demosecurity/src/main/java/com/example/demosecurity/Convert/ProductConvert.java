@@ -2,8 +2,12 @@ package com.example.demosecurity.Convert;
 
 
 import com.example.demosecurity.model.dto.ProductDTO;
+import com.example.demosecurity.model.entity.Category;
 import com.example.demosecurity.model.entity.Product;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ProductConvert {
@@ -22,7 +26,7 @@ public class ProductConvert {
     public ProductDTO toDTO(Product entity) {
         ProductDTO dto = new ProductDTO();
         dto.setId(entity.getId());
-        dto.setIdcategory(entity.getCategory().getId());
+        dto.setCategory(entity.getCategory());
         dto.setNameproduct(entity.getNameproduct());
         dto.setPrice(entity.getPrice());
         dto.setStatus(entity.getStatus());

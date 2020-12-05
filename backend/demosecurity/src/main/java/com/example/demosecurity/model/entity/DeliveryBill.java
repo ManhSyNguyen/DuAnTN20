@@ -19,7 +19,7 @@ public class DeliveryBill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdDeliverybill")
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "IdUser")
@@ -30,8 +30,8 @@ public class DeliveryBill implements Serializable {
     private WareHouse wareHouse;
 
 
-    private int realquantity;
-    private int quantityexported;
+    private Integer realquantity;
+    private Integer quantityexported;
     @CreatedDate
     private Date createdate;
     @Column(length = 50)

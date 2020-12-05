@@ -12,9 +12,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ColorDTO {
-    private long id;
+    private Long id;
     private String namecolor;
-    private int status;
+    private Integer status;
     private Date createdate;
     private String createby;
 }

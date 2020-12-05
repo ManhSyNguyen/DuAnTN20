@@ -19,8 +19,9 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartDTO {
-    private long id;
-    private long idcustomer;
+    private Long id;
+    private Long idcustomer;
+    private Customer customer;
     private String phone;
     private String address;
     private String paymentmethod;
@@ -28,6 +29,6 @@ public class CartDTO {
     private Date createdate;
     @CreatedBy
     private String createby;
-    private int status;
+    private Integer status;
     private Set<ProductDetailDTO> ProductDetails;
 }

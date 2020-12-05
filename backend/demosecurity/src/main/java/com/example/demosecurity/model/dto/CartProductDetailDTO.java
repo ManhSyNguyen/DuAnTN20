@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CartProductDetailDTO {
     private CartProductDetailId id;
-    private int quantity;
-    private float price;
-    private int status ;
+    private Integer quantity;
+    private Float price;
+    private Integer status ;
 }

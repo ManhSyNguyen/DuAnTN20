@@ -1,6 +1,7 @@
 package com.example.demosecurity.model.dto;
 
 import com.example.demosecurity.model.entity.Category;
+import com.example.demosecurity.model.entity.Product;
 import com.example.demosecurity.model.entity.ProductDetail;
 import com.example.demosecurity.model.entity.Supplier;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -19,14 +21,17 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
-    private long id;
+    private Long id;
     private Long idcategory;
+    private Category category;
     private String nameproduct;
-    private float price;
-    private int status;
+    private Float price;
+    private Integer status;
     private String image;
     private String decription;
-    private int purchase;
+    private Integer purchase;
     private Date createdate;
     private String createby;
+
+
 }

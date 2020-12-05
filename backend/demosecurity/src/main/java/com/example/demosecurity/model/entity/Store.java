@@ -16,7 +16,7 @@ public class Store implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdStore")
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "IdUser")

@@ -23,8 +23,8 @@ public class OrderConvert {
     public OrderDTO toDTO(Order entity) {
         OrderDTO dto = new OrderDTO();
         dto.setId(entity.getId());
-        dto.setIdUser(entity.getUsers().getId());
-        dto.setIdcustomer(entity.getCustomer().getId());
+        dto.setUser(entity.getUsers());
+        dto.setCustomer(entity.getCustomer());
         dto.setPhone(entity.getPhone());
         dto.setAddress(entity.getAddress());
         dto.setStatus(entity.getStatus());

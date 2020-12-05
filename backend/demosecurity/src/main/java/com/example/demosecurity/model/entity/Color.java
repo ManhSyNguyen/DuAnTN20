@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -18,16 +19,17 @@ public class Color {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdColor")
-    private long id;
+    private Long id;
     @Column(length = 20)
     private String namecolor;
-    private int status;
+    private Integer status;
     @CreatedDate
     private Date createdate;
     @Column(length = 50)
     @CreatedBy
     private String createby;
     @OneToMany
+    @JsonIgnore
     @JoinColumn(name = "IdColor")
     private Set<ProductDetail> ProductDetail;
 

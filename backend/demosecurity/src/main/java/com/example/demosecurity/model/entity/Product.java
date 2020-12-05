@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,27 +24,29 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdProduct")
-    private long id;
+    private Long id;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "IdCategory")
     private Category category;
 
     @Column(name = "nameproduct",columnDefinition = "VARCHAR(100)  NULL")
     private String nameproduct;
-    private float price;
-    private int status;
+    private Float price;
+    private Integer status;
     @Column(name = "image",columnDefinition = "VARCHAR(255)  NULL")
     private String image;
     @Column(name = "decription",columnDefinition = "VARCHAR(255)  NULL")
     private String decription;
-    private int purchase;
+    private Integer purchase;
     @CreatedDate
     private Date createdate;
     @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")
     @CreatedBy
     private String createby;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany
+    @JsonIgnore
     @JoinColumn(name = "IdProduct")
     Set<ProductDetail> productDetail;
 

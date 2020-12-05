@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SupplierDTO {
-    private long Id;
+    private Long Id;
     private String NameSupplier;
     private String Titile;
     private String Address;

@@ -24,10 +24,10 @@ public class Receipt implements Serializable {
     @ManyToOne
     @JoinColumn(name = "IdUser")
     private Users users;
-    private int realquantity;
-    private int quantityeimport;
-    private float price;
-    private int status;
+    private Integer realquantity;
+    private Integer quantityeimport;
+    private Float price;
+    private Integer status;
     @CreatedDate
     private Date createdate;
     @Column(name = "createby",columnDefinition = "VARCHAR(30)  NULL")

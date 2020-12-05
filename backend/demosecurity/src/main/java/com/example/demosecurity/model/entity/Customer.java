@@ -19,7 +19,7 @@ public class Customer implements Serializable {
     @Id
     @Column(name="IdCustomer")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long Id;
     @Column(length = 100)
     private String Name;
     @Column(length = 30)

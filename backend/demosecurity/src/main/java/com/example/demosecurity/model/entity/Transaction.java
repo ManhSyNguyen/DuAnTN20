@@ -16,7 +16,7 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idTransaction")
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "idOrder")

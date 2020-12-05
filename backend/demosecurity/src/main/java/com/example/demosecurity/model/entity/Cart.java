@@ -19,15 +19,15 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCart")
-    private long id;
+    private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "IdCustomer")
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name ="IdCart")
-    @JsonIgnore
     private Set<CartProductDetail>  cartProductDetails;
 
     @Column(length = 15)
@@ -42,5 +42,5 @@ public class Cart {
     @Column(length = 50)
     @CreatedBy
     private String createby;
-    private int status;
+    private Integer status;
 }

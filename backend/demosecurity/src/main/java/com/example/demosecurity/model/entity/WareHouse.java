@@ -18,14 +18,14 @@ public class WareHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdWareHouse")
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "IdProductDetail")
     private ProductDetail productDetail;
 
-    private float price;
-    private int quantity;
+    private Float price;
+    private Integer quantity;
     @CreatedDate
     private Date createdate;
 

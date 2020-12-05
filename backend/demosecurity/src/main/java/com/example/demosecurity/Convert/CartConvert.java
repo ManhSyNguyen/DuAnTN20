@@ -22,7 +22,7 @@ public class CartConvert {
     public CartDTO toDTO(Cart entity) {
         CartDTO dto = new CartDTO();
         dto.setId(entity.getId());
-        dto.setIdcustomer(entity.getCustomer().getId());
+        dto.setCustomer(entity.getCustomer());
         dto.setPhone(entity.getPhone());
         dto.setAddress(entity.getAddress());
         dto.setStatus(entity.getStatus());

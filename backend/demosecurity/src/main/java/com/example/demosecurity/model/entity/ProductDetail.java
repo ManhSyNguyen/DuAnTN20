@@ -22,7 +22,7 @@ public class ProductDetail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdProductDetail")
-    private long id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "IdProduct")
     private Product product;
@@ -38,8 +38,8 @@ public class ProductDetail implements Serializable {
     @JsonIgnore
     private Collection<OrderProductDetail> sales = new ArrayList<>();
 
-    private int quantity;
-    private int status;
+    private Integer quantity;
+    private Integer status;
 
     @CreatedDate
     private Date createdate;

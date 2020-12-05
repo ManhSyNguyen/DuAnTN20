@@ -17,7 +17,7 @@ import javax.persistence.MapsId;
 @NoArgsConstructor
 public class OrderProductDetailDTO {
     private OrderProductDetailId id;
-    private int quantity;
-    private float price;
-    private int status ;
+    private Integer quantity;
+    private Float price;
+    private Integer status ;
 }

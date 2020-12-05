@@ -21,19 +21,20 @@ public class Order {
     @Id
     @Column(name="IdOrder")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long Id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "IdUser")
     private Users users;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "IdCustomer")
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdOrder")
-    @JsonIgnore
     private Set<OrderProductDetail> orderProductDetails;
 
     @Column(length = 15)
@@ -44,5 +45,5 @@ public class Order {
     @Column(length = 50)
     @CreatedBy
     private String createby;
-    private int status;
+    private Integer status;
 }

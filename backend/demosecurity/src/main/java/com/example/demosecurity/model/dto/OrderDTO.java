@@ -1,9 +1,7 @@
 package com.example.demosecurity.model.dto;
 
 
-import com.example.demosecurity.model.entity.CartProductDetail;
-import com.example.demosecurity.model.entity.OrderProductDetail;
-import com.example.demosecurity.model.entity.ProductDetail;
+import com.example.demosecurity.model.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,9 +14,11 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDTO {
-    private long Id;
-    private long idUser;
-    private long idcustomer;
+    private Long Id;
+    private Users user;
+    private Customer customer;
+    private Long idUser;
+    private Long idcustomer;
     private String phone;
     private String address;
     private String paymentmethod;

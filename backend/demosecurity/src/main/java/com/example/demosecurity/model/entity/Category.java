@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +20,9 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCategory")
-    private long id;
+    private Long id;
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private Set<Product> product;
     @Column(name = "name",columnDefinition = "VARCHAR(50)  NULL")
     private String name;

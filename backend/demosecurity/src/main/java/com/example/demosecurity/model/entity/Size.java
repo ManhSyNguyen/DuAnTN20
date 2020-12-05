@@ -1,5 +1,6 @@
 package com.example.demosecurity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -19,7 +20,7 @@ public class Size implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdSize")
-    private long id;
+    private Long id;
     @Column(name = "namesize",columnDefinition = "VARCHAR(40)  NULL")
     private String namesize;
 
@@ -31,6 +32,7 @@ public class Size implements Serializable {
     @CreatedBy
     private String createby;
     @OneToMany
+    @JsonIgnore
     @JoinColumn(name = "IdColor")
     private Set<ProductDetail> ProductDetail;
 }

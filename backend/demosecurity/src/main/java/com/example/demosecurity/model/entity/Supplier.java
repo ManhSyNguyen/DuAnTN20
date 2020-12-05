@@ -18,7 +18,7 @@ public class Supplier  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdSupplier")
-    private long Id;
+    private Long Id;
     private String NameSupplier;
     private String Titile;
     @Column(name = "Address",columnDefinition = "VARCHAR(150)  NULL")

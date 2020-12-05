@@ -31,7 +31,7 @@ public class OrderProductDetail implements Serializable {
     @JoinColumn(name = "IdProductDetail")
     private ProductDetail productDetail;
 
-    private int quantity;
-    private float price;
-    private int status ;
+    private Integer quantity;
+    private Float price;
+    private Integer status ;
 }

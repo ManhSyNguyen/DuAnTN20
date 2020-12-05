@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SizeDTO {
-    private long id;
+    private Long id;
     private String namesize;
     private  boolean status;
     private Date createdate;

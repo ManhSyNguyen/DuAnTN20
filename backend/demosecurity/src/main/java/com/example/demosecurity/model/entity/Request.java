@@ -19,7 +19,7 @@ public class Request  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdRequest")
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "IdUser")

@@ -16,9 +16,9 @@ public class ProductDetailConvert {
     public ProductDetailDTO toDTO(ProductDetail entity) {
         ProductDetailDTO dto = new ProductDetailDTO();
         dto.setId(entity.getId());
-        dto.setIdproduct(entity.getProduct().getId());
-        dto.setIdcolor(entity.getColor().getId());
-        dto.setIdsize(entity.getSize().getId());
+        dto.setProduct(entity.getProduct());
+        dto.setColor(entity.getColor());
+        dto.setSize(entity.getSize());
         dto.setStatus(entity.getStatus());
         dto.setCreatedate(entity.getCreatedate());
         dto.setCreateby(entity.getCreateby());

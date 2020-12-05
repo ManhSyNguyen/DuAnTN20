@@ -27,8 +27,8 @@ public class CartProductDetail {
     @JoinColumn(name = "IdProductDetail")
     private ProductDetail productDetail;
 
-    private int quantity;
+    private Integer quantity;
     private float price;
-    private int status ;
+    private Integer status ;
 
 }

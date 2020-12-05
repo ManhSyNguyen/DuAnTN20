@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryDTO {
-    private long id;
+    private Long id;
     private String name;
     private String decription;
     private boolean status;
